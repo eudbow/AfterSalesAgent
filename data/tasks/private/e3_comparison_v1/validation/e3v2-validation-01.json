@@ -1,0 +1,100 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-01",
+    "first_user_message": "你好，我的邮箱是daiki.johansson8388@example.com。订单#W4680317要申请退货；只退商品6942241102, 7917269097；退款方式选我的现有支付标识paypal_5830506。"
+  },
+  "script": {
+    "task_id": "e3v2-validation-01",
+    "source_user_id": "daiki_johansson_4856",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-退货改取消被拒后重建退货",
+    "title": "退货改取消被拒后重建退货",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "daiki.johansson8388@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "6942241102",
+          "7917269097"
+        ],
+        "order_id": "#W4680317",
+        "payment_method_id": "paypal_5830506"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "validation-step-1",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "6942241102",
+              "7917269097"
+            ],
+            "order_id": "#W4680317",
+            "payment_method_id": "paypal_5830506"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请为订单#W4680317准备取消；我已经不需要了。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W4680317",
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "refusal",
+        "label": "validation-step-2",
+        "expected": null,
+        "slot": null,
+        "reply": "明白不能直接取消，那改为：订单#W4680317要申请退货；只退商品6942241102；退款方式选我的现有支付标识paypal_5830506。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "6942241102"
+            ],
+            "order_id": "#W4680317",
+            "payment_method_id": "paypal_5830506"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "6942241102"
+        ],
+        "order_id": "#W4680317",
+        "payment_method_id": "paypal_5830506"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-01",
+    "kind": "return",
+    "user_id": "daiki_johansson_4856",
+    "order_id": "#W4680317",
+    "arguments": {
+      "item_ids": [
+        "6942241102"
+      ],
+      "order_id": "#W4680317",
+      "payment_method_id": "paypal_5830506"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

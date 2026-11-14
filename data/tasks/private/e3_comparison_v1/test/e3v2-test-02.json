@@ -1,0 +1,111 @@
+{
+  "public": {
+    "task_id": "e3v2-test-02",
+    "first_user_message": "你好，我的邮箱是sophia.jackson1954@example.com。请为订单#W6977171准备取消；我已经不需要了。"
+  },
+  "script": {
+    "task_id": "e3v2-test-02",
+    "source_user_id": "sophia_jackson_6355",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-取消被拒后选退货商品并文字同意",
+    "title": "取消被拒后选退货商品并文字同意",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "sophia.jackson1954@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W6977171",
+        "reason": "no longer needed"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "refusal",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": null,
+        "reply": "明白不能直接取消，那改为：订单#W6977171要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识gift_card_6052478。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "order_id": "#W6977171",
+            "payment_method_id": "gift_card_6052478"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "test-step-2",
+        "expected": null,
+        "slot": "items",
+        "reply": "补充确认：items=1151293680，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1151293680"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1151293680"
+            ],
+            "order_id": "#W6977171",
+            "payment_method_id": "gift_card_6052478"
+          }
+        },
+        "slot": null,
+        "reply": "好的，就按刚才方案办。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1151293680"
+        ],
+        "order_id": "#W6977171",
+        "payment_method_id": "gift_card_6052478"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-02",
+    "kind": "return",
+    "user_id": "sophia_jackson_6355",
+    "order_id": "#W6977171",
+    "arguments": {
+      "item_ids": [
+        "1151293680"
+      ],
+      "order_id": "#W6977171",
+      "payment_method_id": "gift_card_6052478"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 0,
+    "expected_language": "zh",
+    "transition": null,
+    "message_prefix": "明白不能直接取消，那改为：订单#W6977171要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识gift_card_6052478。",
+    "question_stage_label": "test-step-2"
+  },
+  "overlay_notes": "unchanged source"
+}

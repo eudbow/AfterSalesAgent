@@ -1,0 +1,18 @@
+{
+  "suite_id": "e2-live-integration-v1",
+  "frozen_on": "2026-10-25",
+  "scenarios": 8,
+  "episodes": 16,
+  "smoke_task": "e2live-01",
+  "paired_order": "alternate native/mcp first by task index",
+  "files": {
+    "data/tasks/e2_live_v1/inputs.jsonl": "8f7e075d2187ed169cc346c1e120206984d40da95699df62769ad724695bf12e",
+    "data/tasks/private/e2_live_v1/user_scripts.jsonl": "af47e7721e1ef0ba20f3a35a9d22a086ed18be17df177e9115b66add067cbd1c",
+    "data/tasks/private/e2_live_v1/criteria.jsonl": "997e0bfb9c5c92a0894df98f6e3fb8d9526c2cb96bd5f3493acd74c166c77e15"
+  },
+  "limitations": [
+    "Known development scenarios reused/adapted; integration check, not fresh held-out accuracy",
+    "Seven business scenarios and one separate read-only policy consultation",
+    "No automatic task reruns; all outcomes retained; no Skill loaded"
+  ]
+}

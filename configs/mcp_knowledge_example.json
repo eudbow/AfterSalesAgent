@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "aftersales-knowledge": {
+      "command": "E:/Projects/AfterSalesAgent/.venv/Scripts/python.exe",
+      "args": [
+        "-m",
+        "aftersalesagent.mcp_transport.server"
+      ]
+    }
+  }
+}

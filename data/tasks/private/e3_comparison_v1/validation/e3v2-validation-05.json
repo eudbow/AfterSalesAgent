@@ -1,0 +1,112 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-05",
+    "first_user_message": "你好，我的邮箱是mei.wilson5728@example.com。请将订单#W4498118地址改为845 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。"
+  },
+  "script": {
+    "task_id": "e3v2-validation-05",
+    "source_user_id": "mei_wilson_1792",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-改址文字同意后跨州修正",
+    "title": "改址文字同意后跨州修正",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "mei.wilson5728@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "845 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W4498118",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "validation-step-1",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "845 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W4498118",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "好的，就按刚才方案办。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "845 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W4498118",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：城市=Portland；州=OR；邮编=97205。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "city": "Portland",
+            "state": "OR",
+            "zip": "97205"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "845 Elm Street",
+        "address2": "Suite 3",
+        "city": "Portland",
+        "country": "USA",
+        "order_id": "#W4498118",
+        "state": "OR",
+        "zip": "97205"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-05",
+    "kind": "address",
+    "user_id": "mei_wilson_1792",
+    "order_id": "#W4498118",
+    "arguments": {
+      "address1": "845 Elm Street",
+      "address2": "Suite 3",
+      "city": "Portland",
+      "country": "USA",
+      "order_id": "#W4498118",
+      "state": "OR",
+      "zip": "97205"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

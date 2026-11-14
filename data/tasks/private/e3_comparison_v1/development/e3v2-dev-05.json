@@ -1,0 +1,86 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-05",
+    "first_user_message": "你好，我的邮箱是omar.martin1276@example.com。订单#W7028924要退商品7609274509和6017636844，退款用原方式gift_card_6784145。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-05",
+    "source_user_id": "omar_martin_3329",
+    "source_task": "e3dev-05",
+    "family": "return_set_replacement",
+    "title": "退货集合替换一件",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "omar.martin1276@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "7609274509",
+          "6017636844"
+        ],
+        "order_id": "#W7028924",
+        "payment_method_id": "gift_card_6784145"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "replace_member",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "7609274509",
+              "6017636844"
+            ],
+            "order_id": "#W7028924",
+            "payment_method_id": "gift_card_6784145"
+          }
+        },
+        "slot": null,
+        "reply": "改一下退货清单：保留7609274509不退，改为退6017636844和5946177616，其他商品不退，退款方式不变。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "6017636844",
+              "5946177616"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "6017636844",
+          "5946177616"
+        ],
+        "order_id": "#W7028924",
+        "payment_method_id": "gift_card_6784145"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-05",
+    "kind": "return",
+    "user_id": "omar_martin_3329",
+    "order_id": "#W7028924",
+    "arguments": {
+      "item_ids": [
+        "6017636844",
+        "5946177616"
+      ],
+      "order_id": "#W7028924",
+      "payment_method_id": "gift_card_6784145"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

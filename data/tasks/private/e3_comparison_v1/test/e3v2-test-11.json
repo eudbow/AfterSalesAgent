@@ -1,0 +1,153 @@
+{
+  "public": {
+    "task_id": "e3v2-test-11",
+    "first_user_message": "你好，我的邮箱是yusuf.jackson4654@example.com。订单#W7128968要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识paypal_3392566。"
+  },
+  "script": {
+    "task_id": "e3v2-test-11",
+    "source_user_id": "yusuf_jackson_7865",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-跨语言选商品更换支付再替换商品",
+    "title": "跨语言选商品更换支付再替换商品",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "yusuf.jackson4654@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "order_id": "#W7128968",
+        "payment_method_id": "paypal_3392566"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "items",
+        "reply": "My choice is items=7539442683; keep the other details as requested.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "7539442683"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "7539442683"
+            ],
+            "order_id": "#W7128968",
+            "payment_method_id": "paypal_3392566"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退款方式=gift_card_7037673。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_7037673"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "7539442683"
+            ],
+            "order_id": "#W7128968",
+            "payment_method_id": "gift_card_7037673"
+          }
+        },
+        "slot": null,
+        "reply": "现在改为取消订单#W7128968，原因是不再需要（no longer needed）；之前提议尚未正式确认。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W7128968",
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "refusal",
+        "label": "overlay-cancel-refused-back-to-return",
+        "expected": null,
+        "slot": null,
+        "reply": "Understood. Return order #W7128968 instead, refund method gift_card_7037673. I have not decided the return item IDs; please ask me.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "order_id": "#W7128968",
+            "payment_method_id": "gift_card_7037673"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "overlay-return-items-after-language-switch",
+        "expected": null,
+        "slot": "items",
+        "reply": "Return only item IDs 7729002517; retain the stated refund method.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "7729002517"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "7729002517"
+        ],
+        "order_id": "#W7128968",
+        "payment_method_id": "gift_card_7037673"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-11",
+    "kind": "return",
+    "user_id": "yusuf_jackson_7865",
+    "order_id": "#W7128968",
+    "arguments": {
+      "item_ids": [
+        "7729002517"
+      ],
+      "order_id": "#W7128968",
+      "payment_method_id": "gift_card_7037673"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 3,
+    "expected_language": "en",
+    "transition": "zh_to_en",
+    "message_prefix": "Understood. Return order #W7128968 instead, refund method gift_card_7037673. I have not decided the return item IDs; please ask me.",
+    "question_stage_label": "overlay-return-items-after-language-switch"
+  },
+  "overlay_notes": "Added explicit cancel/refusal/return-item clarification after an existing proposal; same source identity and final goal, separate version, not language-only generalization."
+}

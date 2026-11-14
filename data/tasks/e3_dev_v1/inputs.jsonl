@@ -1,0 +1,12 @@
+{"first_user_message": "你好，我的邮箱是emma.martin1207@example.com。请把订单#W7988753地址改为721 Maple Street，第二行Unit 8，Seattle，WA，USA，邮编98101。", "task_id": "e3dev-01"}
+{"first_user_message": "你好，我的邮箱是mia.jackson5798@example.com。请将订单#W6236251地址改成722 Maple Street，第二行Unit 8，Seattle，WA，USA。邮编尚未告诉你，请先询问，不要从旧订单推断。", "task_id": "e3dev-02"}
+{"first_user_message": "你好，我的邮箱是isabella.johansson9391@example.com。请将订单#W2575533地址改为723 Maple Street，第二行Unit 8，Seattle，WA，USA，邮编98101。", "task_id": "e3dev-03"}
+{"first_user_message": "你好，我的邮箱是lei.wilson1253@example.com。想退订单#W4073673的部分商品，具体哪些我还没说，请问我，不要替我挑。退款选原支付方式credit_card_3677959。", "task_id": "e3dev-04"}
+{"first_user_message": "你好，我的邮箱是omar.martin1276@example.com。订单#W7028924要退商品7609274509和6017636844，退款用原方式gift_card_6784145。", "task_id": "e3dev-05"}
+{"first_user_message": "你好，我的邮箱是isabella.johnson5435@example.com。订单#W3431083只退商品6309044598，退款先选原支付方式paypal_5071744。", "task_id": "e3dev-06"}
+{"first_user_message": "你好，我的邮箱是mason.johansson9549@example.com。我想取消订单#W4536116，取消原因还没决定，请先问我。", "task_id": "e3dev-07"}
+{"first_user_message": "你好，我的邮箱是lei.patel2400@example.com。我不需要订单#W2403263了，请发起取消。", "task_id": "e3dev-08"}
+{"first_user_message": "你好，我的邮箱是ethan.lopez8943@example.com。请把订单#W9409203地址改为729 Maple Street，第二行Unit 8，Seattle，WA，USA，邮编98101。", "task_id": "e3dev-09"}
+{"first_user_message": "你好，我的邮箱是sofia.davis8164@example.com。订单#W2112666我不想要了。即使已经送达，也请直接取消；若不符合规则请明确说明。", "task_id": "e3dev-10"}
+{"first_user_message": "你好，我的邮箱是daiki.patel3402@example.com。我要退订单#W3135192的商品2989722512。退款方式尚未决定，请先询问，别替我选择原支付或礼品卡。", "task_id": "e3dev-11"}
+{"first_user_message": "你好，我的邮箱是noah.kovacs8240@example.com。不需要订单#W9440076了，请帮我发起取消。", "task_id": "e3dev-12"}

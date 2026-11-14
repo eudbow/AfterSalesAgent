@@ -1,0 +1,19 @@
+{
+  "corpus_id": "aftersales-knowledge-e1-v1",
+  "snapshot_date": "2026-10-24",
+  "official_documents": 2,
+  "official_chunks": 17,
+  "simulated_chunks": 6,
+  "chunk_count": 23,
+  "review": "Assistant curated paraphrases with exact source spans; not independent human annotation",
+  "date_rule": "Official effective dates unknown; simulated dates explicit; fetch date never substituted",
+  "files": {
+    "data/knowledge/e1_v1/sources/simulated_policy.txt": "290fb67270517bf850331d1127e3d42ec0093060917d9428424b7e4f8ae95a38",
+    "data/knowledge/e1_v1/chunks.jsonl": "8f8fcd671debd743e7ad0bc7a857856353ce7d447c6dda40364b17ed158f134e",
+    "data/knowledge/e1_v1/sources/ikea_returns.html": "51082fab8c38e35c38b128f16d5b81fe5635d0cc8a2f090c278975e5fc864f59",
+    "data/knowledge/e1_v1/sources/ikea_returns.txt": "eec53e8d3f103b297ed8d3a82a1e8e18c5d0348dcaa149403e5079201e5031e7",
+    "data/knowledge/e1_v1/sources/ikea_guarantees.html": "de2aacf67629d231425fb05bfa723cdd22de8b57f9f85ca72827f770f3b7e1ee",
+    "data/knowledge/e1_v1/sources/ikea_guarantees.txt": "7822ae592b644b79bd78a3071d28440a67f2b299d013caedde7b511d9f659909",
+    "data/knowledge/e1_v1/sources/manifest.json": "2bf9039d7c37aead64375b17fe7363af78940279875e5f57a82867ff8235e6a2"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "public": {
+    "task_id": "e3v2-test-07",
+    "first_user_message": "你好，我的邮箱是lucas.johansson7741@example.com。请将订单#W5073920地址改为847 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。"
+  },
+  "script": {
+    "task_id": "e3v2-test-07",
+    "source_user_id": "lucas_johansson_1090",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-地址第二行清空恢复后文字同意",
+    "title": "地址第二行清空恢复后文字同意",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "lucas.johansson7741@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "847 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W5073920",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "test-step-1",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "847 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W5073920",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：地址第二行=清空。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address2": ""
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "847 Elm Street",
+            "address2": "",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W5073920",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：地址第二行=Apt 12。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address2": "Apt 12"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "847 Elm Street",
+            "address2": "Apt 12",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W5073920",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "好的，就按刚才方案办。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "847 Elm Street",
+        "address2": "Apt 12",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W5073920",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-07",
+    "kind": "address",
+    "user_id": "lucas_johansson_1090",
+    "order_id": "#W5073920",
+    "arguments": {
+      "address1": "847 Elm Street",
+      "address2": "Apt 12",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W5073920",
+      "state": "WA",
+      "zip": "98101"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

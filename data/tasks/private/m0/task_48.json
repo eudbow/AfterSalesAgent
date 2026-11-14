@@ -1,0 +1,81 @@
+{
+  "source_task_id": "48",
+  "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "initial_fixture": "data/upstream/tau2-bench/data/tau2/domains/retail/db.json",
+  "initial_state": null,
+  "user_simulator": {
+    "persona": null,
+    "instructions": {
+      "task_instructions": "Be polite and thank the agent for the help.",
+      "domain": "retail",
+      "reason_for_call": "You want to return an air purifier that you received since it doesn't work well.  You want the refund on your original method of payment.  Also, check at the end whether you are able to return the vacuum cleaner, but you are not sure yet so don't process anything.",
+      "known_info": "You are daiki_johnson_9523 living in Denver, USA, 80273.",
+      "unknown_info": "You do not remember your email address"
+    }
+  },
+  "evaluation_criteria": {
+    "actions": [
+      {
+        "action_id": "48_0",
+        "name": "find_user_id_by_name_zip",
+        "arguments": {
+          "first_name": "Daiki",
+          "last_name": "Johnson",
+          "zip": "80273"
+        },
+        "info": null
+      },
+      {
+        "action_id": "48_1",
+        "name": "get_user_details",
+        "arguments": {
+          "user_id": "daiki_johnson_9523"
+        },
+        "info": null
+      },
+      {
+        "action_id": "48_2",
+        "name": "get_order_details",
+        "arguments": {
+          "order_id": "#W1436802"
+        },
+        "info": null
+      },
+      {
+        "action_id": "48_3",
+        "name": "get_order_details",
+        "arguments": {
+          "order_id": "#W5282037"
+        },
+        "info": null
+      },
+      {
+        "action_id": "48_4",
+        "name": "get_order_details",
+        "arguments": {
+          "order_id": "#W9502127"
+        },
+        "info": null
+      },
+      {
+        "action_id": "48_5",
+        "name": "return_delivered_order_items",
+        "arguments": {
+          "order_id": "#W9502127",
+          "item_ids": [
+            "9534205511"
+          ],
+          "payment_method_id": "paypal_2433177"
+        },
+        "info": null
+      }
+    ],
+    "communicate_info": [],
+    "nl_assertions": null,
+    "reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ]
+  },
+  "access_boundary": "user_simulator and evaluation materials; never pass this file to Agent"
+}

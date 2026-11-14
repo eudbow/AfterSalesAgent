@@ -1,0 +1,90 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-11",
+    "first_user_message": "Hello, my email is daiki.patel3402@example.com. Return item 2989722512 from order #W3135192. I have not decided the refund method; please ask me before choosing one."
+  },
+  "script": {
+    "task_id": "e3v2-dev-11",
+    "source_user_id": "daiki_patel_5953",
+    "source_task": "e3dev-11",
+    "family": "refund_choice_then_text_approval",
+    "title": "补退款方式后普通文字同意",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "daiki.patel3402@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "2989722512"
+        ],
+        "order_id": "#W3135192"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "payment_answer",
+        "expected": null,
+        "slot": "payment",
+        "reply": "退款方式选原支付方式paypal_1009053。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "paypal_1009053"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "plain_yes",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "2989722512"
+            ],
+            "order_id": "#W3135192",
+            "payment_method_id": "paypal_1009053"
+          }
+        },
+        "slot": null,
+        "reply": "Okay, please proceed with that return proposal.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "2989722512"
+        ],
+        "order_id": "#W3135192",
+        "payment_method_id": "paypal_1009053"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-11",
+    "kind": "return",
+    "user_id": "daiki_patel_5953",
+    "order_id": "#W3135192",
+    "arguments": {
+      "item_ids": [
+        "2989722512"
+      ],
+      "order_id": "#W3135192",
+      "payment_method_id": "paypal_1009053"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

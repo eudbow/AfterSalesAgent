@@ -1,0 +1,119 @@
+{
+  "public": {
+    "task_id": "e3v2-test-06",
+    "first_user_message": "你好，我的邮箱是sofia.li5731@example.com。订单#W9323073要申请退货；只退商品2001307871, 5788631787；退款方式还未决定，请先询问，不要代选。"
+  },
+  "script": {
+    "task_id": "e3v2-test-06",
+    "source_user_id": "sofia_li_8235",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-选择退款方式缩减商品再更换支付",
+    "title": "选择退款方式缩减商品再更换支付",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "sofia.li5731@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "2001307871",
+          "5788631787"
+        ],
+        "order_id": "#W9323073"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "payment",
+        "reply": "补充确认：payment=credit_card_8296913，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "credit_card_8296913"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "2001307871",
+              "5788631787"
+            ],
+            "order_id": "#W9323073",
+            "payment_method_id": "credit_card_8296913"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退货商品清单=5788631787。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "5788631787"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "5788631787"
+            ],
+            "order_id": "#W9323073",
+            "payment_method_id": "credit_card_8296913"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退款方式=gift_card_3242199。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_3242199"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "5788631787"
+        ],
+        "order_id": "#W9323073",
+        "payment_method_id": "gift_card_3242199"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-06",
+    "kind": "return",
+    "user_id": "sofia_li_8235",
+    "order_id": "#W9323073",
+    "arguments": {
+      "item_ids": [
+        "5788631787"
+      ],
+      "order_id": "#W9323073",
+      "payment_method_id": "gift_card_3242199"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

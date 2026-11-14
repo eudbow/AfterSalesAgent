@@ -1,0 +1,126 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-04",
+    "first_user_message": "你好，我的邮箱是lei.li8350@example.com。订单#W6289770要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识credit_card_4466831。"
+  },
+  "script": {
+    "task_id": "e3v2-validation-04",
+    "source_user_id": "lei_li_6575",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-选退货清单后改礼品卡再缩减",
+    "title": "选退货清单后改礼品卡再缩减",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "lei.li8350@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "order_id": "#W6289770",
+        "payment_method_id": "credit_card_4466831"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "validation-step-1",
+        "expected": null,
+        "slot": "items",
+        "reply": "补充确认：items=8098621301, 1120917161，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "8098621301",
+              "1120917161"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "8098621301",
+              "1120917161"
+            ],
+            "order_id": "#W6289770",
+            "payment_method_id": "credit_card_4466831"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退款方式=gift_card_8049813。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_8049813"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "8098621301",
+              "1120917161"
+            ],
+            "order_id": "#W6289770",
+            "payment_method_id": "gift_card_8049813"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退货商品清单=1120917161。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1120917161"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1120917161"
+        ],
+        "order_id": "#W6289770",
+        "payment_method_id": "gift_card_8049813"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-04",
+    "kind": "return",
+    "user_id": "lei_li_6575",
+    "order_id": "#W6289770",
+    "arguments": {
+      "item_ids": [
+        "1120917161"
+      ],
+      "order_id": "#W6289770",
+      "payment_method_id": "gift_card_8049813"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "zh",
+    "transition": null,
+    "message_prefix": "你好，我的邮箱是lei.li8350@example.com。订单#W6289770要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识credit_card_4466831。",
+    "question_stage_label": "validation-step-1"
+  },
+  "overlay_notes": "unchanged source"
+}

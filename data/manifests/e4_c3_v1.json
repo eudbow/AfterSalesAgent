@@ -1,0 +1,31 @@
+{
+  "suite": "e4_c3_v1",
+  "files": {
+    "data/knowledge/e4_c3_v1/chunks.jsonl": "ff47dc9b50d1c8aa377a431817751c80ad2ad76cd595b419881288bb9f8f1fe7",
+    "data/knowledge/e4_c3_v1/manifest.json": "1199544db63f79a95fc5dae4a387b652fa309d2757af7c9dccb6c3f0491925a8",
+    "data/knowledge/e4_c3_v1/simulations.txt": "692f5bcaff9855ffc57e45e2218e4c9ecae11899d4cfcfed816bf6ab1e3598ca",
+    "data/tasks/e4_c3_v1/dev.jsonl": "744d3ed32087554515451ecde26cbc4fc44c84e8c2ebb983aa1743d5332cf7e8",
+    "data/tasks/e4_c3_v1/test.jsonl": "29010ca684e6d8a6074348bbb19f9debdf52769e714bad663f5d6b5a406755e5",
+    "data/tasks/e4_c3_v1/validation.jsonl": "a81d391d0a745550b7ce96ec2b4b3d51929a3daa6ff3dfa4679c68ecdcac777b",
+    "data/tasks/private/e4_c3_v1/dev.jsonl": "4ea5b4925b71fae9141694692d8d24503e66d408545074f8ffad573ee5927359",
+    "data/tasks/private/e4_c3_v1/review.json": "7cd9fc9fe4d0c466ab59f321f457f8c5aca4380e0e51745ad79d7ff716f87cc7",
+    "data/tasks/private/e4_c3_v1/test.jsonl": "4ecbc8ca6226d3114313af90efd00c3455e6922ff21a19f753fe77c1b3daacbe",
+    "data/tasks/private/e4_c3_v1/validation.jsonl": "ac5b90597b5ad481f7b86f8c6edf61c3a38a84d97080c3921d4a552ddd63de05"
+  },
+  "splits": {
+    "dev": 30,
+    "validation": 30,
+    "test": 30
+  },
+  "families": 45,
+  "challenges": {
+    "identifier": 18,
+    "paraphrase": 18,
+    "condition": 18,
+    "multi_evidence": 12,
+    "no_answer": 12,
+    "date_scope": 6,
+    "conflict": 6
+  },
+  "reviewer_kind": "assistant"
+}

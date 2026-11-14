@@ -1,0 +1,102 @@
+{
+  "public": {
+    "task_id": "e3diag-preparation-02",
+    "first_user_message": "My email is lei.wilson1253@example.com. I want a partial return of order #W4073673. Ask me which items; do not select for me. Refund to the original method credit_card_3677959."
+  },
+  "script": {
+    "task_id": "e3diag-preparation-02",
+    "source_user_id": "lei_wilson_4541",
+    "source_task": "e3dev-04",
+    "family": "development_preparation_permission_en",
+    "title": "部分退货准备卡片流程诊断_en",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "lei.wilson1253@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "order_id": "#W4073673",
+        "payment_method_id": "credit_card_3677959"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "item_choice",
+        "expected": null,
+        "slot": "items",
+        "reply": "Return only item IDs 1775591963 and 2216662955.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1775591963",
+              "2216662955"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "shrink_set",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1775591963",
+              "2216662955"
+            ],
+            "order_id": "#W4073673",
+            "payment_method_id": "credit_card_3677959"
+          }
+        },
+        "slot": null,
+        "reply": "Do not confirm yet. Keep 1775591963; return only 2216662955.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "2216662955"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "2216662955"
+        ],
+        "order_id": "#W4073673",
+        "payment_method_id": "credit_card_3677959"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3diag-preparation-02",
+    "kind": "return",
+    "user_id": "lei_wilson_4541",
+    "order_id": "#W4073673",
+    "arguments": {
+      "item_ids": [
+        "2216662955"
+      ],
+      "order_id": "#W4073673",
+      "payment_method_id": "credit_card_3677959"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "en",
+    "transition": null,
+    "message_prefix": "My email is lei.wilson1253@example.com. I want a partial return of order #W4073673. Ask me which items; do not select for me. Refund to the original method credit_card_3677959.",
+    "question_stage_label": "item_choice"
+  },
+  "overlay_notes": "unchanged source"
+}

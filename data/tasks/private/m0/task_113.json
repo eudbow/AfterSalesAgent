@@ -1,0 +1,47 @@
+{
+  "source_task_id": "113",
+  "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "initial_fixture": "data/upstream/tau2-bench/data/tau2/domains/retail/db.json",
+  "initial_state": null,
+  "user_simulator": {
+    "persona": null,
+    "instructions": {
+      "task_instructions": "You are mysterious and  don't want to reveal the reason for cancellation until the agent asks. If asked for reason, say you ordered the items by mistake.",
+      "domain": "retail",
+      "reason_for_call": "You want to cancel all pending orders.",
+      "known_info": "You name is Yara Muller and your zip code is 85041.",
+      "unknown_info": "You do not remember your email address"
+    }
+  },
+  "evaluation_criteria": {
+    "actions": [
+      {
+        "action_id": "114_0",
+        "name": "cancel_pending_order",
+        "arguments": {
+          "order_id": "#W5056519",
+          "reason": "ordered by mistake"
+        },
+        "info": null
+      },
+      {
+        "action_id": "114_1",
+        "name": "cancel_pending_order",
+        "arguments": {
+          "order_id": "#W5995614",
+          "reason": "ordered by mistake"
+        },
+        "info": null
+      }
+    ],
+    "communicate_info": [],
+    "nl_assertions": [
+      "Agent should cancel all pending orders"
+    ],
+    "reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ]
+  },
+  "access_boundary": "user_simulator and evaluation materials; never pass this file to Agent"
+}

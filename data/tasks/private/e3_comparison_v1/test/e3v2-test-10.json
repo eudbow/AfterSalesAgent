@@ -1,0 +1,133 @@
+{
+  "public": {
+    "task_id": "e3v2-test-10",
+    "first_user_message": "Hello, my email is lucas.martin9430@example.com. Change order #W5502903 to 850 Elm Street, address line 2 Suite 3, Seattle, WA, USA; zip is not provided; please ask me."
+  },
+  "script": {
+    "task_id": "e3v2-test-10",
+    "source_user_id": "lucas_martin_7509",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-补邮编整体替换地址后文字同意",
+    "title": "补邮编整体替换地址后文字同意",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "lucas.martin9430@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "850 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W5502903",
+        "state": "WA"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "zip",
+        "reply": "My choice is zip=98101; keep the other details as requested.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98101"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "850 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W5502903",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "Change order #W5502903 to 888 Ash Avenue, address line 2 empty, Boston, MA, USA; zip 02108.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address1": "888 Ash Avenue",
+            "address2": "",
+            "city": "Boston",
+            "state": "MA",
+            "zip": "02108"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "888 Ash Avenue",
+            "address2": "",
+            "city": "Boston",
+            "country": "USA",
+            "order_id": "#W5502903",
+            "state": "MA",
+            "zip": "02108"
+          }
+        },
+        "slot": null,
+        "reply": "Okay, go ahead with that proposal.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "888 Ash Avenue",
+        "address2": "",
+        "city": "Boston",
+        "country": "USA",
+        "order_id": "#W5502903",
+        "state": "MA",
+        "zip": "02108"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-10",
+    "kind": "address",
+    "user_id": "lucas_martin_7509",
+    "order_id": "#W5502903",
+    "arguments": {
+      "address1": "888 Ash Avenue",
+      "address2": "",
+      "city": "Boston",
+      "country": "USA",
+      "order_id": "#W5502903",
+      "state": "MA",
+      "zip": "02108"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "en",
+    "transition": null,
+    "message_prefix": "Hello, my email is lucas.martin9430@example.com. Change order #W5502903 to 850 Elm Street, address line 2 Suite 3, Seattle, WA, USA; zip is not provided; please ask me.",
+    "question_stage_label": "test-step-1"
+  },
+  "overlay_notes": "unchanged source"
+}

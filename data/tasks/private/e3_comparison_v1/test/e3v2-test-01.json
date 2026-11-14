@@ -1,0 +1,142 @@
+{
+  "public": {
+    "task_id": "e3v2-test-01",
+    "first_user_message": "你好，我的邮箱是james.johnson7869@example.com。请为订单#W1006327准备取消；原因尚未决定，请先问我，不要替我选择。"
+  },
+  "script": {
+    "task_id": "e3v2-test-01",
+    "source_user_id": "james_johnson_9321",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-补取消原因转缺邮编改址再联合更正",
+    "title": "补取消原因转缺邮编改址再联合更正",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "james.johnson7869@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W1006327"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "reason",
+        "reply": "补充确认：reason=no longer needed，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W1006327",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请将订单#W1006327地址改为841 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "841 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W1006327",
+            "state": "WA"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "test-step-3",
+        "expected": null,
+        "slot": "zip",
+        "reply": "补充确认：zip=98101，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98101"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-4",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "841 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W1006327",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：地址第二行=清空；城市=Tacoma；邮编=98402。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address2": "",
+            "city": "Tacoma",
+            "zip": "98402"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "841 Elm Street",
+        "address2": "",
+        "city": "Tacoma",
+        "country": "USA",
+        "order_id": "#W1006327",
+        "state": "WA",
+        "zip": "98402"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-01",
+    "kind": "address",
+    "user_id": "james_johnson_9321",
+    "order_id": "#W1006327",
+    "arguments": {
+      "address1": "841 Elm Street",
+      "address2": "",
+      "city": "Tacoma",
+      "country": "USA",
+      "order_id": "#W1006327",
+      "state": "WA",
+      "zip": "98402"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "zh",
+    "transition": null,
+    "message_prefix": "你好，我的邮箱是james.johnson7869@example.com。请为订单#W1006327准备取消；原因尚未决定，请先问我，不要替我选择。",
+    "question_stage_label": "test-step-1"
+  },
+  "overlay_notes": "unchanged source"
+}

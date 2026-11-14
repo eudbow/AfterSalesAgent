@@ -1,0 +1,114 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-03",
+    "first_user_message": "你好，我的邮箱是isabella.johansson9391@example.com。请将订单#W2575533地址改为723 Maple Street，第二行Unit 8，Seattle，WA，USA，邮编98101。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-03",
+    "source_user_id": "isabella_johansson_2152",
+    "source_task": "e3dev-03",
+    "family": "address_two_corrections_clear",
+    "title": "两次改口且清空第二行",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "isabella.johansson9391@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "723 Maple Street",
+        "address2": "Unit 8",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W2575533",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "street_revision",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "723 Maple Street",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W2575533",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "Please correct the street to 900 Pine Avenue. Keep the other fields unchanged.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address1": "900 Pine Avenue"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "second_revision",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "900 Pine Avenue",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W2575533",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "再更正：第二行清空，城市Tacoma，邮编98402；街道保留刚改的，其余不变。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address2": "",
+            "city": "Tacoma",
+            "zip": "98402"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "900 Pine Avenue",
+        "address2": "",
+        "city": "Tacoma",
+        "country": "USA",
+        "order_id": "#W2575533",
+        "state": "WA",
+        "zip": "98402"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-03",
+    "kind": "address",
+    "user_id": "isabella_johansson_2152",
+    "order_id": "#W2575533",
+    "arguments": {
+      "address1": "900 Pine Avenue",
+      "address2": "",
+      "city": "Tacoma",
+      "country": "USA",
+      "order_id": "#W2575533",
+      "state": "WA",
+      "zip": "98402"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

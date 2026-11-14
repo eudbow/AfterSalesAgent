@@ -1,0 +1,119 @@
+{
+  "public": {
+    "task_id": "e3v2-test-09",
+    "first_user_message": "Hello, my email is ava.nguyen3664@example.com. Request a return for order #W9126675; items are undecided; ask me before choosing; use my existing refund method paypal_6262583."
+  },
+  "script": {
+    "task_id": "e3v2-test-09",
+    "source_user_id": "ava_nguyen_2175",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-选退货商品更换礼品卡后文字同意",
+    "title": "选退货商品更换礼品卡后文字同意",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "ava.nguyen3664@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "order_id": "#W9126675",
+        "payment_method_id": "paypal_6262583"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "items",
+        "reply": "My choice is items=1596993217; keep the other details as requested.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1596993217"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1596993217"
+            ],
+            "order_id": "#W9126675",
+            "payment_method_id": "paypal_6262583"
+          }
+        },
+        "slot": null,
+        "reply": "Before approval, correct refund method=gift_card_3324938. Keep all other fields unchanged.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_3324938"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1596993217"
+            ],
+            "order_id": "#W9126675",
+            "payment_method_id": "gift_card_3324938"
+          }
+        },
+        "slot": null,
+        "reply": "Okay, go ahead with that proposal.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1596993217"
+        ],
+        "order_id": "#W9126675",
+        "payment_method_id": "gift_card_3324938"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-09",
+    "kind": "return",
+    "user_id": "ava_nguyen_2175",
+    "order_id": "#W9126675",
+    "arguments": {
+      "item_ids": [
+        "1596993217"
+      ],
+      "order_id": "#W9126675",
+      "payment_method_id": "gift_card_3324938"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "en",
+    "transition": null,
+    "message_prefix": "Hello, my email is ava.nguyen3664@example.com. Request a return for order #W9126675; items are undecided; ask me before choosing; use my existing refund method paypal_6262583.",
+    "question_stage_label": "test-step-1"
+  },
+  "overlay_notes": "unchanged source"
+}

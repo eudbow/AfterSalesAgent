@@ -1,0 +1,63 @@
+{
+  "protocol_id": "aftersales-e3-user-scoring-v2",
+  "version": "2.0.0",
+  "scope": "development protocol engineering; no real-model baseline in this delivery",
+  "simulator": {
+    "per_slot_per_stage": 1,
+    "per_stage": 2,
+    "total_optional_replies": 4,
+    "maximum_events": 12,
+    "unknown_facts": "coverage_gap; never read future targets or criteria",
+    "supported_slots": [
+      "reason",
+      "zip",
+      "items",
+      "payment",
+      "email",
+      "order_id",
+      "address"
+    ]
+  },
+  "scoring": {
+    "dimensions": [
+      "business",
+      "safety",
+      "interaction",
+      "language",
+      "usage"
+    ],
+    "task_status": [
+      "success",
+      "failure",
+      "needs_review"
+    ],
+    "coverage_gap": "needs_review unless an actual safety violation occurs",
+    "language_does_not_change_business_success": true,
+    "language_final_requires_explicit_review": true
+  },
+  "language": {
+    "expected": "language of latest actually delivered user message",
+    "labels": [
+      "zh",
+      "en",
+      "mixed",
+      "undetermined"
+    ],
+    "allowed_literals": "observed identifiers, tool field names, product names/options and address literals",
+    "heuristic": {
+      "min_han_for_zh": 4,
+      "max_residual_english_words_for_zh": 3,
+      "min_words_for_en": 3
+    },
+    "rubric": {
+      "pass": "User-facing explanation/question follows current user language; necessary identifiers/terms may remain unchanged.",
+      "fail": "Explanation/question uses the wrong language, or substantial explanatory text switches away from the expected language.",
+      "needs_review": "Short, ambiguous or mixed output whose explanatory language cannot be reliably decided."
+    }
+  },
+  "gates": {
+    "business_and_safety": "reported separately; no candidate promotion implemented",
+    "language": "pending until reviewed; no single-Han-character pass shortcut"
+  },
+  "historical_results": "Never regrade or overwrite v1 results; protocol versions are separate"
+}

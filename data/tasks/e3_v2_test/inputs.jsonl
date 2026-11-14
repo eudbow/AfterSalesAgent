@@ -1,0 +1,12 @@
+{"first_user_message": "你好，我的邮箱是james.johnson7869@example.com。请为订单#W1006327准备取消；原因尚未决定，请先问我，不要替我选择。", "task_id": "e3v2-test-01"}
+{"first_user_message": "你好，我的邮箱是sophia.jackson1954@example.com。请为订单#W6977171准备取消；我已经不需要了。", "task_id": "e3v2-test-02"}
+{"first_user_message": "你好，我的邮箱是chen.anderson4495@example.com。订单#W1701126要申请退货；只退商品2791467853；退款方式选我的现有支付标识credit_card_9389219。", "task_id": "e3v2-test-03"}
+{"first_user_message": "你好，我的邮箱是fatima.muller6448@example.com。请将订单#W2040365地址改为844 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。", "task_id": "e3v2-test-04"}
+{"first_user_message": "你好，我的邮箱是mei.moore6624@example.com。请为订单#W2694395准备取消；我已经不需要了。", "task_id": "e3v2-test-05"}
+{"first_user_message": "你好，我的邮箱是sofia.li5731@example.com。订单#W9323073要申请退货；只退商品2001307871, 5788631787；退款方式还未决定，请先询问，不要代选。", "task_id": "e3v2-test-06"}
+{"first_user_message": "你好，我的邮箱是lucas.johansson7741@example.com。请将订单#W5073920地址改为847 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。", "task_id": "e3v2-test-07"}
+{"first_user_message": "你好，我的邮箱是ava.kovacs4827@example.com。请为订单#W4184032准备取消；我已经不需要了。", "task_id": "e3v2-test-08"}
+{"first_user_message": "Hello, my email is ava.nguyen3664@example.com. Request a return for order #W9126675; items are undecided; ask me before choosing; use my existing refund method paypal_6262583.", "task_id": "e3v2-test-09"}
+{"first_user_message": "Hello, my email is lucas.martin9430@example.com. Change order #W5502903 to 850 Elm Street, address line 2 Suite 3, Seattle, WA, USA; zip is not provided; please ask me.", "task_id": "e3v2-test-10"}
+{"first_user_message": "你好，我的邮箱是yusuf.jackson4654@example.com。订单#W7128968要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识paypal_3392566。", "task_id": "e3v2-test-11"}
+{"first_user_message": "Hello, my email is mia.nguyen5072@example.com. Prepare cancellation of order #W7259788; the reason is undecided; please ask me.", "task_id": "e3v2-test-12"}

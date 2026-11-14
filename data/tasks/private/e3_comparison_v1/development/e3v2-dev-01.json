@@ -1,0 +1,88 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-01",
+    "first_user_message": "Hello, my email is emma.martin1207@example.com. Please change order #W7988753 to 721 Maple Street, address line 2 Unit 8, Seattle, WA, USA, zip 98101."
+  },
+  "script": {
+    "task_id": "e3v2-dev-01",
+    "source_user_id": "emma_martin_6993",
+    "source_task": "e3dev-01",
+    "family": "address_joint_override",
+    "title": "街道与第二行同时改正",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "emma.martin1207@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "721 Maple Street",
+        "address2": "Unit 8",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W7988753",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "joint_correction",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "721 Maple Street",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W7988753",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "Please correct the street to 850 Birch Road and clear address line 2. Keep the other fields unchanged.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address1": "850 Birch Road",
+            "address2": ""
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "850 Birch Road",
+        "address2": "",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W7988753",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-01",
+    "kind": "address",
+    "user_id": "emma_martin_6993",
+    "order_id": "#W7988753",
+    "arguments": {
+      "address1": "850 Birch Road",
+      "address2": "",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W7988753",
+      "state": "WA",
+      "zip": "98101"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

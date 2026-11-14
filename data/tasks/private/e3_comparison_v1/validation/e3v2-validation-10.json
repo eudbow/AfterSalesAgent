@@ -1,0 +1,100 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-10",
+    "first_user_message": "Hello, my email is sophia.thomas1364@example.com. Request a return for order #W1867876; return only item IDs 6906307980; refund method is undecided; ask me."
+  },
+  "script": {
+    "task_id": "e3v2-validation-10",
+    "source_user_id": "sophia_thomas_5301",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-选择退款方式后替换退货商品",
+    "title": "选择退款方式后替换退货商品",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "sophia.thomas1364@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "6906307980"
+        ],
+        "order_id": "#W1867876"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "validation-step-1",
+        "expected": null,
+        "slot": "payment",
+        "reply": "My choice is payment=gift_card_9178183; keep the other details as requested.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_9178183"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "6906307980"
+            ],
+            "order_id": "#W1867876",
+            "payment_method_id": "gift_card_9178183"
+          }
+        },
+        "slot": null,
+        "reply": "Before approval, correct return item IDs=1304426904. Keep all other fields unchanged.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1304426904"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1304426904"
+        ],
+        "order_id": "#W1867876",
+        "payment_method_id": "gift_card_9178183"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-10",
+    "kind": "return",
+    "user_id": "sophia_thomas_5301",
+    "order_id": "#W1867876",
+    "arguments": {
+      "item_ids": [
+        "1304426904"
+      ],
+      "order_id": "#W1867876",
+      "payment_method_id": "gift_card_9178183"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "en",
+    "transition": null,
+    "message_prefix": "Hello, my email is sophia.thomas1364@example.com. Request a return for order #W1867876; return only item IDs 6906307980; refund method is undecided; ask me.",
+    "question_stage_label": "validation-step-1"
+  },
+  "overlay_notes": "unchanged source"
+}

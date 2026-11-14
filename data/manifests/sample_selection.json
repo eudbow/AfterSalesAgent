@@ -1,0 +1,22 @@
+{
+  "sample_count": 10,
+  "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "source_task_ids": [
+    "10",
+    "11",
+    "16",
+    "24",
+    "48",
+    "59",
+    "57",
+    "73",
+    "84",
+    "113"
+  ],
+  "upstream_split": "train",
+  "purpose": "reviewed development examples, not benchmark results",
+  "inputs_adapted": true,
+  "evaluation_criteria_preserved": true,
+  "future_split_rule": "Group shared entity and intent families; never split a family by task ID alone.",
+  "upstream_test_ids_used": []
+}

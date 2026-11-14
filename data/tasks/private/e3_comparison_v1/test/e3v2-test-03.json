@@ -1,0 +1,131 @@
+{
+  "public": {
+    "task_id": "e3v2-test-03",
+    "first_user_message": "你好，我的邮箱是chen.anderson4495@example.com。订单#W1701126要申请退货；只退商品2791467853；退款方式选我的现有支付标识credit_card_9389219。"
+  },
+  "script": {
+    "task_id": "e3v2-test-03",
+    "source_user_id": "chen_anderson_8078",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-改礼品卡扩展清单再替换全部商品",
+    "title": "改礼品卡扩展清单再替换全部商品",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "chen.anderson4495@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "2791467853"
+        ],
+        "order_id": "#W1701126",
+        "payment_method_id": "credit_card_9389219"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "test-step-1",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "2791467853"
+            ],
+            "order_id": "#W1701126",
+            "payment_method_id": "credit_card_9389219"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退款方式=gift_card_3434432。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_3434432"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "2791467853"
+            ],
+            "order_id": "#W1701126",
+            "payment_method_id": "gift_card_3434432"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退货商品清单=2791467853, 7902309762。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "2791467853",
+              "7902309762"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "2791467853",
+              "7902309762"
+            ],
+            "order_id": "#W1701126",
+            "payment_method_id": "gift_card_3434432"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退货商品清单=7918497119。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "7918497119"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "7918497119"
+        ],
+        "order_id": "#W1701126",
+        "payment_method_id": "gift_card_3434432"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-03",
+    "kind": "return",
+    "user_id": "chen_anderson_8078",
+    "order_id": "#W1701126",
+    "arguments": {
+      "item_ids": [
+        "7918497119"
+      ],
+      "order_id": "#W1701126",
+      "payment_method_id": "gift_card_3434432"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

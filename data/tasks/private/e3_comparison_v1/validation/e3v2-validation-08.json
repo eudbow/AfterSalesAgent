@@ -1,0 +1,124 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-08",
+    "first_user_message": "你好，我的邮箱是evelyn.wilson8748@example.com。请将订单#W7381650地址改为848 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。"
+  },
+  "script": {
+    "task_id": "e3v2-validation-08",
+    "source_user_id": "evelyn_wilson_8460",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-补邮编改街道后文字同意",
+    "title": "补邮编改街道后文字同意",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "evelyn.wilson8748@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "848 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W7381650",
+        "state": "WA"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "validation-step-1",
+        "expected": null,
+        "slot": "zip",
+        "reply": "补充确认：zip=98101，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98101"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "848 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W7381650",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：街道=910 Oak Road；地址第二行=清空。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "address1": "910 Oak Road",
+            "address2": ""
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-3",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "910 Oak Road",
+            "address2": "",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W7381650",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "好的，就按刚才方案办。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "910 Oak Road",
+        "address2": "",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W7381650",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-08",
+    "kind": "address",
+    "user_id": "evelyn_wilson_8460",
+    "order_id": "#W7381650",
+    "arguments": {
+      "address1": "910 Oak Road",
+      "address2": "",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W7381650",
+      "state": "WA",
+      "zip": "98101"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

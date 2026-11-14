@@ -1,0 +1,39 @@
+{
+  "source_task_id": "84",
+  "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "initial_fixture": "data/upstream/tau2-bench/data/tau2/domains/retail/db.json",
+  "initial_state": null,
+  "user_simulator": {
+    "persona": null,
+    "instructions": {
+      "task_instructions": "You are messy, flexible, outgoing.",
+      "domain": "retail",
+      "reason_for_call": "You received two tablets and you only need one. You want to return the less expensive one and refund to credit card. But when the agent asks for confirmation, you change your mind and return the more expensive one and ask for a refund to gift card.",
+      "known_info": "You name is Chen Silva and your zip code is 46281.",
+      "unknown_info": "You do not remember your email address"
+    }
+  },
+  "evaluation_criteria": {
+    "actions": [
+      {
+        "action_id": "84_0",
+        "name": "return_delivered_order_items",
+        "arguments": {
+          "order_id": "#W9571698",
+          "item_ids": [
+            "6065192424"
+          ],
+          "payment_method_id": "gift_card_7250692"
+        },
+        "info": null
+      }
+    ],
+    "communicate_info": [],
+    "nl_assertions": null,
+    "reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ]
+  },
+  "access_boundary": "user_simulator and evaluation materials; never pass this file to Agent"
+}

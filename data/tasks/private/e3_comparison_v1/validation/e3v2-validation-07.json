@@ -1,0 +1,105 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-07",
+    "first_user_message": "你好，我的邮箱是mei.santos5479@example.com。订单#W7368828要申请退货；只退商品4624254797, 3616838507；退款方式选我的现有支付标识paypal_5784379。"
+  },
+  "script": {
+    "task_id": "e3v2-validation-07",
+    "source_user_id": "mei_santos_5526",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-退货文字同意后更换退款方式",
+    "title": "退货文字同意后更换退款方式",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "mei.santos5479@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "4624254797",
+          "3616838507"
+        ],
+        "order_id": "#W7368828",
+        "payment_method_id": "paypal_5784379"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "validation-step-1",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "4624254797",
+              "3616838507"
+            ],
+            "order_id": "#W7368828",
+            "payment_method_id": "paypal_5784379"
+          }
+        },
+        "slot": null,
+        "reply": "好的，就按刚才方案办。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "4624254797",
+              "3616838507"
+            ],
+            "order_id": "#W7368828",
+            "payment_method_id": "paypal_5784379"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退款方式=gift_card_1755127。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_1755127"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "4624254797",
+          "3616838507"
+        ],
+        "order_id": "#W7368828",
+        "payment_method_id": "gift_card_1755127"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-07",
+    "kind": "return",
+    "user_id": "mei_santos_5526",
+    "order_id": "#W7368828",
+    "arguments": {
+      "item_ids": [
+        "4624254797",
+        "3616838507"
+      ],
+      "order_id": "#W7368828",
+      "payment_method_id": "gift_card_1755127"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

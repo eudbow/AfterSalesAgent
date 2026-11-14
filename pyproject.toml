@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aftersalesagent"
+version = "0.3.0"
+description = "A single-agent retail after-sales application with a replaceable runtime"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "pydantic>=2.11,<3",
+    "httpx>=0.28,<1",
+    "langgraph>=1,<2",
+    "langgraph-checkpoint-sqlite>=3,<4",
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.34,<1",
+    "sqlalchemy>=2,<3",
+    "mcp==2.3.0",
+]
+
+[dependency-groups]
+browser = [
+    "playwright>=1.64.0",
+]
+dev = ["pytest>=8.3,<10", "ruff>=0.11,<1", "pyright>=1.1.400"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aftersalesagent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["data/upstream", ".local", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pyright]
+include = ["src", "tests"]
+exclude = ["data/upstream", ".local", ".venv"]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.12"
+typeCheckingMode = "basic"

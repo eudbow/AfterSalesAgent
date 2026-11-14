@@ -1,0 +1,39 @@
+{
+  "snapshot_date": "2026-10-24",
+  "documents": [
+    {
+      "document_id": "ikea_returns",
+      "source_url": "https://www.ikea.cn/cn/zh/customer-service/returns-claims/return-policy/",
+      "final_url": "https://www.ikea.cn/cn/zh/customer-service/returns-claims/return-policy/",
+      "fetched_at": "2026-10-24T15:44:51.232014+00:00",
+      "http_status": 200,
+      "effective_from": null,
+      "effective_until": null,
+      "scope": "ikea_cn",
+      "origin": "official",
+      "version": "snapshot-2026-10-24-51082fab8c38",
+      "date_note": "No policy effective date identified; fetch timestamp is not an effective date",
+      "html_path": "data/knowledge/e1_v1/sources/ikea_returns.html",
+      "html_sha256": "51082fab8c38e35c38b128f16d5b81fe5635d0cc8a2f090c278975e5fc864f59",
+      "text_path": "data/knowledge/e1_v1/sources/ikea_returns.txt",
+      "text_sha256": "eec53e8d3f103b297ed8d3a82a1e8e18c5d0348dcaa149403e5079201e5031e7"
+    },
+    {
+      "document_id": "ikea_guarantees",
+      "source_url": "https://www.ikea.cn/cn/zh/customer-service/returns-claims/guarantee/",
+      "final_url": "https://www.ikea.cn/cn/zh/customer-service/returns-claims/guarantee/",
+      "fetched_at": "2026-10-24T15:44:51.800771+00:00",
+      "http_status": 200,
+      "effective_from": null,
+      "effective_until": null,
+      "scope": "ikea_cn",
+      "origin": "official",
+      "version": "snapshot-2026-10-24-de2aacf67629",
+      "date_note": "No policy effective date identified; fetch timestamp is not an effective date",
+      "html_path": "data/knowledge/e1_v1/sources/ikea_guarantees.html",
+      "html_sha256": "de2aacf67629d231425fb05bfa723cdd22de8b57f9f85ca72827f770f3b7e1ee",
+      "text_path": "data/knowledge/e1_v1/sources/ikea_guarantees.txt",
+      "text_sha256": "7822ae592b644b79bd78a3071d28440a67f2b299d013caedde7b511d9f659909"
+    }
+  ]
+}

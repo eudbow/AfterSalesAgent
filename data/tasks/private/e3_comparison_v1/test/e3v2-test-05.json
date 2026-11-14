@@ -1,0 +1,99 @@
+{
+  "public": {
+    "task_id": "e3v2-test-05",
+    "first_user_message": "你好，我的邮箱是mei.moore6624@example.com。请为订单#W2694395准备取消；我已经不需要了。"
+  },
+  "script": {
+    "task_id": "e3v2-test-05",
+    "source_user_id": "mei_moore_8248",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-取消改址再取消并更改原因",
+    "title": "取消改址再取消并更改原因",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "mei.moore6624@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W2694395",
+        "reason": "no longer needed"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "test-step-1",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W2694395",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请将订单#W2694395地址改为845 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "845 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W2694395",
+            "state": "WA",
+            "zip": "98101"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "845 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W2694395",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请为订单#W2694395准备取消；是我下错单了。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W2694395",
+            "reason": "ordered by mistake"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W2694395",
+        "reason": "ordered by mistake"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-05",
+    "kind": "cancel",
+    "user_id": "mei_moore_8248",
+    "order_id": "#W2694395",
+    "arguments": {
+      "order_id": "#W2694395",
+      "reason": "ordered by mistake"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

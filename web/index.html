@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AfterSalesAgent · 售后工作台</title><link rel="stylesheet" href="/styles.css">
+<script src="/app.js" defer></script><script src="/knowledge.js" defer></script></head>
+<body>
+<header><div class="brand">AfterSales<span>Agent</span></div><div class="badge">M3 · 本地售后工作台</div></header>
+<main>
+<section class="intro"><p class="eyebrow">售后工作台</p><h1>每一次售后，都有据可查。</h1>
+<p>选择模拟场景，观察查询、确认与订单变化。所有操作仅影响本地模拟数据。</p></section>
+<div class="layout">
+<section class="card conversation"><div class="card-head"><h2>会话</h2><span id="connection">尚未创建</span></div>
+<div class="scenario-bar"><label for="scenario">选择场景</label><select id="scenario">
+<option value="cancel">取消订单</option><option value="query">查询订单</option>
+<option value="address">修改收货地址</option><option value="return">提交退货申请</option></select>
+<button id="create">新建会话</button></div>
+<p class="notice" id="mode-notice">当前使用预设 Mock 流程，消息不用于推断任意需求。切换场景后请新建会话。</p>
+<div id="chat" class="chat" aria-live="polite"><div class="empty">新建会话，开始一次可追溯的售后演示。</div></div>
+<section id="pending" class="pending" hidden><h3>请核对本次操作</h3><p id="summary"></p>
+<details><summary>查看操作参数</summary><pre id="arguments"></pre></details>
+<div class="buttons"><button id="approve">确认执行</button><button id="decline" class="secondary">拒绝操作</button></div></section>
+<form id="message-form"><label for="message">消息</label><textarea id="message" rows="3" placeholder="创建会话后将填入该场景的示例消息。" maxlength="4000" disabled></textarea>
+<div class="buttons"><button id="send" disabled>发送消息</button><button id="retry" type="button" class="secondary" hidden>重试原请求</button></div></form>
+<p id="error" role="alert"></p></section>
+<aside>
+<section class="card"><div class="card-head"><h2>运行状态</h2><button id="refresh" class="text-button">刷新</button></div>
+<dl id="status"><dt>会话</dt><dd>—</dd><dt>执行状态</dt><dd>—</dd></dl><p class="muted">刷新页面可恢复本浏览器保存的会话。</p></section>
+<section class="card"><div class="card-head"><h2>订单快照</h2></div><div id="orders" class="empty">定位用户后显示该用户的订单。</div></section>
+<section class="card"><div class="card-head"><h2>调用轨迹</h2><button id="load-trace" class="text-button">查看</button></div>
+<p class="muted">只读取已有记录，不会重新执行操作。</p><div id="trace" class="trace empty">暂无记录</div></section>
+</aside>
+</div>
+<section class="card knowledge-card" aria-labelledby="knowledge-title">
+<div class="card-head"><h2 id="knowledge-title">售后资料咨询</h2></div>
+<p>查询退货材料、品类条件和政策版本，并查看回答依据。资料咨询与模拟订单操作分开。</p>
+<p class="notice" id="knowledge-mode-status">正在读取资料咨询状态。</p>
+<form id="knowledge-form">
+<div class="knowledge-options">
+<label>资料范围<select id="knowledge-scope"><option value="ikea_cn">宜家中国大陆 · 官方快照</option><option value="demo_store">项目模拟商家 · 日期版本</option><option value="demo_conflict">项目模拟商家 · 冲突资料</option></select></label>
+<label>回答方式<select id="knowledge-mode"><option value="rag">检索相关资料</option><option value="full">阅读全部适用资料</option></select></label>
+<label>核对政策日期（可选）<input id="knowledge-date" type="date"></label>
+</div>
+<p class="muted">日期留空表示咨询固定快照；官方未注明生效日期时，无法据此确认历史适用性。模拟商家条款不是宜家政策。</p>
+<label for="knowledge-question">资料问题</label>
+<textarea id="knowledge-question" rows="3" maxlength="2000" required>宜家用银行卡支付后退货，需要带哪些货品和凭证？</textarea>
+<div class="buttons"><button id="knowledge-submit" type="submit">查询资料</button><button id="knowledge-retry" type="button" class="secondary" hidden>重试原请求</button></div>
+</form>
+<p id="knowledge-error" role="alert" class="error"></p>
+<p id="knowledge-answer" class="knowledge-answer" aria-live="polite">提出问题后，这里显示回答。</p>
+<div id="knowledge-sources"></div><p id="knowledge-usage" class="muted"></p>
+</section>
+<footer>固定 Retail 模拟数据 · 每会话独立环境 · 无真实支付或退款</footer>
+</main></body></html>

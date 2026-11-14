@@ -1,0 +1,30 @@
+{"task_id": "C3-D01-1", "question": "ENHET厨房与UTRUSTA网篮，在厨房条款中分别属于几年保证？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D01-2", "question": "安纳特厨房和乌斯塔网篮能直接套用米多的二十五年吗，原文把它们列在哪档？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D02-1", "question": "BROGRUND浴用搁架属于三年淋浴配件保证吗，需要什么凭证？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D02-2", "question": "布鲁格隆德的浴用搁架能用淋浴配件保证吗，申请时要留什么票据？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D03-1", "question": "KOMPLEMENT托盘分割件和储物盒属于衣柜保证范围吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D03-2", "question": "康普蒙托盘里的分割件和储物盒，是不是买了衣柜就一起保？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D04-1", "question": "搬家时能把宜家床垫对折捆起来吗，保养说明担心什么损伤？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D04-2", "question": "床垫太大过不了门，弯折收起来会伤到里面哪些东西？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D05-1", "question": "不锈钢内壁锅煮水，盐应该冷水时放还是烧开后放，为什么？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D05-2", "question": "不锈钢锅水还凉时先撒盐，会留下什么问题，说明建议什么时候加？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D06-1", "question": "宜家厨刀切较硬食物应怎样运刀，能用玻璃砧板吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D06-2", "question": "硬东西切不动能左右掰刀吗，下面垫玻璃板和木板有区别吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D07-1", "question": "浴室混合水龙头装在公共场所，能照搬家庭使用的保证吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D07-2", "question": "给公共洗手间装的浴室龙头，也能直接按家用浴室条款免费保证吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D08-1", "question": "PAX衣柜放在室外或潮湿浴室，品质保证是否适用？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D08-2", "question": "帕克思摆到露天或经常潮湿的位置，损坏后还能按普通家用保证处理吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D09-1", "question": "宜家家电接错电压或发生腐蚀，条款是否把这些列为排除项？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D09-2", "question": "厨房电器连了不适合的电压，或因腐蚀坏掉，原文有排除吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D10-1", "question": "碳钢锅在炉灶上开锅，三轮各大约多久，中间要如何处理？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D10-2", "question": "用灶台给碳钢锅养第一层油膜，三遍分别加热几分钟，每遍结束怎么办？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D11-1", "question": "木制刀柄怎样上油、多久补第二次，能长期泡水吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D11-2", "question": "木头刀把抹油后要等多长时间再抹，洗完一直浸在水里行不行？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D12-1", "question": "只凭这些资料，工单C3-APPOINT-01的上门预约是几月几日几点？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D12-2", "question": "帮我查C3-APPOINT-01师傅准确几点到，当前资料有没有这个预约记录？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D13-1", "question": "其他商家ALPHA品牌床垫的保证期限是多少，当前宜家资料能确认吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D13-2", "question": "我买的是别家ALPHA床垫，能从这份知识库确定它保几年吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-D14-1", "question": "2026-07-01，C3演示商店建议把包装保留多少天？", "filters": {"scope": "demo_store", "category": "packaging", "as_of": "2026-07-01"}}
+{"task_id": "C3-D14-2", "question": "按七月一日有效的C3模拟包装说明，外包装建议留多久？", "filters": {"scope": "demo_store", "category": "packaging", "as_of": "2026-07-01"}}
+{"task_id": "C3-D15-1", "question": "C3冲突商店上门预约应提前2天还是5天？", "filters": {"scope": "demo_conflict", "category": "appointment", "as_of": "2026-11-01"}}
+{"task_id": "C3-D15-2", "question": "C3模拟资料对上门预约提前量有两种说法，应如何说明？", "filters": {"scope": "demo_conflict", "category": "appointment", "as_of": "2026-11-01"}}

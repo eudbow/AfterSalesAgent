@@ -1,0 +1,109 @@
+{
+  "manifest_version": "1.0",
+  "dataset_kind": "public_simulated_retail",
+  "repository": "https://github.com/sierra-research/tau2-bench",
+  "tag": "v1.0.1",
+  "commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "downloaded_at_utc": "2026-10-14T14:16:08.737280+00:00",
+  "license_file": "data/upstream/tau2-bench/LICENSE",
+  "files": [
+    {
+      "upstream_path": "README.md",
+      "local_path": "data/upstream/tau2-bench/README.md",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/README.md",
+      "sha256": "ed39688aa5d40bd73007355df65f4e41a6c250960642e56764c3ad44da1df8d2",
+      "size_bytes": 10443
+    },
+    {
+      "upstream_path": "LICENSE",
+      "local_path": "data/upstream/tau2-bench/LICENSE",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/LICENSE",
+      "sha256": "e67c5aa0074dfcaefd3c3a1aedb94cb539234aecd15d5a972574e3200e6252fe",
+      "size_bytes": 1072
+    },
+    {
+      "upstream_path": "pyproject.toml",
+      "local_path": "data/upstream/tau2-bench/pyproject.toml",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/pyproject.toml",
+      "sha256": "23d59670b4ad7bbc0f57420fd9643a8d9188c24abe4f29c9c965544d8cc4cb8d",
+      "size_bytes": 2417
+    },
+    {
+      "upstream_path": "docs/evaluation.md",
+      "local_path": "data/upstream/tau2-bench/docs/evaluation.md",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/docs/evaluation.md",
+      "sha256": "017e992b8e8b57c227523c63c4a2597b69a328c0108bd94b1c9028fed6a26ac4",
+      "size_bytes": 10763
+    },
+    {
+      "upstream_path": "data/tau2/domains/retail/db.json",
+      "local_path": "data/upstream/tau2-bench/data/tau2/domains/retail/db.json",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/data/tau2/domains/retail/db.json",
+      "sha256": "413a65160adbdb5fde0ffc0015c49b6d70250b10c18128de169b597af7766765",
+      "size_bytes": 2811616
+    },
+    {
+      "upstream_path": "data/tau2/domains/retail/policy.md",
+      "local_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/data/tau2/domains/retail/policy.md",
+      "sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "size_bytes": 6699
+    },
+    {
+      "upstream_path": "data/tau2/domains/retail/tasks.json",
+      "local_path": "data/upstream/tau2-bench/data/tau2/domains/retail/tasks.json",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/data/tau2/domains/retail/tasks.json",
+      "sha256": "8e03ebce7901bd6218e7a7dc3105faa9324091a68058f7fe61c65262868812e8",
+      "size_bytes": 345982
+    },
+    {
+      "upstream_path": "data/tau2/domains/retail/split_tasks.json",
+      "local_path": "data/upstream/tau2-bench/data/tau2/domains/retail/split_tasks.json",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/data/tau2/domains/retail/split_tasks.json",
+      "sha256": "ed0580ec52575b63fbf76568af42490da6ee7783ecb4aa81af46961291358f20",
+      "size_bytes": 3263
+    },
+    {
+      "upstream_path": "src/tau2/domains/retail/data_model.py",
+      "local_path": "data/upstream/tau2-bench/src/tau2/domains/retail/data_model.py",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/src/tau2/domains/retail/data_model.py",
+      "sha256": "f5ad09590953855cc49d2ab2ad5c0594be408cae74d1500fb278e5a6bf2c50d6",
+      "size_bytes": 8799
+    },
+    {
+      "upstream_path": "src/tau2/domains/retail/tools.py",
+      "local_path": "data/upstream/tau2-bench/src/tau2/domains/retail/tools.py",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/src/tau2/domains/retail/tools.py",
+      "sha256": "34f4fe9702d36f0dd4697700fbcd63d0cf5386e6eb8e7499aaa336243bad8750",
+      "size_bytes": 29202
+    },
+    {
+      "upstream_path": "src/tau2/domains/retail/utils.py",
+      "local_path": "data/upstream/tau2-bench/src/tau2/domains/retail/utils.py",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/src/tau2/domains/retail/utils.py",
+      "sha256": "a385b085b63d0e5921c15f7e2201b00df1d984990f4dbb7b24a867e3bf7cb648",
+      "size_bytes": 248
+    },
+    {
+      "upstream_path": "src/tau2/data_model/tasks.py",
+      "local_path": "data/upstream/tau2-bench/src/tau2/data_model/tasks.py",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/src/tau2/data_model/tasks.py",
+      "sha256": "0243a6454b2e9c8a14b8364c38ff95dc1dd7512105b69fada9bf9295fc8170fa",
+      "size_bytes": 22764
+    },
+    {
+      "upstream_path": "src/tau2/environment/db.py",
+      "local_path": "data/upstream/tau2-bench/src/tau2/environment/db.py",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/src/tau2/environment/db.py",
+      "sha256": "49e12f900a8aabe62d6137a9baa1e7d471f9b3e516cf7c85fb61ecde8a65154c",
+      "size_bytes": 1267
+    },
+    {
+      "upstream_path": "src/tau2/environment/tool.py",
+      "local_path": "data/upstream/tau2-bench/src/tau2/environment/tool.py",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/fc0055dc4e0a316c3f83133267fbd6faaa770992/src/tau2/environment/tool.py",
+      "sha256": "6dd74021ba95a6f8dfa0971546b768b90e15b212f8f9051156ae6bcdd24b77d3",
+      "size_bytes": 8092
+    }
+  ]
+}

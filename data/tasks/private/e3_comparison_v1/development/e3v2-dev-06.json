@@ -1,0 +1,79 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-06",
+    "first_user_message": "你好，我的邮箱是isabella.johnson5435@example.com。订单#W3431083只退商品6309044598，退款先选原支付方式paypal_5071744。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-06",
+    "source_user_id": "isabella_johnson_6293",
+    "source_task": "e3dev-06",
+    "family": "return_payment_switch",
+    "title": "退款方式改为已有礼品卡",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "isabella.johnson5435@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "6309044598"
+        ],
+        "order_id": "#W3431083",
+        "payment_method_id": "paypal_5071744"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "payment_revision",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "6309044598"
+            ],
+            "order_id": "#W3431083",
+            "payment_method_id": "paypal_5071744"
+          }
+        },
+        "slot": null,
+        "reply": "退款方式改为我已有的礼品卡gift_card_7172261，退货商品和订单不变。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_7172261"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "6309044598"
+        ],
+        "order_id": "#W3431083",
+        "payment_method_id": "gift_card_7172261"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-06",
+    "kind": "return",
+    "user_id": "isabella_johnson_6293",
+    "order_id": "#W3431083",
+    "arguments": {
+      "item_ids": [
+        "6309044598"
+      ],
+      "order_id": "#W3431083",
+      "payment_method_id": "gift_card_7172261"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

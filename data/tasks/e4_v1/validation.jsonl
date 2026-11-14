@@ -1,0 +1,45 @@
+{"task_id": "E4-V01-1", "question": "家用床垫严重下陷或把手损坏，属于条款列明的缺陷类型吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V01-2", "question": "床垫不是普通磨损，而是严重凹陷、把手损坏，材料工艺保证有没有提到？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V01-3", "question": "床垫材料工艺保证列举的情形中，有没有严重下陷和把手损坏？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V02-1", "question": "PAX 的合叶门、合叶、滑门机件是否属于列明保证组件？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V02-2", "question": "帕克思衣柜的门铰链和推拉门机械件，算衣柜条款里的部件吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V02-3", "question": "衣柜配件保证清单包括 PAX 合叶门及滑门机件吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V03-1", "question": "SKYTTA 应固定在天花板和地板上吗，不同天花板材料怎么办？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V03-2", "question": "斯基塔移门安装时，上下两端要固定在哪里，配件能一概通用吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V03-3", "question": "按 SKYTTA 组装说明，天花板和地面怎么固定，天花板材质变化有何影响？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V04-1", "question": "浴室洗脸池和手持花洒、淋浴管，保证年限都是十年吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V04-2", "question": "洗脸盆与淋浴软管是不是同一个质保期限？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V04-3", "question": "对比浴室洗脸池和手持花洒、淋浴管的免费保证期限。", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V05-1", "question": "斯德哥尔摩沙发系列的保证期限和购买凭证要求是什么？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V05-2", "question": "STOCKHOLM 斯德哥尔摩沙发保多久，需要原始订单信息吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V05-3", "question": "购买斯德哥尔摩沙发后，从何时算品质保证，凭什么证明购买？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V06-1", "question": "2025年买的 BESTÅ 能直接适用页面注明的新十年保证吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V06-2", "question": "贝达储物柜购于2025年，新条款写2026年1月1日之后购买，这能直接套用吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V06-3", "question": "现有 BESTÅ 十年条款的购买日期限制是什么，2025年买的是否满足？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V07-1", "question": "厨房部件停产后两年的添置服务，有库存限制吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V07-2", "question": "柜门停产不到两年，宜家是否保证一定有替换件可买？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V07-3", "question": "厨房部分部件的两年售后添置服务，是无条件供货还是取决于库存？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V08-1", "question": "家电质保期间修过或换了新部件，保证期限会重新起算吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V08-2", "question": "宜家家电换了零件后，会自动再获得一整段新质保吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V08-3", "question": "质保维修是否延长家电本体或新部件的质保期？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V09-1", "question": "厨房刀具正常家用保证，对清洗和磨刀有什么要求？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V09-2", "question": "宜家厨刀的十五年保证能否省掉手洗和定期磨刀这些保养步骤？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V09-3", "question": "刀具条款如何定义正常使用，是否包括手洗与定期打磨？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V10-1", "question": "锅具十五年保证里，正常使用频率是如何定义的？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V10-2", "question": "餐厅一天反复用锅几十次，能当作条款定义的一般家用频率吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V10-3", "question": "无不粘涂层锅具的正常使用，是否指每天烹饪清洗一次？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V11-1", "question": "碳钢锅用烤箱开锅，说明写多少度、多久？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V11-2", "question": "新买的宜家碳钢炊具放烤箱养锅，应设什么温度和时间？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V11-3", "question": "碳钢煎锅采用烤箱开锅步骤时，预热温度与单次加热时长是多少？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V12-1", "question": "办公家具组装后多久要再拧紧螺丝，以后还要检查吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V12-2", "question": "办公室桌柜装好用过一阵子，螺丝应该怎样复检？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V12-3", "question": "这份办公家具保养说明对两周后的螺丝和每年检查有什么要求？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V13-1", "question": "没给出系列和损坏原因，能保证我家所有沙发都免费换新吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V13-2", "question": "我只说买过一个宜家沙发，能直接承诺任何问题都换新吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V13-3", "question": "沙发具体型号、购买信息和故障原因都未知，能直接确认免费换新品资格吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "E4-V14-1", "question": "2026-07-01，E4演示商店补寄配件的运费由谁承担？", "filters": {"scope": "demo_store", "as_of": "2026-07-01", "category": "e4_accessory"}}
+{"task_id": "E4-V14-2", "question": "只按2026年7月1日有效的模拟条款，E4演示商店补寄配件是谁付运费？", "filters": {"scope": "demo_store", "as_of": "2026-07-01", "category": "e4_accessory"}}
+{"task_id": "E4-V14-3", "question": "E4演示商店在2026年7月1日补寄配件，旧版顾客付邮费的条款还适用吗？", "filters": {"scope": "demo_store", "as_of": "2026-07-01", "category": "e4_accessory"}}
+{"task_id": "E4-V15-1", "question": "E4冲突商店对包装破损商品的退货期限到底是7天还是14天？", "filters": {"scope": "demo_conflict", "category": "e4_return", "as_of": "2026-11-01"}}
+{"task_id": "E4-V15-2", "question": "模拟资料里包装破损商品有七天和十四天两种退货期限，该怎么回答？", "filters": {"scope": "demo_conflict", "category": "e4_return", "as_of": "2026-11-01"}}
+{"task_id": "E4-V15-3", "question": "E4冲突商店退货期限A、B都有效，包装破损商品应按哪个期限？", "filters": {"scope": "demo_conflict", "category": "e4_return", "as_of": "2026-11-01"}}

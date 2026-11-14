@@ -1,0 +1,104 @@
+{
+  "public": {
+    "task_id": "e3v2-test-04",
+    "first_user_message": "你好，我的邮箱是fatima.muller6448@example.com。请将订单#W2040365地址改为844 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。"
+  },
+  "script": {
+    "task_id": "e3v2-test-04",
+    "source_user_id": "fatima_muller_6713",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-缺邮编改址转取消再补原因",
+    "title": "缺邮编改址转取消再补原因",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "fatima.muller6448@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "844 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W2040365",
+        "state": "WA"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "zip",
+        "reply": "补充确认：zip=98101，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98101"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "844 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W2040365",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请为订单#W2040365准备取消；原因尚未决定，请先问我，不要替我选择。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W2040365"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "test-step-3",
+        "expected": null,
+        "slot": "reason",
+        "reply": "补充确认：reason=no longer needed，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "no longer needed"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W2040365",
+        "reason": "no longer needed"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-04",
+    "kind": "cancel",
+    "user_id": "fatima_muller_6713",
+    "order_id": "#W2040365",
+    "arguments": {
+      "order_id": "#W2040365",
+      "reason": "no longer needed"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

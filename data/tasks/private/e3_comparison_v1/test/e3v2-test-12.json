@@ -1,0 +1,135 @@
+{
+  "public": {
+    "task_id": "e3v2-test-12",
+    "first_user_message": "Hello, my email is mia.nguyen5072@example.com. Prepare cancellation of order #W7259788; the reason is undecided; please ask me."
+  },
+  "script": {
+    "task_id": "e3v2-test-12",
+    "source_user_id": "mia_nguyen_6399",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "test-跨语言补原因更正再转缺邮编改址",
+    "title": "跨语言补原因更正再转缺邮编改址",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "mia.nguyen5072@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W7259788"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "test-step-1",
+        "expected": null,
+        "slot": "reason",
+        "reply": "补充确认：reason=no longer needed，其余按刚才要求。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-2",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W7259788",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "Before approval, correct cancellation reason=ordered by mistake. Keep all other fields unchanged.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "ordered by mistake"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "test-step-3",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W7259788",
+            "reason": "ordered by mistake"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请将订单#W7259788地址改为852 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "852 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W7259788",
+            "state": "WA"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "test-step-4",
+        "expected": null,
+        "slot": "zip",
+        "reply": "My choice is zip=98109; keep the other details as requested.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98109"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "852 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W7259788",
+        "state": "WA",
+        "zip": "98109"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-test-12",
+    "kind": "address",
+    "user_id": "mia_nguyen_6399",
+    "order_id": "#W7259788",
+    "arguments": {
+      "address1": "852 Elm Street",
+      "address2": "Suite 3",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W7259788",
+      "state": "WA",
+      "zip": "98109"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 2,
+    "expected_language": "zh",
+    "transition": "en_to_zh",
+    "message_prefix": "前一方案尚未确认，现在改为：请将订单#W7259788地址改为852 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。",
+    "question_stage_label": "test-step-4"
+  },
+  "overlay_notes": "unchanged source"
+}

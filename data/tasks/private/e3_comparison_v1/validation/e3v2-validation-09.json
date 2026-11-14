@@ -1,0 +1,102 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-09",
+    "first_user_message": "Hello, my email is ethan.sanchez6360@example.com. Prepare cancellation of order #W9102111; the reason is undecided; please ask me."
+  },
+  "script": {
+    "task_id": "e3v2-validation-09",
+    "source_user_id": "ethan_sanchez_2952",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-补取消原因后切换完整改址",
+    "title": "补取消原因后切换完整改址",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "ethan.sanchez6360@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W9102111"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "validation-step-1",
+        "expected": null,
+        "slot": "reason",
+        "reply": "My choice is reason=no longer needed; keep the other details as requested.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W9102111",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "The previous proposal is not approved. Instead: Change order #W9102111 to 849 Elm Street, address line 2 Suite 3, Seattle, WA, USA; zip 98101.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "849 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W9102111",
+            "state": "WA",
+            "zip": "98101"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "849 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W9102111",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-09",
+    "kind": "address",
+    "user_id": "ethan_sanchez_2952",
+    "order_id": "#W9102111",
+    "arguments": {
+      "address1": "849 Elm Street",
+      "address2": "Suite 3",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W9102111",
+      "state": "WA",
+      "zip": "98101"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": -1,
+    "expected_language": "en",
+    "transition": null,
+    "message_prefix": "Hello, my email is ethan.sanchez6360@example.com. Prepare cancellation of order #W9102111; the reason is undecided; please ask me.",
+    "question_stage_label": "validation-step-1"
+  },
+  "overlay_notes": "unchanged source"
+}

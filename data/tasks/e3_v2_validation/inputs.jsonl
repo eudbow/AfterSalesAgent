@@ -1,0 +1,12 @@
+{"first_user_message": "你好，我的邮箱是daiki.johansson8388@example.com。订单#W4680317要申请退货；只退商品6942241102, 7917269097；退款方式选我的现有支付标识paypal_5830506。", "task_id": "e3v2-validation-01"}
+{"first_user_message": "你好，我的邮箱是juan.smith2463@example.com。请将订单#W7546247地址改为842 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。", "task_id": "e3v2-validation-02"}
+{"first_user_message": "你好，我的邮箱是anya.patel9309@example.com。请为订单#W4604258准备取消；我已经不需要了。", "task_id": "e3v2-validation-03"}
+{"first_user_message": "你好，我的邮箱是lei.li8350@example.com。订单#W6289770要申请退货；具体退哪些商品尚未决定，请先询问，不能替我挑；退款方式选我的现有支付标识credit_card_4466831。", "task_id": "e3v2-validation-04"}
+{"first_user_message": "你好，我的邮箱是mei.wilson5728@example.com。请将订单#W4498118地址改为845 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。", "task_id": "e3v2-validation-05"}
+{"first_user_message": "你好，我的邮箱是emma.santos7683@example.com。请为订单#W1620235准备取消；我已经不需要了。", "task_id": "e3v2-validation-06"}
+{"first_user_message": "你好，我的邮箱是mei.santos5479@example.com。订单#W7368828要申请退货；只退商品4624254797, 3616838507；退款方式选我的现有支付标识paypal_5784379。", "task_id": "e3v2-validation-07"}
+{"first_user_message": "你好，我的邮箱是evelyn.wilson8748@example.com。请将订单#W7381650地址改为848 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编还未提供，请先询问，不要猜。", "task_id": "e3v2-validation-08"}
+{"first_user_message": "Hello, my email is ethan.sanchez6360@example.com. Prepare cancellation of order #W9102111; the reason is undecided; please ask me.", "task_id": "e3v2-validation-09"}
+{"first_user_message": "Hello, my email is sophia.thomas1364@example.com. Request a return for order #W1867876; return only item IDs 6906307980; refund method is undecided; ask me.", "task_id": "e3v2-validation-10"}
+{"first_user_message": "你好，我的邮箱是olivia.garcia6676@example.com。请将订单#W3279695地址改为851 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。", "task_id": "e3v2-validation-11"}
+{"first_user_message": "Hello, my email is fatima.brown7817@example.com. Request a return for order #W9045919; return only item IDs 1719127154; use my existing refund method credit_card_1982124.", "task_id": "e3v2-validation-12"}

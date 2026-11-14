@@ -1,0 +1,36 @@
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 emma.santos8623@example.com。请帮我查一下订单 #W4590951 现在是什么状态。", "task_id": "nl1-dev-01"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 amelia.gonzalez4271@example.com。想退订单 #W1762492 里的商品，商品编号 4127323219，退回原付款方式 gift_card_2611937。", "task_id": "nl1-dev-02"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 harper.kim4003@example.com。订单号是「 #W5030602 」，两侧空格不是编号，请查一下现在到哪一步了。", "task_id": "nl1-dev-03"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 james.sanchez6979@example.com。麻烦把订单（#W7464385）取消，是我下错单了。编号里的#请保留。", "task_id": "nl1-dev-04"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 mason.lopez8921@example.com。我想取消订单 #W7752859。", "task_id": "nl1-dev-05"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 evelyn.patel2010@example.com。请改订单 #W3561024 的收货地址：515 Cedar Street，第二行留空，Seattle，WA，USA。邮编我还没告诉你，请先问我，不要猜。", "task_id": "nl1-dev-06"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 yusuf.li3523@example.com。请把订单 #W6750959 的地址改成 516 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "task_id": "nl1-dev-07"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 aarav.santos2789@example.com。请把订单 #W6111820 的地址改成 517 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "task_id": "nl1-dev-08"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 mason.johansson9528@example.com。订单 #W3358610 是我误买的，帮我发起取消。", "task_id": "nl1-dev-09"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 amelia.ito8974@example.com。我要退订单 #W3733909 的商品 5650803029，退款选原付款方式 credit_card_1016162。", "task_id": "nl1-dev-10"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 mohamed.li8414@example.com。不想要订单 #W8864622 了，是我误买的，能帮我取消吗？", "task_id": "nl1-dev-11"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 mei.ahmed4901@example.com。订单 #W7553978 我下错了，即使已经送到也想直接取消，请按规则帮我看看。", "task_id": "nl1-dev-12"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 emma.kovacs2974@example.com。请帮我查一下订单 #W9284598 现在是什么状态。", "task_id": "nl1-validation-01"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 sophia.patel9841@example.com。想退订单 #W2923184 里的商品，商品编号 1684786391，退回原付款方式 credit_card_6419343。", "task_id": "nl1-validation-02"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 fatima.li2845@example.com。订单号是「 #W5267498 」，两侧空格不是编号，请查一下现在到哪一步了。", "task_id": "nl1-validation-03"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 noah.sanchez7461@example.com。麻烦把订单（#W8645374）取消，是我下错单了。编号里的#请保留。", "task_id": "nl1-validation-04"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 ethan.smith2338@example.com。我想取消订单 #W6711349。", "task_id": "nl1-validation-05"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 sophia.martin4832@example.com。请改订单 #W1603792 的收货地址：535 Cedar Street，第二行留空，Seattle，WA，USA。邮编我还没告诉你，请先问我，不要猜。", "task_id": "nl1-validation-06"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 daiki.khan2146@example.com。请把订单 #W8461477 的地址改成 536 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "task_id": "nl1-validation-07"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 sofia.kovacs4505@example.com。请把订单 #W9869592 的地址改成 537 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "task_id": "nl1-validation-08"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 daiki.silva6295@example.com。订单 #W8835847 是我误买的，帮我发起取消。", "task_id": "nl1-validation-09"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 raj.davis3587@example.com。我要退订单 #W5463717 的商品 7166996157，退款选原付款方式 gift_card_8006222。", "task_id": "nl1-validation-10"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 raj.ito2921@example.com。不想要订单 #W8448267 了，是我误买的，能帮我取消吗？", "task_id": "nl1-validation-11"}
+{"first_user_message": "想请你协助处理一笔售后。我的邮箱是 sofia.ito3877@example.com。订单 #W5257743 我下错了，即使已经送到也想直接取消，请按规则帮我看看。", "task_id": "nl1-validation-12"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 fatima.jackson7472@example.com。请帮我查一下订单 #W5185761 现在是什么状态。", "task_id": "nl1-test-01"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 evelyn.gonzalez2110@example.com。想退订单 #W8341134 里的商品，商品编号 7579176349，退回原付款方式 paypal_4191414。", "task_id": "nl1-test-02"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 sofia.li7352@example.com。订单号是「 #W8855135 」，两侧空格不是编号，请查一下现在到哪一步了。", "task_id": "nl1-test-03"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 yusuf.garcia2909@example.com。麻烦把订单（#W3260419）取消，是我下错单了。编号里的#请保留。", "task_id": "nl1-test-04"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 mia.moore8091@example.com。我想取消订单 #W3130288。", "task_id": "nl1-test-05"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 evelyn.kovacs5369@example.com。请改订单 #W9651773 的收货地址：555 Cedar Street，第二行留空，Seattle，WA，USA。邮编我还没告诉你，请先问我，不要猜。", "task_id": "nl1-test-06"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 evelyn.ahmed2006@example.com。请把订单 #W3746173 的地址改成 556 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "task_id": "nl1-test-07"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 mason.wilson6954@example.com。请把订单 #W4318885 的地址改成 557 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "task_id": "nl1-test-08"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 liam.lopez8056@example.com。订单 #W2000719 是我误买的，帮我发起取消。", "task_id": "nl1-test-09"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 fatima.anderson1082@example.com。我要退订单 #W9183908 的商品 7407838442，退款选原付款方式 gift_card_8070316。", "task_id": "nl1-test-10"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 emma.nguyen8892@example.com。不想要订单 #W2092674 了，是我误买的，能帮我取消吗？", "task_id": "nl1-test-11"}
+{"first_user_message": "这边有个订单需要你帮忙看看。我的邮箱是 lucas.johnson1683@example.com。订单 #W7016806 我下错了，即使已经送到也想直接取消，请按规则帮我看看。", "task_id": "nl1-test-12"}

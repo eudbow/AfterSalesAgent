@@ -1,0 +1,16 @@
+{
+  "corpus_version": "e4_v1",
+  "method": "rerank",
+  "model_id": "BAAI/bge-small-zh-v1.5",
+  "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+  "device": "cuda",
+  "precision": "fp16",
+  "candidate_k": 20,
+  "fusion_k": 30,
+  "rrf_constant": 60,
+  "top_k": 5,
+  "reranker_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+  "worker_python": ".local/conda-envs/aftersales-rag/python.exe",
+  "vector_cache": ".local/e4_artifacts/vectors.json",
+  "worker_timeout_seconds": 180
+}

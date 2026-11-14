@@ -1,0 +1,133 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-11",
+    "first_user_message": "你好，我的邮箱是olivia.garcia6676@example.com。请将订单#W3279695地址改为851 Elm Street，第二行Suite 3，Seattle，WA，USA；邮编98101。"
+  },
+  "script": {
+    "task_id": "e3v2-validation-11",
+    "source_user_id": "olivia_garcia_4691",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-中英切换改址取消再改址",
+    "title": "中英切换改址取消再改址",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "olivia.garcia6676@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "851 Elm Street",
+        "address2": "Suite 3",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W3279695",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "validation-step-1",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "851 Elm Street",
+            "address2": "Suite 3",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W3279695",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "Do not approve the prior proposal. Cancel order #W3279695 instead. I have not provided the cancellation reason; ask me.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W3279695"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "overlay-cancel-reason-after-switch",
+        "expected": null,
+        "slot": "reason",
+        "reply": "The cancellation reason is no longer needed.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W3279695",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "前一方案尚未确认，现在改为：请将订单#W3279695地址改为950 Spruce Road，第二行留空，Seattle，WA，USA；邮编98101。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "950 Spruce Road",
+            "address2": "",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W3279695",
+            "state": "WA",
+            "zip": "98101"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "950 Spruce Road",
+        "address2": "",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W3279695",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-11",
+    "kind": "address",
+    "user_id": "olivia_garcia_4691",
+    "order_id": "#W3279695",
+    "arguments": {
+      "address1": "950 Spruce Road",
+      "address2": "",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W3279695",
+      "state": "WA",
+      "zip": "98101"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 0,
+    "expected_language": "en",
+    "transition": "zh_to_en",
+    "message_prefix": "Do not approve the prior proposal. Cancel order #W3279695 instead. I have not provided the cancellation reason; ask me.",
+    "question_stage_label": "overlay-cancel-reason-after-switch"
+  },
+  "overlay_notes": "Withheld new cancellation reason at intent switch; then disclosed on question"
+}

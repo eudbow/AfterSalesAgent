@@ -1,0 +1,102 @@
+{
+  "public": {
+    "task_id": "e3diag-language-03",
+    "first_user_message": "Hello, my email is noah.kovacs8240@example.com. Cancel order #W9440076; the reason is no longer needed."
+  },
+  "script": {
+    "task_id": "e3diag-language-03",
+    "source_user_id": "noah_kovacs_1216",
+    "source_task": "e3dev-12",
+    "family": "development_language_observation_3",
+    "title": "同一业务下en到zh缺邮编追问",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "noah.kovacs8240@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W9440076",
+        "reason": "no longer needed"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "intent_switch",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W9440076",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "先别取消。改为修改地址：732 Maple Street，第二行Unit 8，Seattle，WA，USA。新邮编尚未提供，请先问我。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "732 Maple Street",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W9440076",
+            "state": "WA"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "zip_after_switch",
+        "expected": null,
+        "slot": "zip",
+        "reply": "新邮编是98109，其他地址字段不变。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98109"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "732 Maple Street",
+        "address2": "Unit 8",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W9440076",
+        "state": "WA",
+        "zip": "98109"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3diag-language-03",
+    "kind": "address",
+    "user_id": "noah_kovacs_1216",
+    "order_id": "#W9440076",
+    "arguments": {
+      "address1": "732 Maple Street",
+      "address2": "Unit 8",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W9440076",
+      "state": "WA",
+      "zip": "98109"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 0,
+    "expected_language": "zh",
+    "transition": "en_to_zh",
+    "message_prefix": "先别取消。改为修改地址：732 Maple Street，第二行Unit 8，Seattle，WA，USA。新邮编尚未提供，请先问我。",
+    "question_stage_label": "zip_after_switch"
+  },
+  "overlay_notes": "unchanged source"
+}

@@ -1,0 +1,21 @@
+{
+  "version": "e4_c3_v1",
+  "parent": "e4_v1",
+  "files": {
+    "data/knowledge/e4_c3_v1/simulations.txt": "692f5bcaff9855ffc57e45e2218e4c9ecae11899d4cfcfed816bf6ab1e3598ca",
+    "data/knowledge/e4_v1/sources/bathroom.txt": "58409f4722e3dbe2d03dd1dbdce4c7da31513c13f74ee11cb14be0309b159acc",
+    "data/knowledge/e4_v1/sources/chairs.txt": "12422d6d4ba3167fe23c9d8e66cbb22219b976563ff52bdcd31aba2a912ec9e5",
+    "data/knowledge/e4_v1/sources/cookware.txt": "2c33f0d0335899b68e6d11cc83b347d71f8208e586584d90a2c0ef86b2278454",
+    "data/knowledge/e4_v1/sources/kitchen.txt": "b74fcac6f257ada4e4533203f2bd3323589c1c67c96f36cbc9c280cf541d53a4",
+    "data/knowledge/e4_v1/sources/knives.txt": "008a30606ddd394a0c4a3bd9a6e9ff14f40f3cc6df032e5e22978c6709911b40",
+    "data/knowledge/e4_v1/sources/mattress.txt": "70a75ce96d8b8aa2df12459b19c8e080c88c42b50a05085897061246adff0668",
+    "data/knowledge/e4_v1/sources/office.txt": "c4581b0e8ce389c4adad67199209dba8533859b7ccae00a69a098c72f198e1f0",
+    "data/knowledge/e4_v1/sources/seating.txt": "1da8133b8971b003a841a2f6694526091c9ae8e5dce1469c36591ea66ebdeb2b",
+    "data/knowledge/e4_v1/sources/sliding.txt": "4f50aeb82961178f35d924a71b1cc5a9622b1ab83765f6ab9a7a3fc01c2fc6ab",
+    "data/knowledge/e4_v1/sources/wardrobe.txt": "81d5ae96c9ee4f8f7bb9dfef3b3b7c296b414b85ac7bc7da28ddebc08f820006",
+    "data/knowledge/e4_c3_v1/chunks.jsonl": "ff47dc9b50d1c8aa377a431817751c80ad2ad76cd595b419881288bb9f8f1fe7"
+  },
+  "official_chunks": 156,
+  "simulated_chunks": 12,
+  "title_rule": "Index/section labels are reviewed context, not verbatim source; never apply a global duration to unrelated subsections"
+}

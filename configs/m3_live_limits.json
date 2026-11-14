@@ -1,0 +1,10 @@
+{
+  "max_model_calls": 12,
+  "max_tool_calls": 20,
+  "max_active_seconds": 120,
+  "max_tokens": 48000,
+  "max_turn_model_calls": 6,
+  "max_turn_tool_calls": 10,
+  "max_turn_active_seconds": 30,
+  "max_turn_tokens": 24000
+}

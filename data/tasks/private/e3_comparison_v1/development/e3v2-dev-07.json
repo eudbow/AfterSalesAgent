@@ -1,0 +1,80 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-07",
+    "first_user_message": "你好，我的邮箱是mason.johansson9549@example.com。我想取消订单#W4536116，取消原因还没决定，请先问我。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-07",
+    "source_user_id": "mason_johansson_8128",
+    "source_task": "e3dev-07",
+    "family": "cancel_reason_reconsideration",
+    "title": "补原因后再改原因",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "mason.johansson9549@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W4536116"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "reason_answer",
+        "expected": null,
+        "slot": "reason",
+        "reply": "原因是我现在不需要了。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "reason_revision",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W4536116",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "更正一下取消原因：是我下错单了，不是不需要了。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "reason": "ordered by mistake"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W4536116",
+        "reason": "ordered by mistake"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-07",
+    "kind": "cancel",
+    "user_id": "mason_johansson_8128",
+    "order_id": "#W4536116",
+    "arguments": {
+      "order_id": "#W4536116",
+      "reason": "ordered by mistake"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

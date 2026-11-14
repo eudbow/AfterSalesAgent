@@ -1,0 +1,21 @@
+{
+  "families": 50,
+  "tasks": 150,
+  "splits": {
+    "dev": 60,
+    "validation": 45,
+    "test": 45
+  },
+  "challenge_counts": {
+    "condition": 39,
+    "exception": 21,
+    "identifier": 33,
+    "paraphrase": 21,
+    "multi_evidence": 9,
+    "no_answer": 9,
+    "date_scope": 12,
+    "conflict": 6
+  },
+  "cross_split_near_duplicates": [],
+  "independence_note": "Three phrasings per fact family; not 150 independent facts. Shared domain primitives remain. Assistant-authored and reviewed, not independent human gold."
+}

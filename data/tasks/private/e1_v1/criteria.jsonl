@@ -1,0 +1,36 @@
+{"fact_patterns": ["60", "365"], "required_ids": ["R01"], "status": "answered", "task_id": "e1-dev-01", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["食品", "家用电器|电器", "定制"], "required_ids": ["R03"], "status": "answered", "task_id": "e1-dev-02", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["购物凭证|购物小票|收据|购买凭证", "发票", "银行卡", "签购单"], "required_ids": ["R02"], "status": "answered", "task_id": "e1-dev-03", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["红字信息确认单", "电子税局|电子税务局"], "required_ids": ["R04"], "status": "answered", "task_id": "e1-dev-04", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["污渍", "洗涤|洗过|清洗", "使用痕迹"], "required_ids": ["R05"], "status": "answered", "task_id": "e1-dev-05", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["7|七", "原始支付|原支付|原付款|原路|原来的支付"], "required_ids": ["R06"], "status": "answered", "task_id": "e1-dev-06", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["10|十年", "材料", "工艺"], "required_ids": ["G02"], "status": "answered", "task_id": "e1-dev-07", "versions": ["snapshot-2026-10-24-de2aacf67629"]}
+{"fact_patterns": ["(METOD|米多)[\\s\\S]{0,30}25|25[\\s\\S]{0,30}(METOD|米多)", "(ENHET|安纳特)[\\s\\S]{0,30}10|10[\\s\\S]{0,30}(ENHET|安纳特)", "(KNOXHULT|诺克胡)[\\s\\S]{0,30}5|5[\\s\\S]{0,30}(KNOXHULT|诺克胡)"], "required_ids": ["G04"], "status": "answered", "task_id": "e1-dev-08", "versions": ["snapshot-2026-10-24-de2aacf67629"]}
+{"fact_patterns": ["无法|不能|不足|未知|缺乏|未标"], "required_ids": [], "status": "insufficient_evidence", "task_id": "e1-dev-09", "versions": []}
+{"fact_patterns": ["14"], "required_ids": ["D01"], "status": "answered", "task_id": "e1-dev-10", "versions": ["return-v1"]}
+{"fact_patterns": ["订单号", "照片", "序列号"], "required_ids": ["D04"], "status": "answered", "task_id": "e1-dev-11", "versions": ["materials-v2"]}
+{"fact_patterns": ["5|五", "10|十", "冲突|矛盾|不一致"], "required_ids": ["C01", "C02"], "status": "conflict", "task_id": "e1-dev-12", "versions": ["conflict-a", "conflict-b"]}
+{"fact_patterns": ["60", "365"], "required_ids": ["R01"], "status": "answered", "task_id": "e1-validation-01", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["食品", "家用电器|电器", "定制"], "required_ids": ["R03"], "status": "answered", "task_id": "e1-validation-02", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["购物凭证|购物小票|收据|购买凭证", "发票", "银行卡", "签购单"], "required_ids": ["R02"], "status": "answered", "task_id": "e1-validation-03", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["红字信息确认单", "电子税局|电子税务局"], "required_ids": ["R04"], "status": "answered", "task_id": "e1-validation-04", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["污渍", "洗涤|洗过|清洗", "使用痕迹"], "required_ids": ["R05"], "status": "answered", "task_id": "e1-validation-05", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["7|七", "原始支付|原支付|原付款|原路|原来的支付"], "required_ids": ["R06"], "status": "answered", "task_id": "e1-validation-06", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["10|十年", "材料", "工艺"], "required_ids": ["G02"], "status": "answered", "task_id": "e1-validation-07", "versions": ["snapshot-2026-10-24-de2aacf67629"]}
+{"fact_patterns": ["(METOD|米多)[\\s\\S]{0,30}25|25[\\s\\S]{0,30}(METOD|米多)", "(ENHET|安纳特)[\\s\\S]{0,30}10|10[\\s\\S]{0,30}(ENHET|安纳特)", "(KNOXHULT|诺克胡)[\\s\\S]{0,30}5|5[\\s\\S]{0,30}(KNOXHULT|诺克胡)"], "required_ids": ["G04"], "status": "answered", "task_id": "e1-validation-08", "versions": ["snapshot-2026-10-24-de2aacf67629"]}
+{"fact_patterns": ["无法|不能|不足|未知|缺乏|未标"], "required_ids": [], "status": "insufficient_evidence", "task_id": "e1-validation-09", "versions": []}
+{"fact_patterns": ["30"], "required_ids": ["D02"], "status": "answered", "task_id": "e1-validation-10", "versions": ["return-v2"]}
+{"fact_patterns": ["订单号", "照片"], "required_ids": ["D03"], "status": "answered", "task_id": "e1-validation-11", "versions": ["materials-v1"]}
+{"fact_patterns": ["5|五", "10|十", "冲突|矛盾|不一致"], "required_ids": ["C01", "C02"], "status": "conflict", "task_id": "e1-validation-12", "versions": ["conflict-a", "conflict-b"]}
+{"fact_patterns": ["60", "365"], "required_ids": ["R01"], "status": "answered", "task_id": "e1-test-01", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["食品", "家用电器|电器", "定制"], "required_ids": ["R03"], "status": "answered", "task_id": "e1-test-02", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["购物凭证|购物小票|收据|购买凭证", "发票", "银行卡", "签购单"], "required_ids": ["R02"], "status": "answered", "task_id": "e1-test-03", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["红字信息确认单", "电子税局|电子税务局"], "required_ids": ["R04"], "status": "answered", "task_id": "e1-test-04", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["污渍", "洗涤|洗过|清洗", "使用痕迹"], "required_ids": ["R05"], "status": "answered", "task_id": "e1-test-05", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["7|七", "原始支付|原支付|原付款|原路|原来的支付"], "required_ids": ["R06"], "status": "answered", "task_id": "e1-test-06", "versions": ["snapshot-2026-10-24-51082fab8c38"]}
+{"fact_patterns": ["10|十年", "材料", "工艺"], "required_ids": ["G02"], "status": "answered", "task_id": "e1-test-07", "versions": ["snapshot-2026-10-24-de2aacf67629"]}
+{"fact_patterns": ["(METOD|米多)[\\s\\S]{0,30}25|25[\\s\\S]{0,30}(METOD|米多)", "(ENHET|安纳特)[\\s\\S]{0,30}10|10[\\s\\S]{0,30}(ENHET|安纳特)", "(KNOXHULT|诺克胡)[\\s\\S]{0,30}5|5[\\s\\S]{0,30}(KNOXHULT|诺克胡)"], "required_ids": ["G04"], "status": "answered", "task_id": "e1-test-08", "versions": ["snapshot-2026-10-24-de2aacf67629"]}
+{"fact_patterns": ["无法|不能|不足|未知|缺乏|未标"], "required_ids": [], "status": "insufficient_evidence", "task_id": "e1-test-09", "versions": []}
+{"fact_patterns": ["14"], "required_ids": ["D01"], "status": "answered", "task_id": "e1-test-10", "versions": ["return-v1"]}
+{"fact_patterns": ["订单号", "照片", "序列号"], "required_ids": ["D04"], "status": "answered", "task_id": "e1-test-11", "versions": ["materials-v2"]}
+{"fact_patterns": ["5|五", "10|十", "冲突|矛盾|不一致"], "required_ids": ["C01", "C02"], "status": "conflict", "task_id": "e1-test-12", "versions": ["conflict-a", "conflict-b"]}

@@ -1,0 +1,166 @@
+{
+  "public": {
+    "task_id": "e3v2-validation-12",
+    "first_user_message": "Hello, my email is fatima.brown7817@example.com. Request a return for order #W9045919; return only item IDs 1719127154; use my existing refund method credit_card_1982124."
+  },
+  "script": {
+    "task_id": "e3v2-validation-12",
+    "source_user_id": "fatima_brown_5229",
+    "source_task": "new-holdout-combination-20261027",
+    "family": "validation-跨语言清单修改文字同意再改支付",
+    "title": "跨语言清单修改文字同意再改支付",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "fatima.brown7817@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1719127154"
+        ],
+        "order_id": "#W9045919",
+        "payment_method_id": "credit_card_1982124"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "validation-step-1",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1719127154"
+            ],
+            "order_id": "#W9045919",
+            "payment_method_id": "credit_card_1982124"
+          }
+        },
+        "slot": null,
+        "reply": "Change my request: cancel order #W9045919; reason no longer needed. I have not formally approved any proposal.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W9045919",
+            "reason": "no longer needed"
+          }
+        }
+      },
+      {
+        "trigger": "refusal",
+        "label": "overlay-cancel-refused-back-to-return",
+        "expected": null,
+        "slot": null,
+        "reply": "明白，改回订单#W9045919退货，退款方式credit_card_1982124。具体退哪些商品尚未决定，请先问我。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "order_id": "#W9045919",
+            "payment_method_id": "credit_card_1982124"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "overlay-return-items-after-language-switch",
+        "expected": null,
+        "slot": "items",
+        "reply": "只退商品编号1719127154, 4953074738，退款方式沿用刚才指定的。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1719127154",
+              "4953074738"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-2",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1719127154",
+              "4953074738"
+            ],
+            "order_id": "#W9045919",
+            "payment_method_id": "credit_card_1982124"
+          }
+        },
+        "slot": null,
+        "reply": "Okay, go ahead with that proposal.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {}
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "validation-step-3",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1719127154",
+              "4953074738"
+            ],
+            "order_id": "#W9045919",
+            "payment_method_id": "credit_card_1982124"
+          }
+        },
+        "slot": null,
+        "reply": "尚未确认，请更正：退款方式=gift_card_8633125。未修改字段沿用上一方案。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "payment_method_id": "gift_card_8633125"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1719127154",
+          "4953074738"
+        ],
+        "order_id": "#W9045919",
+        "payment_method_id": "gift_card_8633125"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-validation-12",
+    "kind": "return",
+    "user_id": "fatima_brown_5229",
+    "order_id": "#W9045919",
+    "arguments": {
+      "item_ids": [
+        "1719127154",
+        "4953074738"
+      ],
+      "order_id": "#W9045919",
+      "payment_method_id": "gift_card_8633125"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 1,
+    "expected_language": "zh",
+    "transition": "en_to_zh",
+    "message_prefix": "明白，改回订单#W9045919退货，退款方式credit_card_1982124。具体退哪些商品尚未决定，请先问我。",
+    "question_stage_label": "overlay-return-items-after-language-switch"
+  },
+  "overlay_notes": "Added explicit cancel/refusal/return-item clarification after an existing proposal; same source identity and final goal, separate version, not language-only generalization."
+}

@@ -1,0 +1,102 @@
+{
+  "public": {
+    "task_id": "e3diag-language-02",
+    "first_user_message": "Hello, my email is noah.kovacs8240@example.com. Cancel order #W9440076; the reason is no longer needed."
+  },
+  "script": {
+    "task_id": "e3diag-language-02",
+    "source_user_id": "noah_kovacs_1216",
+    "source_task": "e3dev-12",
+    "family": "development_language_observation_2",
+    "title": "同一业务下en到en缺邮编追问",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "noah.kovacs8240@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W9440076",
+        "reason": "no longer needed"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "intent_switch",
+        "expected": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W9440076",
+            "reason": "no longer needed"
+          }
+        },
+        "slot": null,
+        "reply": "Do not cancel. Change the address to 732 Maple Street, line 2 Unit 8, Seattle, WA, USA. I have not supplied the new zip. Ask me.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "732 Maple Street",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W9440076",
+            "state": "WA"
+          }
+        }
+      },
+      {
+        "trigger": "question",
+        "label": "zip_after_switch",
+        "expected": null,
+        "slot": "zip",
+        "reply": "The new zip is 98109; keep the other address fields.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98109"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "732 Maple Street",
+        "address2": "Unit 8",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W9440076",
+        "state": "WA",
+        "zip": "98109"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3diag-language-02",
+    "kind": "address",
+    "user_id": "noah_kovacs_1216",
+    "order_id": "#W9440076",
+    "arguments": {
+      "address1": "732 Maple Street",
+      "address2": "Unit 8",
+      "city": "Seattle",
+      "country": "USA",
+      "order_id": "#W9440076",
+      "state": "WA",
+      "zip": "98109"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": {
+    "after_stage": 0,
+    "expected_language": "en",
+    "transition": null,
+    "message_prefix": "Do not cancel. Change the address to 732 Maple Street, line 2 Unit 8, Seattle, WA, USA. I have not supplied the new zip. Ask me.",
+    "question_stage_label": "zip_after_switch"
+  },
+  "overlay_notes": "unchanged source"
+}

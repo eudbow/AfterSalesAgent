@@ -1,0 +1,8 @@
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 emma.santos8623@example.com。请帮我查一下订单 #W4590951 现在是什么状态。另外请查询其中商品3821016478的可选规格，回复保留订单号和商品编号。", "kind": "business", "scenario": "order_product", "task_id": "e2live-01"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 james.sanchez6979@example.com。麻烦把订单（#W7464385）取消，是我下错单了。编号里的#请保留。", "kind": "business", "scenario": "cancel", "task_id": "e2live-02"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 aarav.santos2789@example.com。请把订单 #W6111820 的地址改成 517 Cedar Street，第二行留空，Seattle，WA，USA，邮编98101。", "kind": "business", "scenario": "address_correction", "task_id": "e2live-03"}
+{"first_user_message": "你好，我的邮箱是amelia.gonzalez4271@example.com。我想退订单#W1762492里的部分商品，具体退哪一件我还没告诉你。退款请用原支付方式gift_card_2611937。", "kind": "business", "scenario": "return_missing_item", "task_id": "e2live-04"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 amelia.ito8974@example.com。我要退订单 #W3733909 的商品 5650803029，退款选原付款方式 credit_card_1016162。", "kind": "business", "scenario": "plain_yes", "task_id": "e2live-05"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 mohamed.li8414@example.com。不想要订单 #W8864622 了，是我误买的，能帮我取消吗？", "kind": "business", "scenario": "invalid_state", "task_id": "e2live-06"}
+{"filters": {"scope": "ikea_cn"}, "kind": "knowledge", "question": "宜家用银行卡支付后退货，需要带哪些货品和凭证？", "scenario": "policy", "task_id": "e2live-07"}
+{"first_user_message": "你好，麻烦帮我处理一下。我的邮箱是 james.sanchez6979@example.com。麻烦把订单（#W7464385）取消，是我下错单了。编号里的#请保留。", "kind": "business", "scenario": "proposal_response_loss", "task_id": "e2live-08"}

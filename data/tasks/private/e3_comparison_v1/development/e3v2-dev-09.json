@@ -1,0 +1,78 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-09",
+    "first_user_message": "你好，我的邮箱是ethan.lopez8943@example.com。请把订单#W9409203地址改为729 Maple Street，第二行Unit 8，Seattle，WA，USA，邮编98101。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-09",
+    "source_user_id": "ethan_lopez_6291",
+    "source_task": "e3dev-09",
+    "family": "intent_address_to_cancel",
+    "title": "改址改为取消",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "ethan.lopez8943@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "729 Maple Street",
+        "address2": "Unit 8",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W9409203",
+        "state": "WA",
+        "zip": "98101"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "proposal",
+        "label": "address_to_cancel",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "729 Maple Street",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W9409203",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "刚才改地址的要求作废，我已经不需要这个订单了，请改为取消。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": "cancel_pending_order",
+          "arguments": {
+            "order_id": "#W9409203",
+            "reason": "no longer needed"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W9409203",
+        "reason": "no longer needed"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-09",
+    "kind": "cancel",
+    "user_id": "ethan_lopez_6291",
+    "order_id": "#W9409203",
+    "arguments": {
+      "order_id": "#W9409203",
+      "reason": "no longer needed"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

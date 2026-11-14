@@ -1,0 +1,102 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-02",
+    "first_user_message": "你好，我的邮箱是mia.jackson5798@example.com。请将订单#W6236251地址改成722 Maple Street，第二行Unit 8，Seattle，WA，USA。邮编尚未告诉你，请先询问，不要从旧订单推断。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-02",
+    "source_user_id": "mia_jackson_2250",
+    "source_task": "e3dev-02",
+    "family": "address_clarify_then_override",
+    "title": "补邮编后跨城市修改",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "mia.jackson5798@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "722 Maple Street",
+        "address2": "Unit 8",
+        "city": "Seattle",
+        "country": "USA",
+        "order_id": "#W6236251",
+        "state": "WA"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "zip_answer",
+        "expected": null,
+        "slot": "zip",
+        "reply": "这次新地址邮编是98101。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "zip": "98101"
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "cross_state",
+        "expected": {
+          "tool_name": "modify_pending_order_address",
+          "arguments": {
+            "address1": "722 Maple Street",
+            "address2": "Unit 8",
+            "city": "Seattle",
+            "country": "USA",
+            "order_id": "#W6236251",
+            "state": "WA",
+            "zip": "98101"
+          }
+        },
+        "slot": null,
+        "reply": "我改主意了：城市改Portland，州OR，邮编97205，其他不变。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "city": "Portland",
+            "state": "OR",
+            "zip": "97205"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "modify_pending_order_address",
+      "arguments": {
+        "address1": "722 Maple Street",
+        "address2": "Unit 8",
+        "city": "Portland",
+        "country": "USA",
+        "order_id": "#W6236251",
+        "state": "OR",
+        "zip": "97205"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-02",
+    "kind": "address",
+    "user_id": "mia_jackson_2250",
+    "order_id": "#W6236251",
+    "arguments": {
+      "address1": "722 Maple Street",
+      "address2": "Unit 8",
+      "city": "Portland",
+      "country": "USA",
+      "order_id": "#W6236251",
+      "state": "OR",
+      "zip": "97205"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

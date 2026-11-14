@@ -1,0 +1,30 @@
+{"task_id": "C3-T01-1", "question": "KNOXHULT使用的UTRUSTA电动推进式开门器属于哪档保证？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T01-2", "question": "诺克胡厨房配乌斯塔电动开门器，是这份文件的五年部件吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T02-1", "question": "HAVBÄCK和TÄNNFORSEN浴室系列的材料工艺保证是几年？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T02-2", "question": "哈弗贝克、坦弗森浴室家具，文件给了哪档品质保证？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T03-1", "question": "嵌入式燃气灶与人工煤气情形的包修期限分别多久？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T03-2", "question": "按快照中的燃气灶维修规定，嵌入式灶都是六年吗，人工煤气有区别吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T04-1", "question": "不锈钢锅洗之前要等凉吗，冷时底部微凹就说明坏了吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T04-2", "question": "钢锅放凉后底有点凹，为什么说明建议彻底冷却再洗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T05-1", "question": "新宜家厨刀拆封后第一次使用前，应做哪些清洁处理？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T05-2", "question": "新刀拿出包装能马上切菜吗，使用前说明要求先做什么？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T06-1", "question": "碳钢锅开锅后做饭还要放油吗，逐渐变黑是否正常？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T06-2", "question": "养好油膜的碳钢锅能完全不放油炒菜吗，用久变黑是怎么回事？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T07-1", "question": "BESTÅ储物系列转卖给别人，保证能转给新主人吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T07-2", "question": "贝达储物柜二手转让后，新买家能继承原购买者的保证吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T08-1", "question": "家电最初安装的费用包括在这份品质保证里吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T08-2", "question": "买完厨房电器第一次装机，能直接要求用质保报销初装费吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T09-1", "question": "燃气灶购机证明涂改，或安装卡与机器编码不符，会影响包修吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T09-2", "question": "灶具的购买票据改过，安装服务卡型号机身码还对不上，原文怎么规定？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T10-1", "question": "办公家具保证期限和凭证是什么，部分储物柜固定上墙的螺丝由谁准备？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T10-2", "question": "办公储物柜一方面保几年要留什么票，另一方面上墙螺丝箱内有没有？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T11-1", "question": "宜家厨刀和普通不锈钢锅，对放洗碗机的建议相同吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T11-2", "question": "一把厨刀一口不锈钢锅，能一概扔进洗碗机吗，分别有什么依据？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T12-1", "question": "当前快照能确定我今天去的宜家商场几点关门吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T12-2", "question": "没有提供门店名称和营业安排，这些质保文件能告诉我今晚准确闭店时间吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T13-1", "question": "按我未提供的住址，最近宜家距离我家精确多少公里？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T13-2", "question": "这些资料能直接确定离我家最近的宜家是哪家、几公里吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-T14-1", "question": "2026-10-01，C3演示商店咨询资料应使用哪个邮箱？", "filters": {"scope": "demo_store", "category": "email", "as_of": "2026-10-01"}}
+{"task_id": "C3-T14-2", "question": "按十月一日有效的C3模拟说明，咨询邮件发新邮箱还是旧邮箱？", "filters": {"scope": "demo_store", "category": "email", "as_of": "2026-10-01"}}
+{"task_id": "C3-T15-1", "question": "C3冲突商店商品退回必须到店还是必须邮寄？", "filters": {"scope": "demo_conflict", "category": "return_mode", "as_of": "2026-11-01"}}
+{"task_id": "C3-T15-2", "question": "C3模拟文件对退回方式要求互相矛盾，能直接选到店或邮寄吗？", "filters": {"scope": "demo_conflict", "category": "return_mode", "as_of": "2026-11-01"}}

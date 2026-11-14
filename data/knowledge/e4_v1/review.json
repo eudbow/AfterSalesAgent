@@ -1,0 +1,965 @@
+{
+  "reviewer_kind": "assistant",
+  "sources": [
+    {
+      "document_id": "e4_mattress",
+      "title": "床垫品质保证",
+      "body_span": [
+        1557,
+        2881
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_wardrobe",
+      "title": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证",
+      "body_span": [
+        163,
+        1441
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_sliding",
+      "title": "SKYTTA 斯基塔 滑门 品质保证详情",
+      "body_span": [
+        163,
+        1346
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_sliding",
+      "excluded_span": [
+        1010,
+        1058
+      ],
+      "reason": "Explicitly US-only clause; not mainland-China evidence"
+    },
+    {
+      "document_id": "e4_bathroom",
+      "title": "浴室产品的品质保证",
+      "body_span": [
+        163,
+        1462
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_seating",
+      "title": "客厅产品的品质保证",
+      "body_span": [
+        163,
+        1923
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_kitchen",
+      "title": "METOD 米多 厨房系列 享有25年品质保证",
+      "body_span": [
+        187,
+        5846
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_kitchen",
+      "excluded_span": [
+        4033,
+        4083
+      ],
+      "reason": "Explicitly EU cross-border clause; quarantined for scope review"
+    },
+    {
+      "document_id": "e4_kitchen",
+      "excluded_span": [
+        4138,
+        4229
+      ],
+      "reason": "Explicitly EU cross-border clause; quarantined for scope review"
+    },
+    {
+      "document_id": "e4_knives",
+      "title": "宜家厨房刀具品质保证",
+      "body_span": [
+        163,
+        1919
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_knives",
+      "excluded_span": [
+        1096,
+        1144
+      ],
+      "reason": "Explicitly US-only clause; not mainland-China evidence"
+    },
+    {
+      "document_id": "e4_cookware",
+      "title": "宜家炊具品质保证",
+      "body_span": [
+        163,
+        5078
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_cookware",
+      "excluded_span": [
+        1059,
+        1107
+      ],
+      "reason": "Explicitly US-only clause; not mainland-China evidence"
+    },
+    {
+      "document_id": "e4_office",
+      "title": "办公家具的品质保证",
+      "body_span": [
+        163,
+        2106
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_chairs",
+      "title": "办公椅品质保证",
+      "body_span": [
+        163,
+        1563
+      ],
+      "reviewer_kind": "assistant",
+      "status": "body_reviewed",
+      "notes": "Retain source text; exclude navigation, marketing and footer from chunks"
+    },
+    {
+      "document_id": "e4_chairs",
+      "excluded_span": [
+        924,
+        972
+      ],
+      "reason": "Explicitly US-only clause; not mainland-China evidence"
+    }
+  ],
+  "sections": [
+    {
+      "chunk_id": "E4-mattress-001",
+      "section": "床垫品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-002",
+      "section": "床垫品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-003",
+      "section": "床垫品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-004",
+      "section": "床垫品质保证 / 本品质保证不涵盖哪些内容：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-005",
+      "section": "床垫品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-006",
+      "section": "床垫品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-007",
+      "section": "保养说明 / 保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-008",
+      "section": "保养说明 / 保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-mattress-009",
+      "section": "保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-001",
+      "section": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-002",
+      "section": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证 / 本品质保证的有效期？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-003",
+      "section": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证 / 本品质保证涵盖 PAX 帕克思/KOMPLEMENT 康普蒙 衣柜和内部配件下列组件在家庭使用情况下，在材料和工艺方面的缺陷:",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-004",
+      "section": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证 / 本品质保证未涵盖哪些产品？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-005",
+      "section": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证 / 宜家将采取什么行动来解决问题?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-006",
+      "section": "PAX 帕克思 / KOMPLEMENT 康普蒙 衣柜与内部配件品质保证 / 本品质保证不包括哪些情况？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-007",
+      "section": "保养说明 / 保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-wardrobe-008",
+      "section": "保养说明 / 保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-001",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-002",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-003",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情 / 本品质保证适用于家庭使用的产品，涵盖下列SKYTTA 斯基塔 滑门组件在材料和工艺方面的缺陷：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-004",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-005",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-006",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-sliding-007",
+      "section": "SKYTTA 斯基塔 滑门 品质保证详情 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-001",
+      "section": "浴室产品的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-002",
+      "section": "浴室产品的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-003",
+      "section": "浴室洗脸池，混合水龙头和恒温淋浴水混合器10年品质保证 / 本品质保证涵盖哪些情况?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-004",
+      "section": "浴室洗脸池，混合水龙头和恒温淋浴水混合器10年品质保证 / 本品质保证不包括哪些情况?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-005",
+      "section": "OPPEJEN 奥佩耶恩 和FOTINGEN 弗洛廷根10年品质保证 / 本品质保证涵盖哪些情况?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-006",
+      "section": "OPPEJEN 奥佩耶恩 和FOTINGEN 弗洛廷根10年品质保证 / 本品质保证不包括哪些情况?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-007",
+      "section": "浴室淋浴配件3年品质保证 / 本品质保证涵盖哪些情况?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-008",
+      "section": "浴室淋浴配件3年品质保证 / 本品质保证不包括哪些情况?",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-bathroom-009",
+      "section": "浴室淋浴配件3年品质保证 / 查看完整的浴室洗脸池和厨卫水龙头品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-001",
+      "section": "客厅产品的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-002",
+      "section": "客厅产品的品质保证 / 斯德哥尔摩沙发系列：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-003",
+      "section": "客厅产品的品质保证 / 本品质保证不涵盖的产品和部件 本品质保证不涵盖：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-004",
+      "section": "客厅产品的品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-005",
+      "section": "客厅产品的品质保证 / 电动沙发系列：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-006",
+      "section": "客厅产品的品质保证 / 本品质保证不涵盖的产品和部件 本品质保证不涵盖：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-007",
+      "section": "客厅产品的品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-008",
+      "section": "客厅产品的品质保证 / 其他沙发、扶手椅、沙发床和脚凳系列：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-009",
+      "section": "客厅产品的品质保证 / 本品质保证不涵盖的产品和部件 本品质保证不涵盖：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-010",
+      "section": "客厅产品的品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-011",
+      "section": "客厅产品的品质保证 / 本品质保证不适用于以下原因导致的损坏：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-012",
+      "section": "客厅产品的品质保证 / 本品质保证不适用于以下原因导致的损坏：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-013",
+      "section": "客厅产品的品质保证 / BESTÅ 贝达 储物系列：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-014",
+      "section": "客厅产品的品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-015",
+      "section": "客厅产品的品质保证 / 本品质保证涵盖的内容：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-016",
+      "section": "客厅产品的品质保证 / 本品质保证不涵盖哪些产品/问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-017",
+      "section": "客厅产品的品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-seating-018",
+      "section": "客厅产品的品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-001",
+      "section": "METOD 米多 厨房系列 享有25年品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-002",
+      "section": "METOD 米多 厨房系列 享有25年品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-003",
+      "section": "METOD 米多 厨房系列 享有25年品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-004",
+      "section": "25年品质保证 / 本品质保证涵盖METOD 米多 厨房系列的下列所有部件：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-005",
+      "section": "以下产品不享受25年、10年或5年品质保证： / 以下产品不享受25年、10年或5年品质保证：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-006",
+      "section": "以下产品不享受25年、10年或5年品质保证： / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-007",
+      "section": "以下产品不享受25年、10年或5年品质保证： / 售后服务",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-008",
+      "section": "以下产品不享受25年、10年或5年品质保证： / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-009",
+      "section": "组装和保养说明 / 组装和保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-010",
+      "section": "组装和保养说明 / 安装",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-011",
+      "section": "组装和保养说明 / 安装",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-012",
+      "section": "组装和保养说明 / 如果你需要服务，该怎样联系我们？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-013",
+      "section": "10年品质保证 / 本品质保证涵盖ENHET 安纳特 厨房系列的下列所有部件：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-014",
+      "section": "10年品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-015",
+      "section": "10年品质保证 / 本品质保证不涵盖哪些厨房混合型水龙头？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-016",
+      "section": "10年品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-017",
+      "section": "10年品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-018",
+      "section": "10年品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-019",
+      "section": "10年品质保证 / 认证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-020",
+      "section": "5年品质保证 / 本品质保证涵盖KNOXHULT 诺克胡 厨房系列的下列所有部件：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-021",
+      "section": "以下产品不享受25年、10年或5年品质保证： / 以下产品不享受25年、10年或5年品质保证：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-022",
+      "section": "家电 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-023",
+      "section": "家电 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-024",
+      "section": "家电 / 本品质保证涵盖哪些厨房电器？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-025",
+      "section": "家电 / 本品质保证不包括哪些家电？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-026",
+      "section": "家电 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-027",
+      "section": "家电 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-028",
+      "section": "家电 / 将由谁提供质保服务？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-029",
+      "section": "家电 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-030",
+      "section": "家电 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-031",
+      "section": "家电 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-032",
+      "section": "家电 / 有效范围",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-033",
+      "section": "家电 / 有效范围",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-034",
+      "section": "家电 / 有效范围",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-035",
+      "section": "家电 / 用户在正常使用产品的情况下，可为其提供相关免费维修服务：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-036",
+      "section": "家电 / 凡属下述情况之一的，不在包修范围内：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-037",
+      "section": "家电 / 凡属下述情况之一的，不在包修范围内：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-038",
+      "section": "家电 / 售后服务",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-039",
+      "section": "家电 / 用户在正常使用产品的情况下，可为其提供相关免费维修服务：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-040",
+      "section": "家电 / 凡属下述情况之一的，不在包修范围内：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-041",
+      "section": "家电 / 凡属下述情况之一的，不在包修范围内：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-042",
+      "section": "家电 / 售后服务",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-kitchen-043",
+      "section": "家电 / 办公家具的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-001",
+      "section": "宜家厨房刀具品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-002",
+      "section": "宜家厨房刀具品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-003",
+      "section": "宜家厨房刀具品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-004",
+      "section": "宜家厨房刀具品质保证 / 本品质保证涵盖：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-005",
+      "section": "宜家厨房刀具品质保证 / 本品质保证不涵盖哪些产品：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-006",
+      "section": "宜家厨房刀具品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-007",
+      "section": "宜家厨房刀具品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-008",
+      "section": "宜家厨房刀具品质保证 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-009",
+      "section": "宜家厨房刀具品质保证 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-010",
+      "section": "宜家厨房刀具品质保证 / 磨刀",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-011",
+      "section": "宜家厨房刀具品质保证 / 磨刀",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-knives-012",
+      "section": "宜家厨房刀具品质保证 / 磨刀",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-001",
+      "section": "宜家炊具品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-002",
+      "section": "宜家炊具品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-003",
+      "section": "宜家炊具品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-004",
+      "section": "宜家炊具品质保证 / 本品质保证涵盖：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-005",
+      "section": "宜家炊具品质保证 / 本品质保证不涵盖哪些产品：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-006",
+      "section": "宜家炊具品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-007",
+      "section": "宜家炊具品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-008",
+      "section": "宜家炊具品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-009",
+      "section": "不锈钢炊具的保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-010",
+      "section": "不锈钢炊具的保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-011",
+      "section": "带金属化涂层不锈钢炊具的保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-012",
+      "section": "带金属化涂层不锈钢炊具的保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-013",
+      "section": "带铜质表面的不锈钢锅具的保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-014",
+      "section": "带铜质表面的不锈钢锅具的保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-015",
+      "section": "带铜质表面的不锈钢锅具的保养说明 / 去除铜绿最好的方法是先将铜表面清洁干净，再进行抛光处理，请按照以下步骤操作：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-016",
+      "section": "带铜质表面的不锈钢锅具的保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-017",
+      "section": "铸铁炊具保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-018",
+      "section": "铸铁炊具保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-019",
+      "section": "铸铁炊具保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-020",
+      "section": "搪瓷铸铁炊具的保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-021",
+      "section": "搪瓷铸铁炊具的保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-022",
+      "section": "搪瓷铸铁炊具的保养说明 / 清洗",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-023",
+      "section": "搪瓷铸铁炊具的保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-024",
+      "section": "碳钢炊具的保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-025",
+      "section": "碳钢炊具的保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-026",
+      "section": "碳钢炊具的保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-027",
+      "section": "碳钢炊具的保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-028",
+      "section": "碳钢炊具的保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-029",
+      "section": "碳钢炊具的保养说明 / 第一次使用前",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-030",
+      "section": "碳钢炊具的保养说明 / 护理和清洁",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-031",
+      "section": "碳钢炊具的保养说明 / 如何使用",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-032",
+      "section": "带木制部件炊具的其他保养说明 / 带木制部件炊具的其他保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-cookware-033",
+      "section": "带木制部件炊具的其他保养说明 / 带木制部件炊具的其他保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-001",
+      "section": "办公家具的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-002",
+      "section": "办公家具的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-003",
+      "section": "办公家具的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-004",
+      "section": "办公家具的品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-005",
+      "section": "办公家具的品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-006",
+      "section": "办公家具的品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-007",
+      "section": "办公家具的品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-008",
+      "section": "办公家具的品质保证 / 本品质保证不涵盖哪些产品：",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-009",
+      "section": "办公家具的品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-010",
+      "section": "组装和保养说明 / 组装和保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-office-011",
+      "section": "组装和保养说明 / 组装和保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-001",
+      "section": "办公椅品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-002",
+      "section": "办公椅品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-003",
+      "section": "办公椅品质保证",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-004",
+      "section": "办公椅品质保证 / 本品质保证的有效期是多久？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-005",
+      "section": "办公椅品质保证 / 本品质保证涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-006",
+      "section": "办公椅品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-007",
+      "section": "办公椅品质保证 / 本品质保证不涵盖哪些内容？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-008",
+      "section": "办公椅品质保证 / 宜家将采取什么行动来解决问题？",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-009",
+      "section": "组装和保养说明 / 组装和保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    },
+    {
+      "chunk_id": "E4-chairs-010",
+      "section": "组装和保养说明 / 组装和保养说明",
+      "condition_context": "See same-document/section chunks; evaluation requires complete evidence groups"
+    }
+  ]
+}

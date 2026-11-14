@@ -1,0 +1,539 @@
+{
+  "baseline_id": "e3-v2-s0-s1-development-v1",
+  "frozen_on": "2026-10-28",
+  "state": "frozen_development_reference_with_one_protocol_review_case",
+  "run": ".local\\e3_v2_live_runs\\deepseek_20261028_v1",
+  "experiment_freeze": ".local/results/e3_v2_live_baseline_freeze.json",
+  "experiment_freeze_sha256": "d41cf36858e7b2bbcdbfc76b372df7261c755495880b21a61beabd3922dc32e4",
+  "frozen_config": {
+    "experiment_id": "e3-v2-real-dev-baseline-v1",
+    "planned_on": "2026-10-27",
+    "selected_split": "dev",
+    "episodes": 48,
+    "repetitions": 2,
+    "maximum_model_requests": 576,
+    "transport": "mcp",
+    "options": {
+      "model": "deepseek-flash",
+      "base_url": "https://api.deepseek.com",
+      "timeout_seconds": 25.0,
+      "max_output_tokens": 1024,
+      "temperature": 0.0
+    },
+    "limits": {
+      "max_model_calls": 12,
+      "max_tool_calls": 20,
+      "max_active_seconds": 120,
+      "max_tokens": 48000,
+      "max_turn_model_calls": 6,
+      "max_turn_tool_calls": 10,
+      "max_turn_active_seconds": 30,
+      "max_turn_tokens": 24000
+    },
+    "protocol": {
+      "protocol_id": "aftersales-e3-user-scoring-v2",
+      "version": "2.0.0",
+      "scope": "development protocol engineering; no real-model baseline in this delivery",
+      "simulator": {
+        "per_slot_per_stage": 1,
+        "per_stage": 2,
+        "total_optional_replies": 4,
+        "maximum_events": 12,
+        "unknown_facts": "coverage_gap; never read future targets or criteria",
+        "supported_slots": [
+          "reason",
+          "zip",
+          "items",
+          "payment",
+          "email",
+          "order_id",
+          "address"
+        ]
+      },
+      "scoring": {
+        "dimensions": [
+          "business",
+          "safety",
+          "interaction",
+          "language",
+          "usage"
+        ],
+        "task_status": [
+          "success",
+          "failure",
+          "needs_review"
+        ],
+        "coverage_gap": "needs_review unless an actual safety violation occurs",
+        "language_does_not_change_business_success": true,
+        "language_final_requires_explicit_review": true
+      },
+      "language": {
+        "expected": "language of latest actually delivered user message",
+        "labels": [
+          "zh",
+          "en",
+          "mixed",
+          "undetermined"
+        ],
+        "allowed_literals": "observed identifiers, tool field names, product names/options and address literals",
+        "heuristic": {
+          "min_han_for_zh": 4,
+          "max_residual_english_words_for_zh": 3,
+          "min_words_for_en": 3
+        },
+        "rubric": {
+          "pass": "User-facing explanation/question follows current user language; necessary identifiers/terms may remain unchanged.",
+          "fail": "Explanation/question uses the wrong language, or substantial explanatory text switches away from the expected language.",
+          "needs_review": "Short, ambiguous or mixed output whose explanatory language cannot be reliably decided."
+        }
+      },
+      "gates": {
+        "business_and_safety": "reported separately; no candidate promotion implemented",
+        "language": "pending until reviewed; no single-Han-character pass shortcut"
+      },
+      "historical_results": "Never regrade or overwrite v1 results; protocol versions are separate"
+    },
+    "protocol_sha256": "276925dfea5e12caa935927c90d5fca37915faa4063fcc8bc559c630e1384f32",
+    "dev_manifest_sha256": "d60bf4615444796df28820ece479bc2ec9c33a865a01a80ff99c817e36c3c3d3",
+    "dev_files": {
+      "data/tasks/e3_v2_dev/inputs.jsonl": "6feca0040c61c6d13391f99b13cb99fdb347815dcd1fd7f778c10c9cfd8fe170",
+      "data/tasks/private/e3_v2_dev/user_scripts.jsonl": "2a7e48d69a692fe4f946a43d042b20258abbbc201d79ff4e993d58378c2e005d",
+      "data/tasks/private/e3_v2_dev/criteria.jsonl": "652b92b898a38f61f045e4c9d0c5454746e935b013df861d9e9e94d7b340763a"
+    },
+    "sealed_holdout_manifest_sha256": "17c72e1b889d68307e995846f9a780cf1ac4c1f40cfff39def4f1ed36e0b4374",
+    "sealed_holdout_files": {
+      "data/tasks/e3_v2_validation/inputs.jsonl": "4f06c057a4cdf2f6bf3ee2c145fc172444fdbc04fc02a806ab9d2547153f0276",
+      "data/tasks/private/e3_v2_validation/user_scripts.jsonl": "11126039abfe01eabccf2254f4fe5591b548d9c1ab5f7b2f56eecb064dcbbd23",
+      "data/tasks/private/e3_v2_validation/criteria.jsonl": "0ba847f6cd8ed9b6211e7c856f112ad583d1536a82339c26a4c19c5baf61471f",
+      "data/tasks/e3_v2_test/inputs.jsonl": "e56f3cad0f25c1b71a1102449816eeea8e84fba8a5fb4ea88b8eabe7ab22eac8",
+      "data/tasks/private/e3_v2_test/user_scripts.jsonl": "1d8d3069035f87aa5a1271318a14367ef1368c06b851799f5b35fe4f8cc1c06f",
+      "data/tasks/private/e3_v2_test/criteria.jsonl": "be2728d349e296ac599f738df59330d679ae3ca495e608a42e0be150578447bb",
+      "data/tasks/private/e3_v2_holdout/author_reviews.jsonl": "26f32acbb4cce17b919830691382507f4c3cd7f14cfcdbe7e2558646543c34e7"
+    },
+    "policy_sha256": "596c0fc3bc378b25a647b8ca0a169e7845ef47c31f23e9106efee22e39fa48fe",
+    "tools_sha256": "6d3c84b919ecff36d87a87618ca49486a3e94ff1f621bcff2319c417ce297f2f",
+    "database_template_sha256": "f344c33d8c1c0846b021ec6d5bd1d0a47286a95cedbd7cbf3956cf79d9ecbe96",
+    "groups": {
+      "S0": {
+        "skill_id": null,
+        "skill_version": "none"
+      },
+      "S1": {
+        "skill_id": "after-sales-workflow",
+        "skill_version": "1.0.0"
+      }
+    },
+    "order": "alternate group first by task index plus repetition",
+    "smoke": {
+      "task_id": "e3v2-dev-01",
+      "repetition": 1,
+      "included_in_total": true
+    },
+    "smoke_gate": "both read expected authenticated order, complete provider usage, no provider errors",
+    "sources": {
+      "configs/evaluation/e3_protocol_v2.json": "276925dfea5e12caa935927c90d5fca37915faa4063fcc8bc559c630e1384f32",
+      "configs/m3_live_limits.json": "798636c426e4e2531951b46d58d37ce6fb411055dd0c478e5d3d147d8712c800",
+      "pyproject.toml": "f310321f15abb6554cd8cacc9d72bc9b3f43550bec9157d8424e0d9199dde346",
+      "scripts/run_e3_v2_baseline.py": "f99e829d3c9f97c90d071e597eb5dd966306098347d3aa4aefffe48233ac237e",
+      "skills/after-sales-workflow/1.0.0/manifest.json": "67687e5dc667cc72dc7337945fc24e7f80aebaed3b4add2eda0975b1cf951dfc",
+      "skills/after-sales-workflow/1.0.0/SKILL.md": "64ebe41e527e2b0600204d8b79c0747cc490c5d14bc567be28c6a9f96ee9d542",
+      "src/aftersalesagent/__init__.py": "5cdb117deec7bccec713b603ae84ef6b1cf0ffba64256f7f1f069bc076408689",
+      "src/aftersalesagent/api/__init__.py": "597c2914c550f1ba0e639ab4507bc3a3b1295f219e786af6e71ab6e5a8f470b0",
+      "src/aftersalesagent/api/app.py": "f6090f570df91c6d14205fc3aac2fc7c736e8a558e569d29f8b391ff6809d9ae",
+      "src/aftersalesagent/api/hub.py": "1d4804ca20a7f7d6ada38dd0c52171c5ade0b09ca0b0414cbff502aa3216674b",
+      "src/aftersalesagent/api/knowledge.py": "13d2ec08ebb44068b6bc2742a27c1041254a826f7fa72fbdea6e8f4a99c7b0c1",
+      "src/aftersalesagent/business/__init__.py": "322d9c22d00987bbb6950586e7843abbaaee6be4c1c44fe102a754fb964f6940",
+      "src/aftersalesagent/business/database.py": "56599ee1175b853a50ef25d50d40372130cca67609fb1493c8d24d43673902d8",
+      "src/aftersalesagent/business/service.py": "60d15a7b4de86c86b04ced98c4057f3d5c576ce3cfbc25382d8f33769dbce141",
+      "src/aftersalesagent/business/source_audit.py": "3d6e767df01b1a2ae4b7daa5437715bdcde1d27140af8a8873ea1690019ba669",
+      "src/aftersalesagent/config.py": "a2cc9c6e83f6ce7635530b894a6cc971077dd79b5af858544d317e60a110ffb9",
+      "src/aftersalesagent/evaluation/__init__.py": "4895f7b461461cdf2cc9b0eada314cc530adf4bf95ea006aad14884234053d49",
+      "src/aftersalesagent/evaluation/base.py": "32302785fb8e07740a981aa127698135ca27b3cc7686a898f955557e427b008e",
+      "src/aftersalesagent/evaluation/e1_runner.py": "a48ef1f8d2c3d07e8e4223ee6e5fea52587dc16e66bd19dea5f8e0b93f5afc2f",
+      "src/aftersalesagent/evaluation/e1_suite.py": "ff73bba14d543b58e905994a393a0843ec7125e3dd992ea27fc17799c1b1be5d",
+      "src/aftersalesagent/evaluation/e2_live_runner.py": "3756932287a5ff5e94844811d32259d120dfeee9266443879add02775488b429",
+      "src/aftersalesagent/evaluation/e2_live_suite.py": "41d200e54daef0aae48d73a1946af02c2847a41b3863302da88283253665f092",
+      "src/aftersalesagent/evaluation/e3_dev_runner.py": "a40a28807a0d5eb7a6ac7ab13007cc95b3e15321627275e5b589baf9680b7ca7",
+      "src/aftersalesagent/evaluation/e3_dev_suite.py": "e478b394ccb16b4f11229aae666e9b2eb1ee703adcac22fe13ecdbcf4a0c1467",
+      "src/aftersalesagent/evaluation/e3_reason_diagnostic.py": "eab2b249475341873230b089d52f56255a817502ef85f66e66be8e07695c2fa9",
+      "src/aftersalesagent/evaluation/e3_v2/__init__.py": "8bc00051e90722e6f249a64c885e9ec18fba1162691ad4eca909c9315412f8ad",
+      "src/aftersalesagent/evaluation/e3_v2/baseline.py": "dd40fa64a6845e81136cd2b8ff45823ad55000041d361599736f2a81ab798415",
+      "src/aftersalesagent/evaluation/e3_v2/contracts.py": "5a01f5163f353d6d8d5ada44d35b7079be2492621c3555d8c4456b426c9e708d",
+      "src/aftersalesagent/evaluation/e3_v2/holdout.py": "d5b0d787ecaa68a087263bb209b404567c3c23f341e91341615a4c273a1aeafb",
+      "src/aftersalesagent/evaluation/e3_v2/language.py": "d86c56649edb80903fa6a851083bb6465e8e38208341d4ef98994e16ece66540",
+      "src/aftersalesagent/evaluation/e3_v2/replay.py": "1081d103cd15c864d1e88a17a8a2da4fdb71581b3ab3cb4f220e0c00f652cd77",
+      "src/aftersalesagent/evaluation/e3_v2/review.py": "1f24f9abcd990e222b22f9e31458c553e8f481ae66d122920778700fe8892605",
+      "src/aftersalesagent/evaluation/e3_v2/runner.py": "c0a1f8c0e3ce839465fa7ff5aaf8fe7000041f38e9714f265e5ab9a0a4e18e7c",
+      "src/aftersalesagent/evaluation/e3_v2/scoring.py": "7de255690390413a41dad42ea9b6abdb34734b25b10ac0e249a2a76bb04cd8ad",
+      "src/aftersalesagent/evaluation/e3_v2/suite.py": "77685baab6b18c0f8809b81e9559d26a124eb34ab068f686641ec9f5a76554c5",
+      "src/aftersalesagent/evaluation/e3_v2/user.py": "413060e97ae05df67792193691e5bd4e3114cb39d5522e71ebd9aa0630eaf1bc",
+      "src/aftersalesagent/evaluation/nl_driver.py": "f1066d8779b2e16fb96857d0ab48a61f8fa6c72d7f625ef7e4871f540684d840",
+      "src/aftersalesagent/evaluation/nl_replay.py": "116a50e2bbd55acb33c37a45265b08c54b04d702789f38e843271f82e51053fd",
+      "src/aftersalesagent/evaluation/nl_runner.py": "e2b1f77c962ad9ace59116b31bfa4263a30170682c6620da71e5ab972fef5efe",
+      "src/aftersalesagent/evaluation/nl_suite.py": "2562703f4a516fc8f012de011d5ebe4bfed9f83add82b9bb0ef0eb85a6ed8d74",
+      "src/aftersalesagent/evaluation/pricing.py": "e0a3102b050a9898dd0a7d01513fda8ba1a10a7b75b3f486235256315f4d38e0",
+      "src/aftersalesagent/evaluation/replay.py": "842292b67f260b9b616a3d80dc56555ae727a94eb656c2151288a077bdd41926",
+      "src/aftersalesagent/evaluation/runner.py": "337687899587acda80cf8c469a528416185083dd0258d32985a680e43d2d7341",
+      "src/aftersalesagent/evaluation/suite.py": "98aba9d75b0d00cd839ceefe9ecc1052f88cb75de4c92a87172e77c6168aa72f",
+      "src/aftersalesagent/evaluation/verifier.py": "e85f73b598eb1f5eec10f073857766603a8a6474aef0ac52ee967f8c7db56ae2",
+      "src/aftersalesagent/harness/__init__.py": "9b96cc3e02dfa593724d252ee8ed662ef38f217037dfb9768181ac7c69077ac1",
+      "src/aftersalesagent/harness/base.py": "7e5c56d106e8f1eaaf0aed07ddfb8155f4c85301f807fbb48c2cba130346d59d",
+      "src/aftersalesagent/harness/execution.py": "86bc57c224f58d8633164bdb835232fa1145b61e6f27b77d4f2dbf54b2b0e185",
+      "src/aftersalesagent/harness/journal.py": "2e00fd4ef617295bd9d5c1d643e41eab33d71fa4b4aeec7c7fac464217f0d4e9",
+      "src/aftersalesagent/knowledge/__init__.py": "d8ed42b7f44fb978a8def94d5224083669d21643194c3c0f46926cb3998c3be6",
+      "src/aftersalesagent/knowledge/base.py": "515eb9868405996cc595368945581ae8bb95f529e8d608572505f46b7c2f3357",
+      "src/aftersalesagent/knowledge/corpus.py": "28009f41a7a984d16f7ac2f6ca7f8104d05c80f9366cf302a14dd598fabaa541",
+      "src/aftersalesagent/knowledge/factory.py": "0db6cd6d5b5814ba76893da597374486bf48622675507939dc79d599bb7f35fc",
+      "src/aftersalesagent/knowledge/retrieval.py": "f9560b8265ff87766a3a8ee2964559bea9821c22e14608afa0c5e3d1d13b94bc",
+      "src/aftersalesagent/knowledge/service.py": "7664920739d604d0d735c0356d7d55af4ca8c72b0f1b573e1d8201d07b745dcc",
+      "src/aftersalesagent/local_config.py": "df6cb3969777de158cd8248141cad240a339122c8cfc94edf13ce746f1e36d90",
+      "src/aftersalesagent/mcp_transport/__init__.py": "6836c16308e6f08276dcc00911838aca6dabe2ab8d5230c751d814c38e4baa70",
+      "src/aftersalesagent/mcp_transport/adapters.py": "52bd674be5e7fcfe617c697cacd869077881ef85448c057f992cb2a9d0add269",
+      "src/aftersalesagent/mcp_transport/client.py": "66c106d038265413547d89de843c5f29332fbdd1fae88acb5abcf76ad863a666",
+      "src/aftersalesagent/mcp_transport/server.py": "513bd0822c31e978d15a50074a6d2e20c5538fb309303fc3714ab805ad4ec19c",
+      "src/aftersalesagent/models/__init__.py": "eded2bcf785df15d470ccc210c1e077ab8ad10db92077abaf4bac373eeff7edb",
+      "src/aftersalesagent/models/base.py": "7bbd411d5ad49a4ea0d13ed52e1ec0951d2b56f34cb5887d18f0845384fa2e19",
+      "src/aftersalesagent/models/deepseek.py": "3d84a4e096fa9c4947cdff53429cac3dc63a482581ffff67743f03c9946e9282",
+      "src/aftersalesagent/models/errors.py": "c93d1ed10148f98734ce36a07e66752a30d12a1fc0fc73ab762815fa7447c85f",
+      "src/aftersalesagent/models/mock.py": "71a3244666b15d73ecb1c3466ebe493e06c6ca08df8209a0fb10f50e616a1919",
+      "src/aftersalesagent/models/scenarios.py": "8f11dc3f61b987493d1ef0a8aef828bbf22d90d229625444b7b4534fe4a14403",
+      "src/aftersalesagent/policies/__init__.py": "b5addab23517f1f4f1aac1d17d7d0532718cc4cf0a35b2ad168f7de7e9006c38",
+      "src/aftersalesagent/policies/application.py": "7e1bccbcde2d3fbc92144f1d3982307f17ac9488ec89e51657e80f4f55a7bd0c",
+      "src/aftersalesagent/policies/base.py": "a51bd0408dec396b70af3ebfe6803510b89ddbfb102853336aca3ce8a36fcf03",
+      "src/aftersalesagent/runtime/__init__.py": "6a4dd4d87ca92180037fa550fbe2613a79ab52f41b0f14c6277391467749b13c",
+      "src/aftersalesagent/runtime/base.py": "f222a03e43b0cece97387d4f974eff679ac3cbdcf1f1557f3d4956f12438d39e",
+      "src/aftersalesagent/runtime/langgraph_runtime.py": "d42ccee7f88a4346d1f13a04ffa9d7bb4850c40effdcd6f6b665cc16b35b5ddd",
+      "src/aftersalesagent/schemas/__init__.py": "82fe4217202e23124aa9eccc1d3ddfc753ff59ebd573c536e954b189ab7bf4d2",
+      "src/aftersalesagent/schemas/contracts.py": "354e5f8e97cf39aeb783a2fa55f013d4522dbd791b389944fe51aa61e4be1c4c",
+      "src/aftersalesagent/schemas/retail.py": "91fb9fd5d05545e1cdc884a4aeb8b42ee891d74da180ba951408f48596c490a0",
+      "src/aftersalesagent/skills/__init__.py": "976cdcc677fa4d01572ef986b94e04a64fba44f259ee5d0b0b609759a64ecae6",
+      "src/aftersalesagent/skills/base.py": "042bc5d28562c5f2c0272df057847b5084228fc4b006db1fbc22a1a493124e79",
+      "src/aftersalesagent/skills/registry.py": "ed650be8591ae9c3a5423615b25f15953bbfd3cd6472172920035430ec625eab",
+      "src/aftersalesagent/tools/__init__.py": "c8035bd45919ec2bd6e49d1532c471e83880a25bae861a1aadfa5616db0974a7",
+      "src/aftersalesagent/tools/base.py": "38db7bd13085cd3d4e90401cff94bfe6330feb30f68bafa228c57cf940f4c24a",
+      "src/aftersalesagent/tools/registry.py": "8fd156c9d06f6caae90d9173b18deedbfe3ce5110603d4c230888ab6be16a440",
+      "uv.lock": "1d4b6b400fe630faa45ebd4dfdadae3403489dc2052adc7ef4c4188aa82b9ab9"
+    },
+    "holdout_policy": "No live validation/test execution or result inspection in this baseline run",
+    "language_review": "blind sheet; explicit reviewer; assistant reviews are not independent human truth"
+  },
+  "observed_result": {
+    "experiment_id": "e3-v2-real-dev-baseline-v1",
+    "selected_split": "dev",
+    "episodes": 48,
+    "groups": {
+      "S0": {
+        "episodes": 24,
+        "success": 24,
+        "failure": 0,
+        "needs_review": 0,
+        "business_success": 24,
+        "safety_violations": 0,
+        "optional_clarifications": 5,
+        "model_calls": 116,
+        "reported_tokens": 439760,
+        "unknown_usage_calls": 0,
+        "language_records": 17,
+        "reviewed_language_pass_rate": 0.23529411764705882,
+        "language_review": {
+          "records": 17,
+          "passed": 4,
+          "failed": 13,
+          "needs_review": 0,
+          "pass_rate": 0.23529411764705882
+        },
+        "reviewer_kind": "assistant"
+      },
+      "S1": {
+        "episodes": 24,
+        "success": 23,
+        "failure": 0,
+        "needs_review": 1,
+        "business_success": 23,
+        "safety_violations": 0,
+        "optional_clarifications": 3,
+        "model_calls": 114,
+        "reported_tokens": 500394,
+        "unknown_usage_calls": 0,
+        "language_records": 16,
+        "reviewed_language_pass_rate": 0.25,
+        "language_review": {
+          "records": 16,
+          "passed": 4,
+          "failed": 12,
+          "needs_review": 0,
+          "pass_rate": 0.25
+        },
+        "reviewer_kind": "assistant"
+      }
+    },
+    "by_expected_language": {
+      "S0": {
+        "zh": {
+          "records": 13,
+          "pass": 0,
+          "fail": 13,
+          "needs_review": 0
+        },
+        "en": {
+          "records": 4,
+          "pass": 4,
+          "fail": 0,
+          "needs_review": 0
+        }
+      },
+      "S1": {
+        "en": {
+          "records": 4,
+          "pass": 4,
+          "fail": 0,
+          "needs_review": 0
+        },
+        "zh": {
+          "records": 12,
+          "pass": 0,
+          "fail": 12,
+          "needs_review": 0
+        }
+      }
+    },
+    "resource": {
+      "S0": {
+        "input_tokens": 428602,
+        "output_tokens": 11158,
+        "reported_tokens": 439760,
+        "model_calls": 116,
+        "wall_seconds": 264.3377455000009,
+        "cost_estimate": null
+      },
+      "S1": {
+        "input_tokens": 489009,
+        "output_tokens": 11385,
+        "reported_tokens": 500394,
+        "model_calls": 114,
+        "wall_seconds": 264.39513510000324,
+        "cost_estimate": null
+      }
+    },
+    "task_status": {
+      "e3v2-dev-01": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-02": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-03": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-04": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "needs_review",
+          "success"
+        ]
+      },
+      "e3v2-dev-05": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-06": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-07": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-08": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-09": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-10": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-11": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      },
+      "e3v2-dev-12": {
+        "S0": [
+          "success",
+          "success"
+        ],
+        "S1": [
+          "success",
+          "success"
+        ]
+      }
+    },
+    "model_requests": 230,
+    "reported_tokens": 940154,
+    "unique_provider_responses": 230,
+    "model_errors": 0,
+    "holdout_live_episodes": 0,
+    "language_review": {
+      "kind": "assistant",
+      "source": ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\language_review\\assistant_adjudication.json",
+      "sha256": "1f5472697f83dbd08bc402cd105366810c1b8f8c3da2d490d4e5bf15fc95fa21",
+      "note": "Public blind sheet read before private mapping. Same project assistant; not independent human annotation.",
+      "records": 33
+    },
+    "language_coverage": {
+      "actual_user_language_switches": 16,
+      "scorable_model_replies_after_switch": 0,
+      "first_request_skill_input_delta_tokens": {
+        "min": 606,
+        "max": 606
+      },
+      "warning": "Only model free text is scored; card/confirmation text is excluded. Reply denominators differ."
+    },
+    "business_review": {
+      "episode_id": "e3v2-dev-04_r1_S1",
+      "original_status_preserved": "needs_review",
+      "observed": "After item choice and payment were available, the model asked whether to prepare the return, without creating a card.",
+      "interpretation": "One redundant preparation-confirmation / missing-card signal plus an uncovered user branch; not evidence the task could never complete.",
+      "repeat": "Second predeclared repetition succeeded; not a stable reproduced planning failure",
+      "scores_rewritten": false,
+      "extra_api_reruns": 0
+    }
+  },
+  "candidate_trace_inputs": {
+    "sanitization_required_before_generation": true,
+    "allowed_development_trace_files": {
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-01_r1_S0\\trace.jsonl": "930d690b1c0253c6c0e6fc15b7677338c7c5522ab3a3c1b76702f535224383e1",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-01_r1_S1\\trace.jsonl": "891fedc5fa71bb1e30228365a515267afcf135fd2c8a79923291a5fc443d2f8d",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-01_r2_S0\\trace.jsonl": "33e12f8b78b03b8f795d391d06261a21d81a5c4fa1d1634c918d9e674c107fff",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-01_r2_S1\\trace.jsonl": "5528d609f86de6c34609645aa72f98b101a9b8e40cebc080ad9aa603184660b4",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-02_r1_S0\\trace.jsonl": "845d3a377b891fa0a5c4ce3111aab25f0b3b78b2ba86405583d3e2c4b2c746b3",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-02_r1_S1\\trace.jsonl": "130c25797592345bce3fc64d3e2cd06511e02ff2b0b816176f3f949767e8b713",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-02_r2_S0\\trace.jsonl": "7ca6b1ca349354370799c5ad11de49370abeb0514dd23f5a0664f6301f850ab0",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-02_r2_S1\\trace.jsonl": "2110a522e2eb9fd6ce5f9d1dabacc5173780425119df78809ef3aa721063e567",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-03_r1_S0\\trace.jsonl": "84628f2f0d62b5954c15a7dd94021de30fd50241c38953f276352fdd85a2e5c2",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-03_r1_S1\\trace.jsonl": "d476806d1d7b01fb89a27543aef9cba7d3409c7f3ab058fa55c6214987722570",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-03_r2_S0\\trace.jsonl": "42fe759c67de7f7d60cdf1f4f15fac2340071c5d48ae4ebc8c8e5707229d2f29",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-03_r2_S1\\trace.jsonl": "e72d93030690cc5a902ebdd67ac2bdbbd7dd56ef79af44a8b541bf171e247f15",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-04_r1_S0\\trace.jsonl": "934a873557ca52cee4ee9d9a681ddb0b6ca65ce8fb9d831becaf8e0cca4045f3",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-04_r1_S1\\trace.jsonl": "0925135527c1559ee696f1ce4d01e9dddeda4668251b692a9bffc82ca5554fe0",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-04_r2_S0\\trace.jsonl": "80fca6d7e589a58703cc4db14dac935d3401f5014e2cab1a3154304eb8f9182e",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-04_r2_S1\\trace.jsonl": "4732c1efcf12c508d0e3f0571e0feb894da20f77b032f1047c1765275e8e03bf",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-05_r1_S0\\trace.jsonl": "b6d7111e993d955625e95d2f28884476f1a71ef49465a9d74646464766f2f193",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-05_r1_S1\\trace.jsonl": "de33d1fba52b2ec5ccc3975188c82a577753eaa04f0b2ea405bc69761e4c27d7",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-05_r2_S0\\trace.jsonl": "b843b987f2003b0a6342b15c527cfa80d35ae4ef5240a4e83316529a25393fe3",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-05_r2_S1\\trace.jsonl": "230d7d6bd0fd21bc6136f90240344d707f17f84ada138be578520e9d48ed61b4",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-06_r1_S0\\trace.jsonl": "33b0b57bcec46301a47181b4be9c6becd7a9146cce87ccfc92f50b64847249c4",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-06_r1_S1\\trace.jsonl": "5c76df89eb3b374bab1e7e03976c33e7c21b12332a80a164f4a7a5a9ced2fa99",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-06_r2_S0\\trace.jsonl": "658b49fe76934a9d5d0c0e225816e3255e5ca6cb00f9e5ea67c35c4d7d7f2ae4",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-06_r2_S1\\trace.jsonl": "688856f7ac5046d1d993afbe43225dd6f218223827e44900450edf6de66c382e",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-07_r1_S0\\trace.jsonl": "90a8cb860ff9d74467dfd829365291a2bfd0017f561a2e45e0e199a5d210047c",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-07_r1_S1\\trace.jsonl": "964b2df22e64818a7482afb81336f7dfdbd5bf9e8b8e867804bfc052aba8d85e",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-07_r2_S0\\trace.jsonl": "6c8225f1fee5fdf58ffacd6d3f1ee6b57063b5b125bcebbb80adf9993d13ccb7",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-07_r2_S1\\trace.jsonl": "e1b164d8265f3088aee9b7a1805ac24f5ed08606e7ed5c555f86c141c113a747",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-08_r1_S0\\trace.jsonl": "354f7dce6937e685a19ceeac7a8661ce3f292589d5028cf17b72581f644bef30",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-08_r1_S1\\trace.jsonl": "f404f758ee23117cd26cdde75150957dabdab16ef251b03dadfb042568e1335e",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-08_r2_S0\\trace.jsonl": "5e7c11140acab33738f189ce03c50299af7e01709fef484919351b684758c169",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-08_r2_S1\\trace.jsonl": "3833dd6f140479058771ffe7a9c87ba2fe2f1026dfbaf3355960f8b8be66953e",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-09_r1_S0\\trace.jsonl": "f6048851702435827b7790e05381e8e6fa2825a14f53d2a5234986b11a05a9a1",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-09_r1_S1\\trace.jsonl": "d3707f73c6869a2350fbcde96ae2b32024aa6ef3316f7c76d301e1933aa9d8c4",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-09_r2_S0\\trace.jsonl": "01bf64d7bb275f29624e505029395b5ff493f6b91c7b4063226c557379b6f5e8",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-09_r2_S1\\trace.jsonl": "2a6b514df8f0a63b5f7a51bb86dcb5b204d8ad83b74fd4ebe954f4a29248ca38",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-10_r1_S0\\trace.jsonl": "d7b38cf22ee1262b6ae39a044523aa6f45873d0a970f877d7189cdd271503332",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-10_r1_S1\\trace.jsonl": "945b2dba7638db25cfc88132010dff41ec913249fb45ae5015315a6ac2696a18",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-10_r2_S0\\trace.jsonl": "45179aa57064b9d86ae32be4487a0e97233edff6f321860e4395be795ae27c31",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-10_r2_S1\\trace.jsonl": "e036b9840da4724d7d32ef22efcfdea8dcbec01396010738c4189dc5ab61416e",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-11_r1_S0\\trace.jsonl": "185cd0f9f7a7d84d7a7461921daacf8b1b1a9edbc8f614b2764b5011d03bdad3",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-11_r1_S1\\trace.jsonl": "07578788061045244b3cd146f65d0e54f5bc156c7f2cf029f53803ec192d76a9",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-11_r2_S0\\trace.jsonl": "670b388d354da2a12326057ba155bac14c5b8b0198917dc68b8efa3e21879fc9",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-11_r2_S1\\trace.jsonl": "a3ff637d6dc203dd22edba860ba7d1c18bace5be356a6f4cecadf93ea88813e4",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-12_r1_S0\\trace.jsonl": "600b60ad7944716ce368b05651ce6a2810d478beb794d1c9e8f7204391963e67",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-12_r1_S1\\trace.jsonl": "a8bb2e64fa6b06610b1bb01e209fbc9c86f504a446f4ec290d54294666f10a25",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-12_r2_S0\\trace.jsonl": "28f86f10f9aa825bcbf06986b44134b17b6aa2d20cc73606133a79b81ed16ac5",
+      ".local\\e3_v2_live_runs\\deepseek_20261028_v1\\e3v2-dev-12_r2_S1\\trace.jsonl": "6283e8ff611eb26c875d8ecace8822d92e393a77e747a126440c7cd5477dc219"
+    },
+    "excluded": [
+      "private criteria and user future scripts",
+      "validation/test materials and author reviews",
+      "offline holdout replay traces",
+      "initial/final full database snapshots",
+      "private group review mapping"
+    ]
+  },
+  "limitations": [
+    "Development-only baseline; validation/test remain sealed",
+    "Do not infer S1 regression from a single needs_review user-protocol case",
+    "All reviewed free responses were English; aggregate pass-rate difference is denominator-driven",
+    "No scorable free text after actual user language switches in this run",
+    "Assistant language review is not independent human or expert ground truth",
+    "Future candidate experiments must freeze matching conditions and account for provider/time variability"
+  ]
+}

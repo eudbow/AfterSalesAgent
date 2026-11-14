@@ -1,0 +1,30 @@
+{"task_id": "C3-V01-1", "question": "MAXIMERA全拉伸抽屉和UTRUSTA搁板属于METOD的25年部件吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V01-2", "question": "米多厨房的马斯麦抽屉、乌斯塔搁板，原文是否列入二十五年清单？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V02-1", "question": "FLINTAN与SMÖRKULL是否都在办公椅保证清单中？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V02-2", "question": "福通椅和斯莫库勒椅有没有被这份办公家具保证点名列出？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V03-1", "question": "VADHOLMA和TORNVIKEN厨柜及家具在厨房条款中保几年？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V03-2", "question": "瓦德侯玛、托恩维肯厨柜是按厨房文件的哪档年限保证？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V04-1", "question": "铜质锅表面发暗出现铜绿，说明认为一定是磨损吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V04-2", "question": "铜锅用久颜色暗了、起铜绿，就能认定铜已经磨坏了吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V05-1", "question": "碳钢煎锅开锅时外侧和手柄都要像内侧一样涂油吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V05-2", "question": "给碳钢锅养油膜，锅外面和已经上漆的把手也得每次涂吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V06-1", "question": "吸油烟机上的产品条码能撕掉吗，维修说明为什么要求保留？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V06-2", "question": "烟机那张条码贴纸不好看，撕了会影响售后人员核对什么？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V07-1", "question": "办公家具的材料、工艺和功能保证，对组合与组装方式有什么前提？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V07-2", "question": "办公桌椅拼装方式随意也能直接套用功能缺陷保证吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V08-1", "question": "厨房家具上墙对承重墙有什么要求，包装是否附墙面固定螺丝？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V08-2", "question": "装厨房柜子能随便选墙吗，固定到墙里的螺丝是不是箱内一定有？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V09-1", "question": "宜家厨刀只有外观改变但功能正常，就属于保证缺陷吗，例外是什么？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V09-2", "question": "刀身样子变了还能用，外观变化都保吗，什么程度需要区别看？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V10-1", "question": "普通铸铁新锅开锅的温度时长次数，与搪瓷铸铁日常清洗方法分别是什么？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V10-2", "question": "我有一口新铸铁锅和一口搪瓷铸铁锅，前者怎么首次开锅，后者用什么洗、能用钢丝球吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V11-1", "question": "家电售后联系哪个号码，事先准备的货品编号几位、在哪里找？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V11-2", "question": "厨房电器要报修，先看哪份电话说明，客服要的八位编号从哪里抄？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V12-1", "question": "退款单C3-REFUND-08准确哪一天到账，当前资料能查到吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V12-2", "question": "资料里有没有C3-REFUND-08的银行入账日期，能给确定日期吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V13-1", "question": "个人优惠券C3-COUPON-12具体哪天失效，质保资料能确认吗？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V13-2", "question": "帮我确定账户中C3-COUPON-12券的到期日，这些文件有没有记录？", "filters": {"scope": "ikea_cn"}}
+{"task_id": "C3-V14-1", "question": "2026-08-31，C3演示商店自提预约费是多少？", "filters": {"scope": "demo_store", "category": "pickup", "as_of": "2026-08-31"}}
+{"task_id": "C3-V14-2", "question": "按八月三十一日的C3模拟规则，自提预约应付多少费用？", "filters": {"scope": "demo_store", "category": "pickup", "as_of": "2026-08-31"}}
+{"task_id": "C3-V15-1", "question": "C3冲突商店加急配送费用到底由顾客还是商家承担？", "filters": {"scope": "demo_conflict", "category": "express", "as_of": "2026-11-01"}}
+{"task_id": "C3-V15-2", "question": "C3模拟加急配送规则对承担费用的人写得不一样，能直接确定一方吗？", "filters": {"scope": "demo_conflict", "category": "express", "as_of": "2026-11-01"}}

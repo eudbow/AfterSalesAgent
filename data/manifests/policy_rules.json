@@ -1,0 +1,66 @@
+[
+  {
+    "rule_id": "R01",
+    "title": "身份定位",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 10,
+    "interpretation": "通过email或姓名加邮编定位；已给user_id仍需定位。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R02",
+    "title": "单用户会话",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 14,
+    "interpretation": "只处理已定位用户的订单。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R03",
+    "title": "明确确认",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 16,
+    "interpretation": "写操作前展示具体细节并获得确认。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R04",
+    "title": "取消订单",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 86,
+    "interpretation": "仅pending；原因限no longer needed或ordered by mistake；退款原支付方式。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R05",
+    "title": "修改订单地址",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 94,
+    "interpretation": "仅pending订单；用户默认地址与订单地址是不同对象，MVP只改订单地址。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R06",
+    "title": "提交退货",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 116,
+    "interpretation": "仅delivered；收集完整item列表；退款原方式或已有gift_card；结果return requested。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R07",
+    "title": "人工升级",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 24,
+    "interpretation": "能力范围外调用转人工工具并给出状态；后续只模拟升级记录。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  },
+  {
+    "rule_id": "R08",
+    "title": "一次性商品变更",
+    "source_path": "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md",
+    "source_line": 84,
+    "interpretation": "退货/换货与商品修改应按原工具具体状态限制处理，不能自行猜测复用条件。",
+    "source_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467"
+  }
+]

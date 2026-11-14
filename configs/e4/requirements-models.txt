@@ -1,0 +1,13 @@
+# Tested E4 model stack; PyTorch is installed separately from the CUDA 12.6 wheel index.
+sentence-transformers==3.4.1
+transformers==4.51.3
+tokenizers==0.21.1
+huggingface-hub==0.30.2
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.6.1
+sentencepiece==0.2.0
+safetensors==0.5.3
+Pillow==11.2.1
+tqdm==4.67.1
+requests==2.32.3

@@ -1,0 +1,96 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-04",
+    "first_user_message": "你好，我的邮箱是lei.wilson1253@example.com。想退订单#W4073673的部分商品，具体哪些我还没说，请问我，不要替我挑。退款选原支付方式credit_card_3677959。"
+  },
+  "script": {
+    "task_id": "e3v2-dev-04",
+    "source_user_id": "lei_wilson_4541",
+    "source_task": "e3dev-04",
+    "family": "return_clarify_then_subset",
+    "title": "先明确部分退货再缩减",
+    "initial_language": "zh",
+    "known_identity": {
+      "email": "lei.wilson1253@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "order_id": "#W4073673",
+        "payment_method_id": "credit_card_3677959"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "question",
+        "label": "item_choice",
+        "expected": null,
+        "slot": "items",
+        "reply": "我要退商品编号1775591963和2216662955，其他保留。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "1775591963",
+              "2216662955"
+            ]
+          }
+        }
+      },
+      {
+        "trigger": "proposal",
+        "label": "shrink_set",
+        "expected": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1775591963",
+              "2216662955"
+            ],
+            "order_id": "#W4073673",
+            "payment_method_id": "credit_card_3677959"
+          }
+        },
+        "slot": null,
+        "reply": "先别确认：商品1775591963不退了，只退2216662955，退款方式不变。",
+        "reply_language": "zh",
+        "update": {
+          "tool_name": null,
+          "arguments": {
+            "item_ids": [
+              "2216662955"
+            ]
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "2216662955"
+        ],
+        "order_id": "#W4073673",
+        "payment_method_id": "credit_card_3677959"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-04",
+    "kind": "return",
+    "user_id": "lei_wilson_4541",
+    "order_id": "#W4073673",
+    "arguments": {
+      "item_ids": [
+        "2216662955"
+      ],
+      "order_id": "#W4073673",
+      "payment_method_id": "credit_card_3677959"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

@@ -1,0 +1,71 @@
+{
+  "public": {
+    "task_id": "e3v2-dev-10",
+    "first_user_message": "Hello, my email is sofia.davis8164@example.com. I no longer want order #W2112666. Please cancel it even though it is delivered, or explain if policy disallows it."
+  },
+  "script": {
+    "task_id": "e3v2-dev-10",
+    "source_user_id": "sofia_davis_2103",
+    "source_task": "e3dev-10",
+    "family": "refusal_then_supported_return",
+    "title": "已送达取消被拒后改退货",
+    "initial_language": "en",
+    "known_identity": {
+      "email": "sofia.davis8164@example.com"
+    },
+    "initial_intent": {
+      "tool_name": "cancel_pending_order",
+      "arguments": {
+        "order_id": "#W2112666",
+        "reason": "no longer needed"
+      }
+    },
+    "stages": [
+      {
+        "trigger": "refusal",
+        "label": "refusal_then_return",
+        "expected": null,
+        "slot": null,
+        "reply": "Understood. Instead, return only item 1709726483 from that order and use the original refund method gift_card_3377580.",
+        "reply_language": "en",
+        "update": {
+          "tool_name": "return_delivered_order_items",
+          "arguments": {
+            "item_ids": [
+              "1709726483"
+            ],
+            "order_id": "#W2112666",
+            "payment_method_id": "gift_card_3377580"
+          }
+        }
+      }
+    ],
+    "final_intent": {
+      "tool_name": "return_delivered_order_items",
+      "arguments": {
+        "item_ids": [
+          "1709726483"
+        ],
+        "order_id": "#W2112666",
+        "payment_method_id": "gift_card_3377580"
+      }
+    },
+    "max_events": 12
+  },
+  "criteria": {
+    "task_id": "e3v2-dev-10",
+    "kind": "return",
+    "user_id": "sofia_davis_2103",
+    "order_id": "#W2112666",
+    "arguments": {
+      "item_ids": [
+        "1709726483"
+      ],
+      "order_id": "#W2112666",
+      "payment_method_id": "gift_card_3377580"
+    },
+    "source_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992"
+  },
+  "anchor": null,
+  "overlay_notes": "unchanged source"
+}

@@ -1,0 +1,349 @@
+{
+  "families": 50,
+  "tasks": 150,
+  "splits": {
+    "dev": 60,
+    "validation": 45,
+    "test": 45
+  },
+  "challenge_counts": {
+    "condition": 39,
+    "exception": 21,
+    "identifier": 33,
+    "paraphrase": 21,
+    "multi_evidence": 9,
+    "no_answer": 9,
+    "date_scope": 12,
+    "conflict": 6
+  },
+  "cross_split_near_duplicates": [],
+  "independence_note": "Three phrasings per fact family; not 150 independent facts. Shared domain primitives remain. Assistant-authored and reviewed, not independent human gold.",
+  "gold_version": "e4_v2",
+  "reviewer_kind": "assistant",
+  "revision_reason": "v1 omitted valid structured-heading and duplicate-source evidence paths",
+  "changed_tasks": {
+    "E4-D11-1": {
+      "old": [
+        [
+          "E4-kitchen-001",
+          "E4-kitchen-020"
+        ]
+      ],
+      "new": [
+        [
+          "E4-kitchen-001",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-002",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-003",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-004",
+          "E4-kitchen-020"
+        ]
+      ]
+    },
+    "E4-D11-2": {
+      "old": [
+        [
+          "E4-kitchen-001",
+          "E4-kitchen-020"
+        ]
+      ],
+      "new": [
+        [
+          "E4-kitchen-001",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-002",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-003",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-004",
+          "E4-kitchen-020"
+        ]
+      ]
+    },
+    "E4-D11-3": {
+      "old": [
+        [
+          "E4-kitchen-001",
+          "E4-kitchen-020"
+        ]
+      ],
+      "new": [
+        [
+          "E4-kitchen-001",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-002",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-003",
+          "E4-kitchen-020"
+        ],
+        [
+          "E4-kitchen-004",
+          "E4-kitchen-020"
+        ]
+      ]
+    },
+    "E4-D13-1": {
+      "old": [
+        [
+          "E4-kitchen-022"
+        ]
+      ],
+      "new": [
+        [
+          "E4-kitchen-022"
+        ],
+        [
+          "E4-kitchen-022",
+          "E4-kitchen-024"
+        ],
+        [
+          "E4-kitchen-022",
+          "E4-kitchen-025"
+        ],
+        [
+          "E4-kitchen-024",
+          "E4-kitchen-025"
+        ]
+      ]
+    },
+    "E4-D13-2": {
+      "old": [
+        [
+          "E4-kitchen-022"
+        ]
+      ],
+      "new": [
+        [
+          "E4-kitchen-022"
+        ],
+        [
+          "E4-kitchen-022",
+          "E4-kitchen-024"
+        ],
+        [
+          "E4-kitchen-022",
+          "E4-kitchen-025"
+        ],
+        [
+          "E4-kitchen-024",
+          "E4-kitchen-025"
+        ]
+      ]
+    },
+    "E4-D13-3": {
+      "old": [
+        [
+          "E4-kitchen-022"
+        ]
+      ],
+      "new": [
+        [
+          "E4-kitchen-022"
+        ],
+        [
+          "E4-kitchen-022",
+          "E4-kitchen-024"
+        ],
+        [
+          "E4-kitchen-022",
+          "E4-kitchen-025"
+        ],
+        [
+          "E4-kitchen-024",
+          "E4-kitchen-025"
+        ]
+      ]
+    },
+    "E4-D18-1": {
+      "old": [
+        [
+          "E4-office-008"
+        ]
+      ],
+      "new": [
+        [
+          "E4-chairs-007"
+        ],
+        [
+          "E4-office-008"
+        ]
+      ]
+    },
+    "E4-D18-2": {
+      "old": [
+        [
+          "E4-office-008"
+        ]
+      ],
+      "new": [
+        [
+          "E4-chairs-007"
+        ],
+        [
+          "E4-office-008"
+        ]
+      ]
+    },
+    "E4-D18-3": {
+      "old": [
+        [
+          "E4-office-008"
+        ]
+      ],
+      "new": [
+        [
+          "E4-chairs-007"
+        ],
+        [
+          "E4-office-008"
+        ]
+      ]
+    },
+    "E4-V04-1": {
+      "old": [
+        [
+          "E4-bathroom-002",
+          "E4-bathroom-003"
+        ]
+      ],
+      "new": [
+        [
+          "E4-bathroom-001",
+          "E4-bathroom-002"
+        ],
+        [
+          "E4-bathroom-001",
+          "E4-bathroom-007"
+        ],
+        [
+          "E4-bathroom-002",
+          "E4-bathroom-003"
+        ],
+        [
+          "E4-bathroom-003",
+          "E4-bathroom-007"
+        ]
+      ]
+    },
+    "E4-V04-2": {
+      "old": [
+        [
+          "E4-bathroom-002",
+          "E4-bathroom-003"
+        ]
+      ],
+      "new": [
+        [
+          "E4-bathroom-001",
+          "E4-bathroom-002"
+        ],
+        [
+          "E4-bathroom-001",
+          "E4-bathroom-007"
+        ],
+        [
+          "E4-bathroom-002",
+          "E4-bathroom-003"
+        ],
+        [
+          "E4-bathroom-003",
+          "E4-bathroom-007"
+        ]
+      ]
+    },
+    "E4-V04-3": {
+      "old": [
+        [
+          "E4-bathroom-002",
+          "E4-bathroom-003"
+        ]
+      ],
+      "new": [
+        [
+          "E4-bathroom-001",
+          "E4-bathroom-002"
+        ],
+        [
+          "E4-bathroom-001",
+          "E4-bathroom-007"
+        ],
+        [
+          "E4-bathroom-002",
+          "E4-bathroom-003"
+        ],
+        [
+          "E4-bathroom-003",
+          "E4-bathroom-007"
+        ]
+      ]
+    },
+    "E4-V12-1": {
+      "old": [
+        [
+          "E4-office-010"
+        ]
+      ],
+      "new": [
+        [
+          "E4-chairs-009"
+        ],
+        [
+          "E4-office-010"
+        ]
+      ]
+    },
+    "E4-V12-2": {
+      "old": [
+        [
+          "E4-office-010"
+        ]
+      ],
+      "new": [
+        [
+          "E4-chairs-009"
+        ],
+        [
+          "E4-office-010"
+        ]
+      ]
+    },
+    "E4-V12-3": {
+      "old": [
+        [
+          "E4-office-010"
+        ]
+      ],
+      "new": [
+        [
+          "E4-chairs-009"
+        ],
+        [
+          "E4-office-010"
+        ]
+      ]
+    }
+  },
+  "questions_changed": 0,
+  "corpus_changed": false,
+  "retrieval_parameters_changed": false,
+  "heldout_results_used": false,
+  "created_at": "2026-11-11T17:00:38.990273+00:00"
+}
