@@ -1,0 +1,100 @@
+{
+  "model": "BAAI/bge-small-zh-v1.5",
+  "revision": "7999e1d3359715c523056ef9478215996d62a620",
+  "device": "cuda:0",
+  "gpu": "NVIDIA GeForce RTX 2060",
+  "precision": "fp32",
+  "torch": "2.7.1+cu126",
+  "corpus_manifest_sha256": "9daed3696ebd20f76ea5c01fba9392cbc59c74854d96fcd8c527f4a2d2447de0",
+  "vector_content_sha256": "bde32b3def1aeb2458577fe0abbe5c7f621e0f4ac7166b7159f33e1ae392287a",
+  "instruction": "为这个句子生成表示以用于检索相关文章：",
+  "normalization": "l2",
+  "dimension": 512,
+  "max_length": 512,
+  "window_characters": 200,
+  "stride_characters": 160,
+  "parent_aggregation": "max",
+  "chunks": 21,
+  "units": 78,
+  "max_observed_tokens": 192,
+  "elapsed_seconds": 1.4868853999942075,
+  "cuda_peak_bytes": 144005632,
+  "smoke": [
+    {
+      "query": "原卡不用了可以退到另一张银行卡吗",
+      "top5": [
+        [
+          "06_refund_methods",
+          0.6845173239707947
+        ],
+        [
+          "03_cancellation",
+          0.6587679982185364
+        ],
+        [
+          "05_returns",
+          0.6148525476455688
+        ],
+        [
+          "09_application_protocol",
+          0.6058507561683655
+        ],
+        [
+          "01_service_scope",
+          0.5696172714233398
+        ]
+      ]
+    },
+    {
+      "query": "退货多久到账",
+      "top5": [
+        [
+          "06_refund_methods",
+          0.6767762899398804
+        ],
+        [
+          "05_returns",
+          0.6406939625740051
+        ],
+        [
+          "09_application_protocol",
+          0.5954126715660095
+        ],
+        [
+          "03_cancellation",
+          0.5611184239387512
+        ],
+        [
+          "02_identity_and_orders",
+          0.5526547431945801
+        ]
+      ]
+    },
+    {
+      "query": "已处理订单能取消吗",
+      "top5": [
+        [
+          "03_cancellation",
+          0.7051407098770142
+        ],
+        [
+          "09_application_protocol",
+          0.629067063331604
+        ],
+        [
+          "05_returns",
+          0.5766342878341675
+        ],
+        [
+          "02_identity_and_orders",
+          0.5693670511245728
+        ],
+        [
+          "01_service_scope",
+          0.5392941832542419
+        ]
+      ]
+    }
+  ],
+  "limitation": "Development embedding smoke, not end-to-end or held-out evaluation"
+}

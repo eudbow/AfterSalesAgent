@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 import time
 from pathlib import Path
 from typing import Any, TypedDict
@@ -20,11 +21,13 @@ from aftersalesagent.models.base import ModelBackend
 from aftersalesagent.models.errors import ModelBackendFault
 from aftersalesagent.schemas.contracts import (
     ConfirmationEvent,
+    MessageEvent,
     ModelMessage,
     ModelRequest,
     ModelResponse,
     RunContext,
     SessionView,
+    ToolCall,
     ToolContext,
     ToolResult,
     TurnResult,
@@ -32,6 +35,32 @@ from aftersalesagent.schemas.contracts import (
 )
 from aftersalesagent.skills.base import SkillContent, SkillProvider, text_hash
 from aftersalesagent.tools.registry import ToolRegistry
+
+
+def policy_citation_requested(message: str) -> bool:
+    """Conservative guard for explicit Retail policy questions, not a semantic judge."""
+    text = message.lower()
+    question = re.search(
+        r"政策|规定|依据|时效|到账|赔偿|能否|可不可以|是否|还能|还可以|能不能|"
+        r"policy|eligible|can i|may i|refund time",
+        text,
+    )
+    topic = re.search(
+        r"取消|退货|退款|改址|修改|换货|支付|赔偿|"
+        r"cancel|return|refund|exchange|address|payment",
+        text,
+    )
+    return bool(question and topic)
+
+
+def policy_claim_present(reply: str) -> bool:
+    return bool(
+        re.search(
+            r"不能|可以|只能|必须|无需|规定|未规定|不支持|不允许|不符合|无法办理|"
+            r"eligible|cannot|can only|must|policy|not allowed|not supported",
+            reply.lower(),
+        )
+    )
 
 
 class Frame(BaseModel):
@@ -45,6 +74,10 @@ class Frame(BaseModel):
     model_index: int = 0
     status: str = "waiting_user"
     reply: str = ""
+    evidence: dict[str, dict] = Field(default_factory=dict)
+    policy_citation_required: bool = False
+    policy_repairs: int = 0
+    sources: list[dict] = Field(default_factory=list)
     reason: str | None = None
     stop: bool = False
     retryable: bool = False
@@ -73,6 +106,36 @@ class Frame(BaseModel):
 class GraphState(TypedDict):
     # Checkpoint只存JSON值；不依赖任意Python对象反序列化。
     frame: dict[str, Any]
+
+
+def checked_retail_reply(frame: Frame, content: str) -> tuple[str, list[dict], str | None]:
+    if frame.context.knowledge_version != "retail_sim_v1":
+        return content, [], None
+    ids = re.findall(r"\[cite:([^\]\s]+)\]", content)
+    invalid = any(cid not in frame.evidence for cid in ids)
+    invalid = invalid or content.count("[cite:") != len(ids)
+    if invalid:
+        return "回答引用未通过资料校验，暂时无法提供可靠的政策结论。", [], "invalid_policy_citation"
+    if frame.policy_citation_required and not ids and policy_claim_present(content):
+        return (
+            "回答缺少可核实的政策引用，暂时无法提供可靠的政策结论。",
+            [],
+            "missing_policy_citation",
+        )
+    return content, [frame.evidence[cid] for cid in dict.fromkeys(ids)], None
+
+
+def safe_pending_explanation(content: str) -> tuple[str, bool]:
+    """Omit paragraphs promising side effects the simulated app does not perform."""
+    unsupported = re.compile(
+        r"(?:会|将|已).{0,20}(?:收到|发送|寄出).{0,25}(?:邮件|email)|"
+        r"(?:will|have).{0,30}(?:receive|send|sent).{0,20}(?:email|mail)|"
+        r"(?:退款|refund).{0,15}(?:已到账|已完成|completed|received)",
+        re.IGNORECASE,
+    )
+    paragraphs = content.split("\n\n")
+    retained = [paragraph for paragraph in paragraphs if not unsupported.search(paragraph)]
+    return "\n\n".join(retained).strip(), len(retained) != len(paragraphs)
 
 
 class LangGraphRuntime:
@@ -122,11 +185,13 @@ class LangGraphRuntime:
             if frame.context.environment_id != self.service.environment_id:
                 raise ValueError("Checkpoint environment mismatch")
             self._check_skill(frame)
+            self._check_knowledge(frame)
             return frame, snapshot.next
         if sid not in self._frames:
             raise ValueError("Unknown runtime session")
         frame = Frame.model_validate(self._frames[sid].model_dump(mode="json"))
         self._check_skill(frame)
+        self._check_knowledge(frame)
         return frame, ()
 
     def _check_skill(self, frame: Frame) -> None:
@@ -135,6 +200,14 @@ class LangGraphRuntime:
             frame.skill.check_compatibility(
                 frame.context.policy_version, self.policy_text, self.registry.specs()
             )
+
+    def _check_knowledge(self, frame: Frame) -> None:
+        if frame.context.knowledge_version != "retail_sim_v1":
+            return
+        index = self.registry.retail_index
+        if index is None or frame.context.knowledge_fingerprint != index.fingerprint:
+            raise ValueError("Retail session knowledge snapshot mismatch")
+        index.validate_snapshot(frame.evidence)
 
     async def _save(self, frame: Frame) -> None:
         if self._persistent:
@@ -148,6 +221,10 @@ class LangGraphRuntime:
             self._frames[frame.session_id] = frame.model_copy(deep=True)
 
     async def start(self, context: RunContext) -> SessionView:
+        if context.knowledge_version == "retail_sim_v1":
+            index = self.registry.retail_index
+            if index is None or context.knowledge_fingerprint != index.fingerprint:
+                raise ValueError("Retail session knowledge snapshot mismatch")
         skill = None
         messages = [ModelMessage(role="system", content=self.policy_text)]
         if context.skill_id is not None:
@@ -179,6 +256,13 @@ class LangGraphRuntime:
             messages=messages,
             skill=skill,
         )
+        index = self.registry.retail_index
+        if index is not None and hasattr(index, "fixed_evidence"):
+            from aftersalesagent.policies.retail_v2 import capability_prompt, validate_tools
+
+            validate_tools(self.registry.specs())
+            frame.evidence.update(index.fixed_evidence())
+            frame.messages.append(ModelMessage(role="system", content=capability_prompt()))
         await self._save(frame)
         return view
 
@@ -323,19 +407,92 @@ class LangGraphRuntime:
         elif turn["tokens"] > frame.context.limits.max_turn_tokens:
             self._truncate(frame, "turn_token_limit")
         elif len(response.tool_calls) > 1:
-            frame.stop, frame.status, frame.reason = True, "failed", "multiple_tool_calls"
-            frame.reply = "This Retail runtime permits one tool call at a time."
-            for call in response.tool_calls:
-                frame.messages.append(
-                    ModelMessage(
-                        role="tool",
-                        tool_call_id=call.call_id,
-                        content='{"status":"error","error":{"code":"invalid_arguments",'
-                        '"message":"Only one tool call per response is allowed; none executed."}}',
-                    )
+            read_names = {s.name for s in self.registry.specs() if s.effect == "read"}
+            if frame.context.knowledge_version == "retail_sim_v1" and all(
+                c.name in read_names for c in response.tool_calls
+            ):
+                # The provider emitted a batch despite the one-call protocol. Execute only
+                # the first read; the raw response remains in the journal for diagnosis.
+                frame.response = response.model_copy(update={"tool_calls": response.tool_calls[:1]})
+                frame.messages[-1] = ModelMessage(
+                    role="assistant", content=response.content, tool_calls=response.tool_calls[:1]
                 )
+                await self._emit(
+                    frame,
+                    "model_error",
+                    {
+                        "code": "extra_read_calls_ignored",
+                        "ignored_names": [c.name for c in response.tool_calls[1:]],
+                    },
+                )
+            else:
+                frame.stop, frame.status, frame.reason = True, "failed", "multiple_tool_calls"
+                frame.reply = "This Retail runtime permits one tool call at a time."
+                for call in response.tool_calls:
+                    frame.messages.append(
+                        ModelMessage(
+                            role="tool",
+                            tool_call_id=call.call_id,
+                            content='{"status":"error","error":{"code":"invalid_arguments",'
+                            '"message":"One tool call allowed; none executed."}}',
+                        )
+                    )
         elif not response.tool_calls:
             frame.stop, frame.status, frame.reply = True, "completed", response.content
+            frame.reply, frame.sources, frame.reason = checked_retail_reply(frame, response.content)
+            index = self.registry.retail_index
+            v2_issue = None
+            if index is not None and hasattr(index, "fixed_evidence") and frame.reason is None:
+                from aftersalesagent.policies.retail_v2 import answer_issue
+
+                v2_issue = answer_issue(response.content)
+                if v2_issue:
+                    frame.reason = "unsupported_policy_claim"
+            if (
+                index is not None
+                and hasattr(index, "fixed_evidence")
+                and frame.reason
+                in {
+                    "missing_policy_citation",
+                    "invalid_policy_citation",
+                    "unsupported_policy_claim",
+                }
+                and frame.policy_repairs == 0
+                and isinstance(frame.event, MessageEvent)
+            ):
+                frame.policy_repairs += 1
+                query = (
+                    "。".join(
+                        part
+                        for part in frame.event.content.split("。")
+                        if part and "我是" not in part and "#W" not in part
+                    )
+                    or "售后政策条件与应用能力"
+                )
+                call = ToolCall(
+                    call_id=f"policy-repair-{frame.model_index}",
+                    name="search_retail_policy",
+                    arguments={"query": query},
+                )
+                await self._emit(
+                    frame,
+                    "model_error",
+                    {"code": "policy_repair", "reason": frame.reason, "query": query},
+                )
+                frame.messages.append(
+                    ModelMessage(
+                        role="system",
+                        content="上一回答依据不足。根据补充检索修订回答，"
+                        "每个重要政策结论引用适用证据，能力引用 APP-CAP-V2；只允许这一次修订。"
+                        + (v2_issue or ""),
+                    )
+                )
+                frame.response = ModelResponse(tool_calls=[call])
+                frame.messages.append(ModelMessage(role="assistant", content="", tool_calls=[call]))
+                frame.stop, frame.status, frame.reason = False, "running", None
+            elif v2_issue:
+                frame.reply = "部分结论未能得到资料支持，暂时无法核实这项政策解释。"
+                frame.sources = []
         return {"frame": frame.model_dump(mode="json")}
 
     async def _observe_usage(self, frame: Frame, response: ModelResponse) -> None:
@@ -369,6 +526,34 @@ class LangGraphRuntime:
             "tool_call",
             {**call.model_dump(mode="json"), "transport": self.registry.transport},
         )
+        if (
+            hasattr(self.registry.retail_index, "fixed_evidence")
+            and call.name == "cancel_pending_order"
+        ):
+            from aftersalesagent.policies.retail_v2 import cancellation_reason_supported
+
+            user_text = "\n".join(m.content for m in frame.messages if m.role == "user")
+            if not cancellation_reason_supported(call.arguments.get("reason"), user_text):
+                result = ToolResult.model_validate(
+                    {
+                        "call_id": call.call_id,
+                        "status": "error",
+                        "error": {
+                            "code": "policy_denied",
+                            "message": (
+                                "取消原因未在用户表达中得到核实。不得改写为允许原因；"
+                                "请解释允许条件或追问。"
+                            ),
+                        },
+                    }
+                )
+                await self._emit(frame, "tool_result", result.model_dump(mode="json"))
+                frame.messages.append(
+                    ModelMessage(
+                        role="tool", content=result.model_dump_json(), tool_call_id=call.call_id
+                    )
+                )
+                return {"frame": frame.model_dump(mode="json")}
         result = await invoke_safely(
             lambda: self.registry.invoke(call, context),
             call.call_id,
@@ -397,11 +582,29 @@ class LangGraphRuntime:
         frame.messages.append(
             ModelMessage(role="tool", content=result.model_dump_json(), tool_call_id=call.call_id)
         )
+        if call.name == "search_retail_policy" and result.status == "ok":
+            frame.policy_citation_required = True
+            for record in result.data["evidence"]:
+                frame.evidence[record["chunk_id"]] = record
         latest = await run_sync(lambda: self.service.view(frame.session_id))
         if latest.pending_action is not None:
             await self._emit(frame, "pending_action", latest.pending_action.model_dump(mode="json"))
             frame.stop, frame.status = True, "waiting_confirmation"
-            frame.reply = latest.pending_action.summary
+            explanation = frame.response.content.strip() if frame.response else ""
+            if explanation:
+                explanation, filtered = safe_pending_explanation(explanation)
+                if filtered:
+                    await self._emit(
+                        frame, "model_error", {"code": "unsupported_app_promise_filtered"}
+                    )
+                    frame.messages[-2] = frame.messages[-2].model_copy(
+                        update={"content": explanation}
+                    )
+            if explanation:
+                frame.reply, frame.sources, frame.reason = checked_retail_reply(frame, explanation)
+                frame.reply += "\n\n待确认操作：" + latest.pending_action.summary
+            else:
+                frame.reply = latest.pending_action.summary
         elif result.status == "ok" and isinstance(result.data, dict):
             if result.data.get("status") == "handoff_requested":
                 frame.stop, frame.status = True, "handoff"
@@ -412,6 +615,7 @@ class LangGraphRuntime:
         return END if state["frame"]["stop"] else "model"
 
     async def _recorded(self, frame: Frame) -> ToolResult | None:
+        frame.sources = []
         assert isinstance(frame.event, ConfirmationEvent)
         event = frame.event
         # 即使预算已耗尽，也允许查回已经提交的结果；这里不会执行新写入。
@@ -433,6 +637,7 @@ class LangGraphRuntime:
 
     async def _execute(self, state: GraphState) -> GraphState:
         frame = Frame.model_validate(state["frame"])
+        frame.sources = []
         assert isinstance(frame.event, ConfirmationEvent)
         event = frame.event
         event = frame.event
@@ -510,8 +715,15 @@ class LangGraphRuntime:
             self._deadlines[session_id] = started + remaining
             if not same_event:
                 frame.event, frame.response, frame.model_index = user_event, None, 0
+                frame.policy_repairs = 0
+                frame.policy_citation_required = (
+                    frame.context.knowledge_version == "retail_sim_v1"
+                    and isinstance(user_event, MessageEvent)
+                    and policy_citation_requested(user_event.content)
+                )
                 frame.stop, frame.retryable, frame.reason = False, False, None
                 frame.status, frame.reply = "running", ""
+                frame.sources = []
                 if isinstance(user_event, ConfirmationEvent):
                     frame.resume_node = "execute"
                 else:
@@ -607,6 +819,7 @@ class LangGraphRuntime:
                 {
                     "session": await run_sync(lambda: self.service.view(session_id)),
                     "reply": frame.reply,
+                    "sources": frame.sources,
                     "status": frame.status,
                     "events": events,
                     "termination_reason": frame.reason,

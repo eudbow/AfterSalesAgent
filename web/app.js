@@ -22,18 +22,31 @@ async function api(path, options={}) {
   }
   return data;
 }
-function bubble(role, text) {
+function bubble(role, text, sources=[]) {
   const item = document.createElement("div"); item.className = "bubble " + role;
   const label = document.createElement("small"); label.textContent = role === "user" ? "你" : "售后 Agent";
   const body = document.createElement("span"); body.textContent = text;
   item.append(label, body);
+  for (const source of sources) {
+    const details=document.createElement("details"), title=document.createElement("summary");
+    title.textContent=(source.section || source.title || "政策依据")+" · "+source.version;
+    const excerpt=document.createElement("p");excerpt.textContent=source.text;
+    details.append(title,excerpt);item.append(details);
+  }
   $("chat").querySelector(".empty")?.remove(); $("chat").append(item);
   $("chat").scrollTop = $("chat").scrollHeight;
 }
 function displayPending(action) {
   pending = action; $("pending").hidden = !action;
+  $("policy-basis").replaceChildren();
   if(action) {
     $("summary").textContent = action.summary;
+    for (const basis of action.policy_basis || []) {
+      const details=document.createElement("details"), title=document.createElement("summary");
+      title.textContent="操作依据："+basis.title+" · "+basis.version;
+      const excerpt=document.createElement("p");excerpt.textContent=basis.text;
+      details.append(title,excerpt);$("policy-basis").append(details);
+    }
     $("arguments").textContent = JSON.stringify(action.arguments,null,2);
   }
 }
@@ -84,7 +97,7 @@ async function perform(request) {
   lastRequest=request;session.inflight=request;save();setBusy(true);error();
   try{
     const result=await api(request.path,{method:"POST",body:JSON.stringify(request.body)});
-    bubble("assistant",result.reply);
+    bubble("assistant",result.reply,result.sources);
     if(result.status === "failed" && ["timeout","infrastructure_error"].includes(result.termination_reason)){
       $("retry").hidden=false;
     } else {lastRequest=null;session.inflight=null;save();$("retry").hidden=true;}
@@ -141,7 +154,7 @@ $("load-trace").addEventListener("click",async()=>{
   } catch { error("服务暂不可用，请检查本地服务是否启动。"); }
   if(session){
     $("scenario").value=session.scenario;lastRequest=session.inflight;
-    try{const state=await refresh();if(state.latest_request?.result)bubble("assistant",state.latest_request.result.reply);
+    try{const state=await refresh();if(state.latest_request?.result)bubble("assistant",state.latest_request.result.reply,state.latest_request.result.sources);
       $("message").value="继续所选场景的演示";}
     catch(e){error("无法恢复会话："+e.message);if(lastRequest)$("retry").hidden=false;}
   }

@@ -1,0 +1,26 @@
+{
+  "corpus_id": "retail_sim_v1",
+  "upstream_commit": "fc0055dc4e0a316c3f83133267fbd6faaa770992",
+  "section_rule_records": 14,
+  "independent_atomic_rule_count": null,
+  "chunk_count": 21,
+  "document_count": 9,
+  "files": {
+    "data/upstream/tau2-bench/data/tau2/domains/retail/policy.md": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "src/aftersalesagent/policies/application.py": "019a76db385434ed4233ac8045775c9c1a126aa3c962960db2ad33830c7d3b43",
+    "src/aftersalesagent/business/service.py": "8be53b3ae35f55edac1378c64d1cc07bbfba12d02445089e74d7dbe8fe808e00",
+    "data/knowledge/retail_sim_v1/chunks.jsonl": "949ca6932ea70d7e379117ac71f2c74e30d5c96c6f54b4c137f9c05c64768f49",
+    "data/knowledge/retail_sim_v1/coverage.json": "73ac4e9f2f468072753fae99eb7ef0f5c3391f01d950fb722a34e82250d6d12c",
+    "data/knowledge/retail_sim_v1/documents/01_service_scope.md": "6f1067d189594f6a6d846f5924138776f2900d88930e5b114a762772f8bbb440",
+    "data/knowledge/retail_sim_v1/documents/02_identity_and_orders.md": "31be91c10ea45e23cb26d122b5a68a25b5b924702075fb165e7621fbf69e98e4",
+    "data/knowledge/retail_sim_v1/documents/03_cancellation.md": "8fe2d0dbd038eb24710e505bc7677ed08804c03ee35213cb297963542f2af74d",
+    "data/knowledge/retail_sim_v1/documents/04_address_change.md": "2bb76b11401e1a72cc19390a1206e55803cbf1c53b63df043d33d352166e29b4",
+    "data/knowledge/retail_sim_v1/documents/05_returns.md": "9626e0ef7cbdba8e99595257ba26fe6e12a22a8eb0cca5aff687ee4debf3341c",
+    "data/knowledge/retail_sim_v1/documents/06_refund_methods.md": "f1592f7e425a17d49027648bc91a025cf061b8a26a83cb12cf61b82cf8d90661",
+    "data/knowledge/retail_sim_v1/documents/07_products_and_statuses.md": "860d2dbdd55d33d44e3982e797fbd604a3705866261e1e540b692d007e43f6d3",
+    "data/knowledge/retail_sim_v1/documents/08_exceptions_and_handoff.md": "e861cce9424f1b9a6780f5c2cf21ab443ad31462bfcad55e04381be0e2f1f440",
+    "data/knowledge/retail_sim_v1/documents/09_application_protocol.md": "cf90c676f682d133773ce3f6c7795b2d89c4d2152844a09cd9a674ef9a435a73",
+    "data/knowledge/retail_sim_v1/README.md": "d3a4944db816af226b7400de78f6445d70e1d1c3f3148d96a1862ac4a94dd735",
+    "data/knowledge/retail_sim_v1/rules.jsonl": "57ecdd66fc8f209a9f837cc2d04245150a8711f247cf98c117207415063f73d7"
+  }
+}

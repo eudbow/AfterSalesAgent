@@ -192,6 +192,8 @@ def summarize_action(name: str, args: dict) -> str:
 
 
 class RetailService:
+    policy_basis = None
+
     def __init__(self, store: RetailStore, *, clock: Callable[[], datetime] | None = None):
         self.store = store
         self.environment_id = store.path.stem
@@ -344,6 +346,7 @@ class RetailService:
                         .values(status="superseded")
                     )
                     action = PendingAction(
+                        policy_basis=(self.policy_basis(call.name) if self.policy_basis else []),
                         action_id=uuid.uuid4().hex,
                         tool_name=call.name,
                         arguments=args,

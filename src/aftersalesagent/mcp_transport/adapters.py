@@ -47,14 +47,29 @@ class MCPRetailTool:
 
 
 class MCPRetailProvider:
-    def __init__(self, service, *, trace_path=None, fault_after_commit=None):
+    def __init__(
+        self,
+        service,
+        *,
+        trace_path=None,
+        fault_after_commit=None,
+        retail_rag=False,
+        retail_rag_v2=False,
+        retail_retrieval="bm25",
+    ):
         self.service, self.trace_path = service, trace_path
         self.fault_after_commit = fault_after_commit
+        self.retail_rag = retail_rag
+        self.retail_rag_v2 = retail_rag_v2
+        self.retail_retrieval = retail_retrieval
         self._connection: MCPConnection | None = None
 
     def connection(self, sid):
         if self._connection is None:
             self._connection = MCPConnection(
+                retail_rag=self.retail_rag,
+                retail_rag_v2=self.retail_rag_v2,
+                retail_retrieval=self.retail_retrieval,
                 database=self.service.store.path,
                 session_id=sid,
                 allow_proposals=True,

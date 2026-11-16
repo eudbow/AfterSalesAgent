@@ -25,7 +25,7 @@ from aftersalesagent.local_config import options_from_settings
 from aftersalesagent.models.base import ModelBackend
 from aftersalesagent.models.deepseek import DeepSeekBackend
 from aftersalesagent.models.scenarios import ScenarioName
-from aftersalesagent.policies.application import load_application_policy
+from aftersalesagent.policies.application import load_application_policy, load_retail_core_policy
 from aftersalesagent.schemas.contracts import (
     ConfirmationEvent,
     MessageEvent,
@@ -92,19 +92,23 @@ def create_app(
         if not source.exists():
             store = await run_sync(lambda: import_pinned_database(ROOT, source))
             store.close()
-        policy = load_application_policy(ROOT)
+        policy = load_retail_core_policy() if settings.retail_rag else load_application_policy(ROOT)
         skill_registry = None
         if settings.skill_id is not None:
             skill_registry = SkillRegistry(directory / "skills/registry.sqlite")
             selected_skill_id = settings.skill_id
-            bundle = ROOT / "skills" / selected_skill_id / "1.0.0"
+            bundle = ROOT / "skills" / selected_skill_id
             installed = await skill_registry.list_metadata()
-            if bundle.is_dir() and not any(
-                m.skill_id == selected_skill_id and m.version == "1.0.0" for m in installed
-            ):
-                await run_sync(
-                    lambda: skill_registry.install(ROOT / "skills", selected_skill_id, "1.0.0")
-                )
+            known = {(m.skill_id, m.version) for m in installed}
+            if bundle.is_dir():
+                for version_dir in sorted(bundle.iterdir()):
+                    version = version_dir.name
+                    if version_dir.is_dir() and (selected_skill_id, version) not in known:
+                        await run_sync(
+                            lambda version=version: skill_registry.install(
+                                ROOT / "skills", selected_skill_id, version
+                            )
+                        )
             # released 必须先人工激活；每个新会话仍重新解析，不能在此缓存。
             await skill_registry.load(settings.skill_id, settings.skill_version)
         journal = Journal(directory / "application.sqlite")
@@ -121,6 +125,9 @@ def create_app(
                 backend_factory,
                 backend_name=settings.backend,
                 tool_transport=settings.tool_transport,
+                retail_rag=settings.retail_rag,
+                retail_rag_v2=settings.retail_rag_v2,
+                retail_retrieval=settings.retail_retrieval,
                 skill_provider=skill_registry,
                 skill_id=settings.skill_id,
                 skill_version=settings.skill_version,

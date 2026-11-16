@@ -28,12 +28,18 @@ class MCPConnection:
         fault_after_commit: Path | None = None,
         fault_delay_seconds: float = 0,
         knowledge_config: Path | None = None,
+        retail_rag: bool = False,
+        retail_rag_v2: bool = False,
+        retail_retrieval: str = "bm25",
     ):
         self.database, self.session_id = database, session_id
         self.allow_proposals, self.timeout = allow_proposals, timeout
         self.trace_path, self.fault_after_commit = trace_path, fault_after_commit
         self.fault_delay_seconds = fault_delay_seconds
         self.knowledge_config = knowledge_config
+        self.retail_rag = retail_rag
+        self.retail_rag_v2 = retail_rag_v2
+        self.retail_retrieval = retail_retrieval
         self.capability = secrets.token_urlsafe(32)
         self.queue: asyncio.Queue = asyncio.Queue()
         self.task: asyncio.Task | None = None
@@ -45,6 +51,10 @@ class MCPConnection:
 
     def parameters(self):
         args = ["-m", "aftersalesagent.mcp_transport.server"]
+        if self.retail_rag_v2:
+            args.append("--retail-rag-v2")
+        if self.retail_rag:
+            args.extend(["--retail-rag", "--retail-retrieval", self.retail_retrieval])
         if self.knowledge_config:
             args += ["--knowledge-config", str(self.knowledge_config.resolve())]
         if self.database:

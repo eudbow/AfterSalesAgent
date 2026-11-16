@@ -16,6 +16,11 @@ from aftersalesagent.business.database import RetailStore
 from aftersalesagent.business.service import RetailService
 from aftersalesagent.knowledge.corpus import load_corpus
 from aftersalesagent.knowledge.e4 import E4Config, E4Index, build_index
+from aftersalesagent.knowledge.retail import (
+    RETAIL_SEARCH_SPEC,
+    NativeRetailPolicyTool,
+    RetailPolicyIndex,
+)
 from aftersalesagent.knowledge.retrieval import SQLiteKnowledgeIndex
 from aftersalesagent.schemas.contracts import Contract, ToolCall, ToolContext, ToolResult
 from aftersalesagent.tools.registry import NativeRetailTool
@@ -64,6 +69,19 @@ async def serve(args):
         if service
         else {}
     )
+    retail_index = (
+        RetailPolicyIndex(method=args.retail_retrieval)
+        if service and args.retail_rag and not args.retail_rag_v2 else None
+    )
+    if service and args.retail_rag_v2:
+        if retail_index is not None:
+            retail_index.close()
+        from aftersalesagent.knowledge.retail_v2 import RetailV2Index
+
+        retail_index = RetailV2Index()
+    if retail_index is not None:
+        service.policy_basis = retail_index.action_basis
+        specs[RETAIL_SEARCH_SPEC.name] = RETAIL_SEARCH_SPEC
     tools = [
         Tool(
             name=s.name,
@@ -150,9 +168,12 @@ async def serve(args):
                     )
                 else:
                     call = ToolCall(call_id=call_id, name=params.name, arguments=arguments)
-                    result = await NativeRetailTool(service, specs[params.name]).invoke(
-                        call, context
+                    tool = (
+                        NativeRetailPolicyTool(service, retail_index)
+                        if params.name == RETAIL_SEARCH_SPEC.name
+                        else NativeRetailTool(service, specs[params.name])
                     )
+                    result = await tool.invoke(call, context)
                     # 只允许启动者在隔离数据上注入故障，不是模型可调用的参数。
                     if (
                         args.fault_after_commit
@@ -177,12 +198,17 @@ async def serve(args):
             await server.run(read, write, server.create_initialization_options())
     finally:
         index.close()
+        if retail_index:
+            retail_index.close()
         if store:
             store.close()
 
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--retail-rag", action="store_true")
+    parser.add_argument("--retail-rag-v2", action="store_true")
+    parser.add_argument("--retail-retrieval", choices=["bm25", "dense", "hybrid"], default="bm25")
     parser.add_argument("--database", type=Path)
     parser.add_argument("--knowledge-config", type=Path)
     parser.add_argument("--session-id")

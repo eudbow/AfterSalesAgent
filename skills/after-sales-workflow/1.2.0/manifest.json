@@ -1,0 +1,29 @@
+{
+  "skill_id": "after-sales-workflow",
+  "version": "1.2.0",
+  "content_sha256": "061d8aa0f35a7528d537daf98f5da8fdf25beaf43b20e8f6b9d3c174b276bb83",
+  "policy_version": "tau2-v1.0.1-retail",
+  "policy_sha256": "9e6d4a90684c8e09448d568f04b7713aad3a6644345d75bc6821526f946e4fc6",
+  "tools_sha256": "f741ffc1c52548c8021a6ed31cc7c8fc1d2aaa1c039dca56ad011710a615f456",
+  "applicable_tools": [
+    "find_user_id_by_email",
+    "find_user_id_by_name_zip",
+    "get_user_details",
+    "get_order_details",
+    "get_product_details",
+    "calculate",
+    "cancel_pending_order",
+    "modify_pending_order_address",
+    "return_delivered_order_items",
+    "transfer_to_human_agents",
+    "search_retail_policy"
+  ],
+  "parent_version": "1.1.1",
+  "change_notes": "Retail v2 Hybrid 和应用能力工作流；Skill 无独立模型收益评测。",
+  "evidence_refs": [
+    "contract:knowledge/retail.py+business/service.py+policies/application.py",
+    "manual:retail-rag-20261115"
+  ],
+  "authored_at": "2026-11-15T00:00:00+08:00",
+  "provenance": "基于人工固定 v1 Skill 扩展；按当前 Retail RAG 工具与提示快照生成哈希。"
+}

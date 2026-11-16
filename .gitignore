@@ -8,3 +8,18 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Internal project documents
+/docs/
+/AfterSalesAgent_项目设计与开发计划.md
+
+# Runtime artifacts: only publish the required embedding cache
+/data/results/*
+!/data/results/retail_agent_rag_v1/
+/data/results/retail_agent_rag_v1/*
+!/data/results/retail_agent_rag_v1/embedding/
+/data/results/retail_agent_rag_v1/embedding/*
+!/data/results/retail_agent_rag_v1/embedding/report.json
+!/data/results/retail_agent_rag_v1/embedding/vectors.json
+
+.mypy_cache/

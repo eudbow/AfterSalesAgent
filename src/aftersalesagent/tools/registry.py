@@ -34,8 +34,18 @@ class NativeRetailTool:
 
 
 class ToolRegistry:
-    def __init__(self, service: RetailService, *, provider=None):
+    def __init__(
+        self,
+        service: RetailService,
+        *,
+        provider=None,
+        retail_index=None,
+        include_retail_search=True,
+    ):
         self.service, self.provider = service, provider
+        self.retail_index = retail_index
+        if retail_index is not None:
+            service.policy_basis = retail_index.action_basis
         self.transport = "mcp" if provider is not None else "native"
         if provider is None:
             self._tools = {s.name: NativeRetailTool(service, s) for s in service.specs()}
@@ -43,6 +53,15 @@ class ToolRegistry:
             from aftersalesagent.mcp_transport.adapters import MCPRetailTool
 
             self._tools = {s.name: MCPRetailTool(provider, s) for s in service.specs()}
+
+        if retail_index is not None and include_retail_search:
+            from aftersalesagent.knowledge.retail import RETAIL_SEARCH_SPEC, NativeRetailPolicyTool
+
+            if provider is None:
+                tool = NativeRetailPolicyTool(service, retail_index)
+            else:
+                tool = MCPRetailTool(provider, RETAIL_SEARCH_SPEC)
+            self._tools[RETAIL_SEARCH_SPEC.name] = tool
 
     async def aclose(self):
         if self.provider is not None:
@@ -59,4 +78,25 @@ class ToolRegistry:
                 status="error",
                 error=ToolError(code="invalid_arguments", message="Unknown tool"),
             )
-        return await tool.invoke(call, context)
+        result = await tool.invoke(call, context)
+        if (
+            self.retail_index is not None
+            and call.name == "search_retail_policy"
+            and result.status == "ok"
+        ):
+            try:
+                self.retail_index.validate_result(
+                    result.data,
+                    session_id=context.session_id,
+                    call_id=call.call_id,
+                    arguments=call.arguments,
+                )
+            except ValueError:
+                return ToolResult(
+                    call_id=call.call_id,
+                    status="error",
+                    error=ToolError(
+                        code="infrastructure_error", message="Retail evidence verification failed"
+                    ),
+                )
+        return result

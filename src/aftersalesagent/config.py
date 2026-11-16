@@ -17,6 +17,9 @@ class Settings(BaseModel):
     tool_transport: Literal["native", "mcp"] = "native"
     knowledge_transport: Literal["native", "mcp"] = "native"
     knowledge_config: str | None = None
+    retail_rag: bool = False
+    retail_rag_v2: bool = False
+    retail_retrieval: Literal["bm25", "dense", "hybrid"] = "bm25"
     skill_id: str | None = Field(default=None, pattern=r"^[a-z][a-z0-9-]{0,63}$")
     skill_version: str = "none"
     backend: str = "mock"
@@ -39,6 +42,9 @@ class Settings(BaseModel):
     def coherent_skill_selection(self) -> Settings:
         from aftersalesagent.schemas.contracts import RunContext
 
+        if self.retail_rag_v2:
+            self.retail_rag = True
+            self.retail_retrieval = "hybrid"
         RunContext(
             environment_id="settings-validation",
             skill_id=self.skill_id,
@@ -59,6 +65,15 @@ class Settings(BaseModel):
             ),
             knowledge_transport=TypeAdapter(Literal["native", "mcp"]).validate_python(
                 values.get("AFTERSALES_KNOWLEDGE_TRANSPORT", "native")
+            ),
+            retail_retrieval=TypeAdapter(Literal["bm25", "dense", "hybrid"]).validate_python(
+                values.get("AFTERSALES_RETAIL_RETRIEVAL", "bm25")
+            ),
+            retail_rag=TypeAdapter(bool).validate_python(
+                values.get("AFTERSALES_RETAIL_RAG", "false")
+            ),
+            retail_rag_v2=TypeAdapter(bool).validate_python(
+                values.get("AFTERSALES_RETAIL_RAG_V2", "false")
             ),
             knowledge_config=values.get("AFTERSALES_KNOWLEDGE_CONFIG") or None,
             skill_id=values.get("AFTERSALES_SKILL_ID") or None,

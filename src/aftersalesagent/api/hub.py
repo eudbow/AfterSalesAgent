@@ -17,6 +17,10 @@ from aftersalesagent.harness.journal import Journal
 from aftersalesagent.mcp_transport.adapters import MCPRetailProvider
 from aftersalesagent.models.base import ModelBackend
 from aftersalesagent.models.scenarios import SCENARIOS, ScenarioMockBackend
+from aftersalesagent.policies.retail_capabilities import (
+    RETAIL_APP_CAPABILITIES,
+    RETAIL_RAG_INSTRUCTION,
+)
 from aftersalesagent.runtime.langgraph_runtime import LangGraphRuntime
 from aftersalesagent.schemas.contracts import RunContext, RunLimits
 from aftersalesagent.skills.base import SkillProvider
@@ -41,6 +45,9 @@ class SessionHub:
         skill_provider: SkillProvider | None = None,
         skill_id: str | None = None,
         skill_version: str = "none",
+        retail_rag: bool = False,
+        retail_rag_v2: bool = False,
+        retail_retrieval: str = "bm25",
     ):
         self.template, self.data_dir, self.policy = template, data_dir, policy
         self.journal, self.saver = journal, saver
@@ -48,6 +55,18 @@ class SessionHub:
         self.backend_name, self.model_name = backend_name, model_name
         self.temperature, self.max_output_tokens = temperature, max_output_tokens
         self.tool_transport = tool_transport
+        from aftersalesagent.knowledge.retail import RetailPolicyIndex
+
+        self.retail_rag_v2 = retail_rag_v2
+        if retail_rag_v2:
+            from aftersalesagent.knowledge.retail_v2 import RetailV2Index
+
+            self.retail_index = RetailV2Index()
+            retail_rag = True
+        else:
+            self.retail_index = RetailPolicyIndex(method=retail_retrieval) if retail_rag else None
+        if retail_rag:
+            self.policy += RETAIL_RAG_INSTRUCTION + RETAIL_APP_CAPABILITIES
         self.skill_provider, self.skill_id, self.skill_version = (
             skill_provider,
             skill_id,
@@ -60,7 +79,11 @@ class SessionHub:
         service = RetailService(store)
         provider = (
             MCPRetailProvider(
-                service, trace_path=self.data_dir / "traces" / (store.path.stem + "_mcp.jsonl")
+                service,
+                trace_path=self.data_dir / "traces" / (store.path.stem + "_mcp.jsonl"),
+                retail_rag=self.retail_index is not None,
+                retail_rag_v2=self.retail_rag_v2,
+                retail_retrieval=self.retail_index.method if self.retail_index else "bm25",
             )
             if self.tool_transport == "mcp"
             else None
@@ -68,7 +91,7 @@ class SessionHub:
         return LangGraphRuntime(
             self.backend_factory(scenario),
             service,
-            registry=ToolRegistry(service, provider=provider),
+            registry=ToolRegistry(service, provider=provider, retail_index=self.retail_index),
             skill_provider=self.skill_provider,
             policy_text=self.policy,
             checkpointer=self.saver,
@@ -93,6 +116,12 @@ class SessionHub:
                 RunContext.model_validate(
                     {
                         "environment_id": environment,
+                        "knowledge_version": "retail_sim_v1"
+                        if self.retail_index
+                        else "full-policy",
+                        "knowledge_fingerprint": self.retail_index.fingerprint
+                        if self.retail_index
+                        else None,
                         "limits": limits,
                         "backend": self.backend_name,
                         "tool_transport": self.tool_transport,
@@ -141,7 +170,11 @@ class SessionHub:
 
             context = await run_sync(stored_context)
             if (
-                context.tool_transport != self.tool_transport
+                context.knowledge_fingerprint
+                != (self.retail_index.fingerprint if self.retail_index else None)
+                or context.knowledge_version
+                != ("retail_sim_v1" if self.retail_index else "full-policy")
+                or context.tool_transport != self.tool_transport
                 or context.backend != self.backend_name
                 or context.model_name != self.model_name
                 or context.temperature != self.temperature
@@ -166,3 +199,5 @@ class SessionHub:
                 await closer()
             await run_sync(runtime.service.store.close)
         self._runtimes.clear()
+        if self.retail_index:
+            self.retail_index.close()

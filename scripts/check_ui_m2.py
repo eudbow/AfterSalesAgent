@@ -14,6 +14,7 @@ def main():
     parser.add_argument("--url", default="http://127.0.0.1:8765")
     parser.add_argument("--channel", default="msedge")
     parser.add_argument("--artifact-prefix", choices=["m2", "m3"], default="m2")
+    parser.add_argument("--retail-rag", action="store_true")
     args = parser.parse_args()
     prefix = args.artifact_prefix
     output = ROOT / ".local/screenshots"
@@ -34,12 +35,28 @@ def main():
         page.get_by_role("button", name="发送消息").click()
         expect(page.locator("#pending")).to_be_visible()
         expect(page.locator("#approve")).to_be_enabled()
+        if args.retail_rag:
+            expect(page.locator("#policy-basis details")).to_have_count(2)
+            expect(page.locator("#policy-basis")).to_contain_text("retail_sim_v1")
+            page.evaluate(
+                """() => bubble('assistant', '退货退款到账时间未规定。[cite:06_refund_methods]',
+                  [{section:'退款渠道与到账边界',version:'retail_sim_v1',
+                    text:'退货退款到账时间未规定。'}])"""
+            )
+            expect(page.locator("#chat details")).to_have_count(1)
+            page.locator("#chat details summary").click()
+            expect(page.locator("#chat details p")).to_have_text("退货退款到账时间未规定。")
+            page.screenshot(path=str(output / f"{prefix}_desktop_sources.png"), full_page=True)
+            completed.append("retail_answer_sources_rendered")
         page.screenshot(path=str(output / f"{prefix}_desktop_pending.png"), full_page=True)
         # 浏览器刷新后从本地会话凭据与服务端Checkpoint恢复。
         page.reload()
         expect(page.locator("#pending")).to_be_visible()
         expect(page.locator("#approve")).to_be_enabled()
         completed.append("pending_action_survives_browser_reload")
+        if args.retail_rag:
+            expect(page.locator("#policy-basis details")).to_have_count(2)
+            completed.append("retail_policy_basis_visible_after_reload")
         page.set_viewport_size({"width": 390, "height": 844})
         assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
         page.screenshot(path=str(output / f"{prefix}_mobile_pending.png"), full_page=True)
@@ -103,6 +120,7 @@ def main():
                 f"{prefix}_desktop_pending.png",
                 f"{prefix}_mobile_pending.png",
                 f"{prefix}_desktop_completed.png",
+                *([f"{prefix}_desktop_sources.png"] if args.retail_rag else []),
             ]
         ],
         "real_model_calls": 0,

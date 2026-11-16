@@ -1,0 +1,28 @@
+{
+  "skill_id": "after-sales-workflow",
+  "version": "1.0.0",
+  "content_sha256": "64ebe41e527e2b0600204d8b79c0747cc490c5d14bc567be28c6a9f96ee9d542",
+  "policy_version": "tau2-v1.0.1-retail",
+  "policy_sha256": "596c0fc3bc378b25a647b8ca0a169e7845ef47c31f23e9106efee22e39fa48fe",
+  "tools_sha256": "6d3c84b919ecff36d87a87618ca49486a3e94ff1f621bcff2319c417ce297f2f",
+  "applicable_tools": [
+    "find_user_id_by_email",
+    "find_user_id_by_name_zip",
+    "get_user_details",
+    "get_order_details",
+    "get_product_details",
+    "calculate",
+    "cancel_pending_order",
+    "modify_pending_order_address",
+    "return_delivered_order_items",
+    "transfer_to_human_agents"
+  ],
+  "parent_version": null,
+  "change_notes": "人工固定基线：参数清单、需求变更后的完整重建、按实际工具错误修复及结果表述。尚未验证效果，不是自动优化结果。",
+  "evidence_refs": [
+    "manual:e3-step1-workflow-review-20261026",
+    "contract:business/service.py+schemas/contracts.py+policies/application.py"
+  ],
+  "authored_at": "2026-10-26T00:00:00+08:00",
+  "provenance": "人工编写并按当前工具及核心协议审核；未读取或写入隐藏验收答案、未来用户脚本和留出任务。"
+}

@@ -31,7 +31,7 @@ def dump(value) -> bytes:
 
 
 def load_corpus(root: Path, version: str = "e1_v1") -> tuple[list[KnowledgeChunk], dict]:
-    if version not in {"e1_v1", "e4_v1"}:
+    if version not in {"e1_v1", "e4_v1", "retail_sim_v1"}:
         raise ValueError("Unknown corpus version")
     manifest = json.loads((root / f"data/knowledge/{version}/manifest.json").read_text("utf-8"))
     for rel, sha in manifest["files"].items():
@@ -67,7 +67,7 @@ def eligible(chunks: list[KnowledgeChunk], filters: dict[str, str]) -> list[Know
     if set(filters) - {"scope", "category", "as_of"}:
         raise ValueError("Unsupported knowledge filter")
     scope = filters.get("scope", "ikea_cn")
-    if scope not in {"ikea_cn", "demo_store", "demo_conflict"}:
+    if scope not in {"ikea_cn", "demo_store", "demo_conflict", "retail_sim"}:
         raise ValueError("Unknown knowledge scope")
     as_of = date.fromisoformat(filters["as_of"]) if filters.get("as_of") else None
     selected = []

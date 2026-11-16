@@ -34,6 +34,7 @@ class RunContext(Contract):
     skill_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
     skill_snapshot_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
     knowledge_version: str = "full-policy"
+    knowledge_fingerprint: str | None = None
     temperature: float = Field(default=0, ge=0, le=2)
     max_output_tokens: int = Field(default=1024, ge=1, le=8192)
 
@@ -119,6 +120,7 @@ class ToolContext(Contract):
 
 
 class PendingAction(Contract):
+    policy_basis: list[dict[str, JsonValue]] = Field(default_factory=list)
     action_id: str
     tool_name: str
     arguments: dict[str, JsonValue]
@@ -159,6 +161,7 @@ class TraceEvent(Contract):
 
 
 class TurnResult(Contract):
+    sources: list[dict[str, JsonValue]] = Field(default_factory=list)
     session: SessionView
     reply: str
     status: Literal[

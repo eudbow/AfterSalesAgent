@@ -1,0 +1,162 @@
+{
+  "chunks": {
+    "01_service_scope": {
+      "rule_ids": [
+        "POL-01",
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-01",
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "咨询、取消、改址、退货",
+      "related_rule_ids": []
+    },
+    "02_identity_and_orders": {
+      "rule_ids": [
+        "POL-01",
+        "POL-03",
+        "POL-05",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-01",
+        "POL-03",
+        "POL-05",
+        "CODE-01"
+      ],
+      "applies_to": "身份、订单查询",
+      "related_rule_ids": []
+    },
+    "03_cancellation": {
+      "rule_ids": [
+        "POL-07",
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-07",
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "取消",
+      "related_rule_ids": []
+    },
+    "04_address_change": {
+      "rule_ids": [
+        "POL-08",
+        "POL-10",
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-08",
+        "POL-10",
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "改址",
+      "related_rule_ids": []
+    },
+    "05_returns": {
+      "rule_ids": [
+        "POL-11",
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-11",
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "退货",
+      "related_rule_ids": []
+    },
+    "06_refund_methods": {
+      "rule_ids": [
+        "POL-11",
+        "POL-07",
+        "POL-09",
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-11",
+        "POL-07",
+        "POL-09",
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "退款咨询",
+      "related_rule_ids": []
+    },
+    "07_products_and_statuses": {
+      "rule_ids": [
+        "POL-04",
+        "POL-05",
+        "POL-06",
+        "POL-10",
+        "POL-12",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-04",
+        "POL-05",
+        "POL-06",
+        "POL-10",
+        "POL-12",
+        "CODE-01"
+      ],
+      "applies_to": "商品、状态解释",
+      "related_rule_ids": []
+    },
+    "08_exceptions_and_handoff": {
+      "rule_ids": [
+        "POL-01",
+        "POL-12",
+        "POL-09",
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "POL-01",
+        "POL-12",
+        "POL-09",
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "异常与转人工",
+      "related_rule_ids": []
+    },
+    "09_application_protocol": {
+      "rule_ids": [
+        "APP-01",
+        "CODE-01"
+      ],
+      "derived_from": [
+        "APP-01",
+        "CODE-01"
+      ],
+      "applies_to": "取消、改址、退货的应用确认与结果",
+      "related_rule_ids": []
+    }
+  },
+  "unknowns": [
+    "退货到账时间",
+    "运费",
+    "手续费",
+    "包装要求",
+    "品类禁退",
+    "赔偿",
+    "邮件送达"
+  ],
+  "unsupported": [
+    "换货",
+    "修改支付方式",
+    "修改商品规格",
+    "修改默认用户地址"
+  ],
+  "review": "Assistant source review; not independent human annotation"
+}
